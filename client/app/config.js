@@ -14,6 +14,12 @@
     	$urlRouterProvider.otherwise("/home");
     	$stateProvider
 
+      .state('login', {
+	            url: "/login",
+	            templateUrl: "/app/pages/login/login.view.html",
+	            controller: "LoginCtrl as vm"
+	     })
+
       .state('site', {
 	            url: "",
 	            templateUrl: "/app/common/frame/wiki.frame.view.html",
