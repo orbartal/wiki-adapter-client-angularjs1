@@ -1,0 +1,15 @@
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 class="modal-title">Delete User</h4>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to delete the user <strong>{{vm.user.username}}</strong>?</p>
+    
+       <p class="class-error-message">{{vm.errorMessage}}</p>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-white" ng-click="vm.cancel()">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="vm.ok()">Delete</button>
+    </div>
+</div>
