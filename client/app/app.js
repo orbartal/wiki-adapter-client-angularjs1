@@ -1,4 +1,11 @@
 ﻿(function () {
     'use strict';
-    angular.module('wikiApp', [ 'ui.router' ])
+    angular.module('wikiApp', [
+      'ui.router',
+      'permission',
+      'permission.ui',
+      'ui.bootstrap',
+      'toaster',
+      'ngAnimate'
+    ])
 })();
