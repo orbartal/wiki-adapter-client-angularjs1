@@ -16,7 +16,8 @@
 
 	    	.state('home', {
 	            url: "/home",
-	            templateUrl: "/app/pages/home/home.view.html"
+	            templateUrl: "/app/pages/home/home.view.html",
+              controller: "HomeCtrl as vm",
 	        })
     }
 })();
