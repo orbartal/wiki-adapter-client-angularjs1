@@ -1,0 +1,31 @@
+.class-wiki-main-site-menu{
+  margin-bottom: 0px;
+  background:#f6f6f6;
+  border-color:#f6f6f6;
+}
+
+.class-dir-wiki-main-side-menu{
+  height:100%;
+  background:#f6f6f6;
+}
+
+.class-wiki-main-side-menu{
+  margin-top: 10px;
+}
+
+.class-frame-right-side{
+  height:100%;
+}
+
+.class-site-image-div{
+	margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    height:80px;
+}
+
+.class-site-image{
+	height: 100%;
+    width: 100%;
+}
