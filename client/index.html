@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html lang="en-US">
-<script src="\app\lib\angular\angular.js"></script>
-<body>
+<html ng-app="wikiApp">
+  <head>
+    <!--1) Libraries -->
+    <script src="/app/lib/jquery/dist/jquery.js"></script>
+    <script src="/app/lib/angular/angular.js"></script>
+    <script src="/app/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/app/lib/angular-smart-table/dist/smart-table.js"></script>
+    <script src="/app/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <link href="/app/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <script src="/app/lib/angularjs-toaster/toaster.js"></script>
+    <link href="/app/lib/angularjs-toaster/toaster.css" rel="stylesheet">
+    <link href="/app/lib/metisMenu/dist/metisMenu.css" rel="stylesheet">
+    <script src="/app/lib/metisMenu/dist/metisMenu.js"></script>
+    <script src="/app/lib/eeh-metis-menu/src/eeh-metis-menu.js"></script>
+    <script src="/app/lib/moment/moment.js"></script>
+    <link rel="stylesheet" href="/app/lib/font-awesome/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/app/lib/textAngular/dist/textAngular.css'>
+    <script src='/app/lib/textAngular/dist/textAngular-rangy.min.js'></script>
+    <script src='/app/lib/textAngular/dist/textAngular-sanitize.min.js'></script>
+    <script src='/app/lib/textAngular/dist/textAngular.min.js'></script>
+    <script src="/app/lib/angular-permission/dist/angular-permission.js"></script>
+    <script src="/app/lib/ng-file-upload/ng-file-upload.js"></script>
 
-<div ng-app="">
-  <p>Name : <input type="text" ng-model="name"></p>
-  <h1>Hello {{name}}</h1>
-</div>
 
-</body>
+
+    <!-- Libraries - web sockets -->
+    <script src="/app/lib/sockjs/sockjs.js"></script>
+    <script src="/app/lib/stomp-websocket/lib/stomp.js"></script>
+    <script src="/app/lib/stompie/stompie.js"></script>
+
+    <!-- errors
+    <script src="/app/lib/angular-cookies/angular-cookies.js"></script>
+    <script src="/app/lib/angular-animate/angular-animate.js"></script>
+  <script src="/app/lib/angular-ui-router-tabs/src/ui-router-tabs.js"></script>
+
+  <link rel='stylesheet' href='/app/lib/vis/dist/vis.css'>
+  <script src="/app/lib/vis/dist/vis.js"></script>
+
+    <link rel="stylesheet" href="/app/lib/ng-table/dist/ng-table.css">
+    <script src="/app/lib/ng-table/dist/ng-table.min.js"></script>
+
+      <script src="/app/lib/ng-stomp/ng-stomp.js"></script>
+  -->
+
+  <!--2) config -->
+  <script src="/app/app.js"></script>
+  <script src="/app/config.js"></script>
+
+
+  </head>
+
+  <body>
+
+    <div>
+      <div ui-view></div>
+    </div>
+
+  </body>
 </html>

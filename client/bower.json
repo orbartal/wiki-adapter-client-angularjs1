@@ -1,6 +1,23 @@
 {
   "name": "ng-spring-boot",
   "dependencies": {
-    "angular": "1.5.0"
+    "angular": "1.6.5",
+    "angular-ui-router": "*",
+    "angular-resource": "*",
+    "bootstrap": "*",
+    "angular-bootstrap": "*",
+    "jquery":  "*",
+    "moment":  "*",
+    "metisMenu":  "*",
+    "angular-animate":  "*",
+    "angularjs-toaster": "*",
+    "angular-smart-table":  "*",
+    "angular-cookies":  "*",
+    "eeh-metis-menu": "*",
+    "stompie": "*",
+    "ng-stomp":  "*",
+    "textAngular":  "*",
+    "angular-permission": "*",
+    "ng-file-upload":  "*"
   }
 }
