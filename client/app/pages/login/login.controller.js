@@ -5,15 +5,13 @@
         .module('wikiApp')
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = [];
-    function LoginCtrl() {
+    LoginCtrl.$inject = ['LoginService'];
+    function LoginCtrl(LoginService) {
         var vm = this;
         vm.login = login;
 
         function login() {
-          alert ('login');
-            //vm.dataLoading = true;
-            //LoginService.login(vm.username, vm.password);
+          LoginService.login (vm.username, vm.password);
         }
     }
 })();

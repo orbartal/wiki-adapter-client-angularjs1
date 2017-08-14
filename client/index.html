@@ -5,7 +5,8 @@
       <script src="/app/lib/jquery/dist/jquery.js"></script>
       <script src="/app/lib/angular/angular.js"></script>
       <script src="/app/lib/angular-ui-router/release/angular-ui-router.js"></script>
-      <script src="/app/lib/angular-smart-table/dist/smart-table.js"></script>
+      <script src="/app/lib/angular-permission/dist/angular-permission.js"></script>
+      <script src="/app/lib/angular-permission/dist/angular-permission-ui.js"></script>
       <script src="/app/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <link href="/app/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
       <script src="/app/lib/angularjs-toaster/toaster.js"></script>
@@ -13,13 +14,13 @@
       <link href="/app/lib/metisMenu/dist/metisMenu.css" rel="stylesheet">
       <script src="/app/lib/metisMenu/dist/metisMenu.js"></script>
       <script src="/app/lib/eeh-metis-menu/src/eeh-metis-menu.js"></script>
+      <script src="/app/lib/angular-smart-table/dist/smart-table.js"></script>
       <script src="/app/lib/moment/moment.js"></script>
       <link rel="stylesheet" href="/app/lib/font-awesome/css/font-awesome.min.css">
       <link rel='stylesheet' href='/app/lib/textAngular/dist/textAngular.css'>
       <script src='/app/lib/textAngular/dist/textAngular-rangy.min.js'></script>
       <script src='/app/lib/textAngular/dist/textAngular-sanitize.min.js'></script>
       <script src='/app/lib/textAngular/dist/textAngular.min.js'></script>
-      <script src="/app/lib/angular-permission/dist/angular-permission.js"></script>
       <script src="/app/lib/ng-file-upload/ng-file-upload.js"></script>
 
 
@@ -29,10 +30,10 @@
       <script src="/app/lib/stomp-websocket/lib/stomp.js"></script>
       <script src="/app/lib/stompie/stompie.js"></script>
 
-
+      <script src="/app/lib/angular-animate/angular-animate.js"></script>
       <!-- errors
       <script src="/app/lib/angular-cookies/angular-cookies.js"></script>
-      <script src="/app/lib/angular-animate/angular-animate.js"></script>
+
     <script src="/app/lib/angular-ui-router-tabs/src/ui-router-tabs.js"></script>
 
     <link rel='stylesheet' href='/app/lib/vis/dist/vis.css'>
@@ -50,6 +51,22 @@
 
     <!--3) Common (code used by more than one page) -->
 
+     <!--   Common services utils -->
+     <script src="/app/common/services/utils/wiki.utils.service.js"></script>
+     <!--   Common services config -->
+     <script src="/app/common/services/config/articles.config.service.js"></script>
+     <script src="/app/common/services/config/site.config.service.js"></script>
+     <!--   Common services security -->
+     <script src="/app/common/services/security/authentication.service.js"></script>
+     <script src="/app/common/services/security/login.service.js"></script>
+     <script src="/app/common/services/security/permission.service.js"></script>
+      <!--   Common services resources -->
+     <script src="/app/common/services/resources/articles.resources.service.js"></script>
+     <script src="/app/common/services/resources/articles.versions.resources.service.js"></script>
+     <script src="/app/common/services/resources/files.resources.service.js"></script>
+     <script src="/app/common/services/resources/properties.resources.service.js"></script>
+     <script src="/app/common/services/resources/users.resources.service.js"></script>
+
       <!--   Common frame  -->
      <script src="/app/common/frame/wiki-main-side-menu/wiki.main.side.menu.js"></script>
      <script src="/app/common/frame/wiki-main-site-menu/wiki.main.site.menu.js"></script>
@@ -60,10 +77,15 @@
 
     <!--5) pages (code used by a single page) -->
 
-      <!-- Home page -->
-	    <script src="/app/pages/home/home.controller.js"></script>
-      <!-- login and users -->
+      <!-- login -->
 		  <script src="/app/pages/login/login.controller.js"></script>
+      <!-- Home page -->
+      <script src="/app/pages/home/home.controller.js"></script>
+      <!-- users -->
+      <script src="/app/pages/users/users.controller.js"></script>
+      <script src="/app/pages/users/create-user/create.user.controller.js"></script>
+      <script src="/app/pages/users/edit-user/edit.user.controller.js"></script>
+      <script src="/app/pages/users/delete-user/delete.user.controller.js"></script>
   </head>
 
   <body>
