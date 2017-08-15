@@ -22,6 +22,7 @@
 
 	   function reloadConfig() {
         var mapLanguage = {};
+        mapLanguage.id = "id";
         mapLanguage.name = "name";
         mapLanguage.datetime = "datetime";
         mapLanguage.nameSpace = "nameSpace";
