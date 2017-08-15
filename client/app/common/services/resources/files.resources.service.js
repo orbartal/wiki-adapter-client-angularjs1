@@ -5,8 +5,8 @@
         .module('wikiApp')
         .factory('FilesResourcesService', FilesResourcesService);
 
-    FilesResourcesService.$inject = ['$http', 'toaster'];
-    function FilesResourcesService($http, toaster) {
+    FilesResourcesService.$inject = ['$q', 'toaster'];
+    function FilesResourcesService($q, toaster) {
         var service = {};
         service.getById = getById;
         service.getAll = getAll;
@@ -16,11 +16,16 @@
 
 	    //Crud methods
         function getById(fileName) {
-	        return $http.get('/files/info/'+fileName).then(onSuccess, onFailure);
+          var result = {"id" : id};
+          return $q.when(result);
 	    }
 
-	    function getAllFiles() {
-	        return $http.get('/files').then(onSuccess, onFailure);
+	    function getAll () {
+        var file1 = {"id" : 1, "name": "file1"};
+        var file2 = {"id" : 2, "name": "file2"};
+        var file3 = {"id" : 3, "name": "file3"};
+        var results = [file1, file2, file3];
+        return $q.when(results);
 	    }
 
      // private functions

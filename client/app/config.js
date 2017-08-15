@@ -44,5 +44,11 @@
                 templateUrl: "/app/pages/users/users.view.html",
                 controller: "UsersCtrl as vm",
         })
+
+        .state('site.files', {
+                 url: "/files",
+                 templateUrl: "/app/pages/files/files.view.html",
+                 controller: "FilesCtrl as vm",
+         })
     }
 })();
