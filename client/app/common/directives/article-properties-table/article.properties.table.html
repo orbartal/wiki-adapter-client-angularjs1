@@ -1,0 +1,21 @@
+<div>
+	<!-- <p ng-class="classArticleHeader">Article Properties</p> -->
+	<table  class="table table-condensed table-bordered table-striped">
+		<thead>
+			<tr>
+			     <th>Property</th>
+			     <th>Value</th>
+			 </tr>
+		 </thead>
+		  <tbody>
+		  	 <tr ng-repeat="property in properties">
+			     <td>  
+			     	<div ng-bind-html="displayProperty(property)"> </div>
+			     </td>
+			     <td>
+			     	<div ng-bind-html="displayPropertyValue(property)"> </div>
+			     </td>
+		     </tr>
+		  </tbody>
+	</table>
+</div>

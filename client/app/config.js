@@ -62,5 +62,29 @@
                 templateUrl: "/app/pages/articles/articles.view.html",
                 controller: "ArticlesCtrl as vm"
             })
+
+            .state('site.article-read', {
+              url: "/article/read/{nameSpace}/{name}/?{isActive:bool}&{versionTime:int}",
+                templateUrl: "/app/pages/articles/article/read/article.read.html",
+                controller: "ReadArticleCtrl as vm",
+            })
+
+            .state('site.article-view-source', {
+                url: "/article/view/source/{nameSpace}/{name}/?{isActive:bool}&{versionTime:int}",
+                templateUrl: "/app/pages/articles/article/view-source/article.view.source.html",
+                controller: "EditSourceArticleCtrl as vm",
+            })
+
+            .state('site.article-edit-source', {
+                url: "/article/edit/source/{nameSpace}/{name}/?{isActive:bool}&{versionTime:int}",
+                templateUrl: "/app/pages/articles/article/edit-source/article.edit.source.html",
+                controller: "EditSourceArticleCtrl as vm",
+            })
+
+            .state('site.article-history', {
+                url: "/article/history/{nameSpace}/{name}",
+                templateUrl: "/app/pages/articles/article/history/article.history.html",
+                controller: "ArticleHistoryCtrl as vm",
+            })
     }
 })();

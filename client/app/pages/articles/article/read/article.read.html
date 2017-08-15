@@ -1,0 +1,37 @@
+<div ng-include="'/app/pages/articles/article/tabs.html'"> </div>
+<div class="row class-row-space"> </div>
+<div class="row class-row-space"> </div>
+<div ng-if="vm.article">
+
+	<div class="row class-row-space"> </div>
+	<div ng-include="'/app/pages/articles/article/read/article.read.header.html'"></div>
+	<div compile="{{getArticleHtml()}}" ng-class="classArticleContent"></div>
+
+	<div ng-if="vm.article.isFile==true">
+		<div-image url-src="vm.image.url" alt="vm.image.url" width="vm.image.width" height="vm.image.height" location ="'center'"></div-image>
+	</div>
+	<div ng-if="vm.article.isCategory==true">
+		<div class="row class-row-space"> </div>
+		<articles-table data="vm.allArticles"> </articles-table>
+	</div>
+
+	<div ng-if="vm.article.isProperty==true">
+		<div class="row class-row-space"> </div>
+		<properties-of-property property-name ="vm.article.name" edit='false' />
+	</div>
+
+	<div ng-include="'/app/pages/articles/article/read/article.read.categories.html'"></div>
+
+	<div ng-if = "vm.article.mapPropertyToValue">
+		<article-properties-table map-properties-to-values="vm.article.mapPropertyToValue" />
+	</div>
+</div>
+
+<!--
+<div ng-if="!vm.article" dir="{{config.languageDirection}}" >
+	<div class="row class-row-space"> </div>
+	<div class="row class-row-space"> </div>
+	<div  ng-bind-html="getMissingArticleWarning()"></div>
+	<a ng-click="vm.openCreateArticleDialog()" style="cursor:pointer;">{{vm.config.mapLanguage.addArticle}}</a>
+</div>
+-->
