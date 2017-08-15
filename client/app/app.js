@@ -6,6 +6,8 @@
       'permission.ui',
       'ui.bootstrap',
       'toaster',
-      'ngAnimate'
+      'ngAnimate',
+      'smart-table',
+      'ngTable'
     ])
 })();

@@ -9,8 +9,10 @@
 
     function FilesCtrl(toaster, FilesResourcesService) {
     	 var vm = this;
+       vm.options = {};
     	 vm.files = [];
-         init();
+
+       init();
 
          function init (){
         	  getAllFiles();

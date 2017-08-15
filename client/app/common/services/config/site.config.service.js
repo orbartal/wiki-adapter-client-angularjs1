@@ -21,7 +21,10 @@
 		 }
 
 	   function reloadConfig() {
-        var configTemp = {};
+        var mapLanguage = {};
+        mapLanguage.name = "name";
+        mapLanguage.datetime = "datetime";
+        var configTemp = {"mapLanguage" : mapLanguage, "languageDirection" : "ltr"};
         config = configTemp;
         return config;
      }

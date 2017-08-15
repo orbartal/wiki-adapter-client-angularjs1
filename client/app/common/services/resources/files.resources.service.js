@@ -21,9 +21,9 @@
 	    }
 
 	    function getAll () {
-        var file1 = {"id" : 1, "name": "file1"};
-        var file2 = {"id" : 2, "name": "file2"};
-        var file3 = {"id" : 3, "name": "file3"};
+        var file1 = {"id" : 1, "name": "file1", "type" : "image", "extension" : "jpg", "datetime" : "10:10:10"};
+        var file2 = {"id" : 2, "name": "file2", "type" : "image", "extension" : "jpg", "datetime" : "10:10:10"};
+        var file3 = {"id" : 3, "name": "file3", "type" : "image", "extension" : "jpg", "datetime" : "10:10:10"};
         var results = [file1, file2, file3];
         return $q.when(results);
 	    }
