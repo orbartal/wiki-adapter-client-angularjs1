@@ -55,6 +55,12 @@
             	url: "/file/view/{name}/?{isActive:bool}/{versionTime:int}",
                 templateUrl: "/app/pages/files/file/view/file.view.html",
                 controller: "ViewFileCtrl as vm",
+          })
+
+          .state('site.articles', {
+                url: "/articles",
+                templateUrl: "/app/pages/articles/articles.view.html",
+                controller: "ArticlesCtrl as vm"
             })
     }
 })();

@@ -3,7 +3,7 @@
 
     angular
         .module('wikiApp')
-        .factory('FilesResourcesService', FilesResourcesService);
+        .service('FilesResourcesService', FilesResourcesService);
 
     FilesResourcesService.$inject = ['$q', 'toaster'];
     function FilesResourcesService($q, toaster) {

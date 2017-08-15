@@ -5,8 +5,8 @@
         .module('wikiApp')
         .service('ArticlesResourcesService', ArticlesResourcesService);
 
-    ArticlesResourcesService.$inject = ['$http', 'toaster'];
-    function ArticlesResourcesService($http, toaster) {
+    ArticlesResourcesService.$inject = ['$q', 'toaster'];
+    function ArticlesResourcesService($q, toaster) {
         var service = {};
         //Crud
         service.getAll = getAll;
@@ -21,25 +21,29 @@
 
         //Crud methods
         function getAll() {
-            var results = [];
-            return results;
+              var article1 = {"id" : 1, "name" : "title1",  "nameSpace":"category", "source" : "source1", "html": "html1", "datetime" : "10:10:10"};
+              var article2 = {"id" : 1, "name" : "title2", "nameSpace":"main", "source" : "source1", "html": "html1", "datetime" : "11:10:11"};
+              var results = [article1, article2];
+              return $q.when(results);
         }
 
         function getById(id) {
           var result = {"id" : id};
-          return results;
+          return $q.when(result);
         }
 
         function createArticle(nameSpace, name) {
-        	return getById(name).then(onSuccess, onFailure);
+           var result = {"id" : 1, "title" : "title1", "source" : "source1", "html": "html1"};
+        	 return $q.when(result);
         }
 
-        function updateArticle(newArticle) {
-            return getById(newArticle.name).then(onSuccess, onFailure).then(onSuccess, onFailure);
+        function updateArticle(article) {
+        //  var result = {"id" : 1, "title" : "title1", "source" : "source1", "html": "html1"};
+          return $q.when(article);
         }
 
         function deleteArticle(article) {
-            return getById(name).then(onSuccess, onFailure);
+            return $q.when(article);
         }
 
      // private functions

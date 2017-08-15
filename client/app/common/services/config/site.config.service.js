@@ -24,6 +24,8 @@
         var mapLanguage = {};
         mapLanguage.name = "name";
         mapLanguage.datetime = "datetime";
+        mapLanguage.nameSpace = "nameSpace";
+        mapLanguage.actions = "actions";
         var configTemp = {"mapLanguage" : mapLanguage, "languageDirection" : "ltr"};
         config = configTemp;
         return config;
