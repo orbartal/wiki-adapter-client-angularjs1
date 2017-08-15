@@ -132,7 +132,7 @@
 		          		backdrop : 'static',
 		  				size: "lg",
 		  				templateUrl: '/app/pages/files/modal/create/modal.add.new.file.html',
-		  				controller: "ModalAddNewFileController as vm",
+		  				controller: "AddNewFileCtrl as vm",
 		  			});
 
 		          	modalInstance.result.then(onConfirm, onCancel);
