@@ -148,7 +148,7 @@
 		  			function onCancel (data){}
 	 	  }
 
-	  	       function onView (file){
+	  	     function onView (file){
 	  	    	 var params = {name : file.name};
 		         if (file.isActive==false){
 		        	 params['history']=file.isActive;

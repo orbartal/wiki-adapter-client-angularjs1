@@ -50,5 +50,11 @@
                  templateUrl: "/app/pages/files/files.view.html",
                  controller: "FilesCtrl as vm",
          })
+
+         .state('site.file-view', {
+            	url: "/file/view/{name}/?{isActive:bool}/{versionTime:int}",
+                templateUrl: "/app/pages/files/file/view/file.view.html",
+                controller: "ViewFileCtrl as vm",
+            })
     }
 })();

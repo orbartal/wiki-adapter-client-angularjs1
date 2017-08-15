@@ -8,6 +8,7 @@
       'toaster',
       'ngAnimate',
       'smart-table',
+      //npm install ng-table --save (not in bower)
       'ngTable'
     ])
 })();
