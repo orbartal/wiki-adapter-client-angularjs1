@@ -37,6 +37,10 @@
         mapLanguage.articleTabRename = "Rename";
         mapLanguage.articleTabHistory = "History";
 
+        mapLanguage.btnSave = "btnSave";
+        mapLanguage.btnReset = "btnReset";
+        mapLanguage.sourceLanguage="source code language";
+
         var configTemp = {"mapLanguage" : mapLanguage, "languageDirection" : "ltr"};
         config = configTemp;
         return config;

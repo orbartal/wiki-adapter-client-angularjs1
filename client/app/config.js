@@ -71,6 +71,12 @@
                 controller: "ReadArticleCtrl as vm",
             })
 
+            .state('site.article-rename', {
+              url: "/article/read/{nameSpace}/{name}/?{isActive:bool}&{versionTime:int}",
+                templateUrl: "/app/pages/articles/article/rename/article.rename.html",
+                controller: "RenameArticleCtrl as vm",
+            })
+
             .state('site.article-view-source', {
                 url: "/article/view/source/{nameSpace}/{name}/?{isActive:bool}&{versionTime:int}",
                 templateUrl: "/app/pages/articles/article/view-source/article.view.source.html",

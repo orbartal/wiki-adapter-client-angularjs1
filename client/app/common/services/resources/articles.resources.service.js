@@ -28,7 +28,7 @@
         }
 
         function getById(id) {
-          var result = {"id" : 1, "name" : "example",  "nameSpace":"main", "source" : "source1", "html": "<h1>html</h1>", "datetime" : "10:10:10"};
+          var result = {"id" : id, "name" : id,  "nameSpace":"main", "source" : "source1", "html": "<h1>html</h1>", "datetime" : "10:10:10"};
           return $q.when(result);
         }
 

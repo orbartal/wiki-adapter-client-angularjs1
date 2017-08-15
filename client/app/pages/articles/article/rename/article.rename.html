@@ -1,0 +1,43 @@
+<div ng-include="'/app/pages/articles/article/tabs.html'"> </div>
+<div class="row class-row-space"> </div>
+<div class="row class-row-space"> </div>
+<div>
+	<div class="row class-row-space"> </div>
+	<div class="row class-row-space"> </div>
+	
+	<table class="class-right table  table-bordered"  style="font-size:42;">
+		<tr>
+			<td>
+				{{vm.config.mapLanguage.name}}:
+			</td> 
+			<td>
+				<input name="name" ng-model="vm.tempArticle.name" id="articleName"
+				direction="rtl" style="width:100%" required></input>
+			</td> 
+		</tr>
+		<tr>
+			<td>
+				{{vm.config.mapLanguage.nameSpace}}:
+			</td> 
+			<td>
+				<input name="name" ng-model="vm.tempArticle.nameSpace" id="articleNameSpace"
+				direction="rtl" style="width:100%" required></input>
+			</td> 
+		</tr>
+		<tr>
+			<td>
+				{{vm.config.mapLanguage.sourceLanguage}}:
+			</td> 
+			<td>
+				<input name="name" ng-model="vm.tempArticle.wikiCodeLanguage" id="articleWikiCodeLanguage"
+				direction="rtl" style="width:100%" required></input>
+			</td> 
+		</tr>
+		
+	</table>
+	<div class="row"> 
+		<div class="row"> 
+		<button type="button" ng-class="classBtnSave" ng-click="vm.save()">{{textBtnSave}}</button> 
+		<button type="button" ng-class="classBtnReset" ng-click="vm.reset()">{{textBtnReset}}</button>
+	</div>
+</div>
