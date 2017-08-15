@@ -1,0 +1,24 @@
+<div class="inmodal">
+	<form name="articleForm" class="horizontal-form" novalidate ng-submit="vm.save()"> 
+    <div class="modal-header">
+        <h4 class="modal-title">Edit Article</h4>
+    </div>
+    	<div class="modal-body">
+	      	<div class="form-group" ng-class="{ 'has-error': articleForm.name.$touched && articleForm.name.$invalid}">
+	                <label class="control-label">name</label>
+	                <input type="text" name="name" class="form-control" ng-model="vm.tempArticle.name" ng-minlength="1" ng-maxlength="50" required/>
+	                <form-validation ng-messages="articleForm.name.$error" ng-if="articleForm.name.$touched" field-name="name"></form-validation>
+	        </div>
+	        <div class="form-group" ng-class="{ 'has-error': articleForm.contentSource.$touched && articleForm.content.$invalid}">
+	                <label class="control-label">content_source</label>
+	                <textarea class="form-control" name="contentSource" cols="40" rows="4" ng-model="vm.tempArticle.contentSource" required></textarea>  
+	               <form-validation ng-messages="articleForm.contentSource.$error" ng-if="articleForm.contentSource.$touched" field-name="contentSource"></form-validation>
+	        </div>
+	        <p class="class-error-message">{{vm.errorMessage}}</p>
+    	</div>
+		 <div class="modal-footer">
+	    	    <button type="button" class="btn btn-white" ng-click="vm.cancel()">Cancel</button>
+	        	<button type="submit" class="btn btn-primary" ng-disabled="!articleForm.$valid">Save</button> <!--  -->
+	    </div>	       
+   </form>
+</div>

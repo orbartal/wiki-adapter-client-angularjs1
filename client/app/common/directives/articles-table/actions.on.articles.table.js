@@ -55,7 +55,7 @@
 		          		backdrop : 'static',
 		  				size: "lg",
 		  				templateUrl: '/app/pages/articles/modal/create/modal.create.article.view.html',
-		  				controller: "ModalCreateArticleController as vm",
+		  				controller: "ModalCreateArticleCtrl as vm",
 		  				resolve: {
 		  					article: function(){
 		  						return newArticle;

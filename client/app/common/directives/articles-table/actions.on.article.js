@@ -84,7 +84,7 @@
 	          		backdrop : 'static',
 	  				size: "lg",
 	  				templateUrl: '/app/pages/articles/modal/delete/modal.delete.article.view.html',
-	  				controller: "ModalDeleteArticleController as vm",
+	  				controller: "ModalDeleteArticleCtrl as vm",
 	  				resolve: {
 	  					article: function(){
 	  						return selectedArticle;
@@ -112,7 +112,7 @@
 	          		backdrop : 'static',
 	  				size: "lg",
 	  				templateUrl: '/app/pages/articles/modal/edit/modal.edit.article.view.html',
-	  				controller: "ModalEditArticleController as vm",
+	  				controller: "ModalEditArticleCtrl as vm",
 	  				resolve: {
 	  					article: function(){
 	  						return selectedArticle;
