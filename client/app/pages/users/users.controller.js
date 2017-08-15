@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('UsersCtrl', UsersCtrl);
 
-    UsersCtrl.$inject = ['$scope', '$uibModal', 'toaster', 'UsersResourcesService'];
+    UsersCtrl.$inject = ['$scope', 'WikiDialog', 'toaster', 'UsersResourcesService'];
 
-    function UsersCtrl($scope, $uibModal, toaster, UsersResourcesService) {
+    function UsersCtrl($scope, WikiDialog,  toaster, UsersResourcesService) {
         var vm = this;
         vm.allUsers = [];
 		    vm.displayUsers = [];
@@ -22,9 +22,6 @@
              vm.getAll();
         }
 
-        //////////////
-        // Get all //
-        /////////////
         function getAll () {
           var promise = UsersResourcesService.getAll();
         	promise.then(onSuccess, onFailure);
@@ -39,36 +36,28 @@
             }
         }//End getAll
 
-        ///////////////
-        //  delete  //
-        /////////////
-        function openDeleteUserDialog (selectedUser) {
-            var modalInstance = $uibModal.open({
-          		backdrop : 'static',
-      				size: "lg",
-      				templateUrl: '/app/pages/users/delete-user/delete.user.view.html',
-      				controller: "UserDeleteCtrl as vm",
-      				resolve: {
-      					user: function(){
-      						return selectedUser;
-      					}
-      				}
-      			});
+        function openCreateNewUserDialog () {
+          var objResolver =  {};
+          var strTemplateUrl =  '/app/pages/users/create-user/create.user.view.html';
+          var strController =  "UserCreateCtrl as vm";
+          var objSuccess = {title: "Create user successfully", body:"user"};
+          WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+        }
 
-            modalInstance.result.then(onConfirm, onCancel);
+        function openEditUserDialog (sUser) {
+          var objResolver =  {user :  sUser};
+          var strTemplateUrl = '/app/pages/users/edit-user/edit.user.view.html';
+          var strController = "UserEditCtrl as vm";
+          var objSuccess = {title: "Edit user successfully", body:"user"+sUser.id};
+          WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+        }
 
-      			function onConfirm(data){
-      				modalInstance.close();
-      				toaster.success({
-      					title: "Delete user successfully",
-      					body:"username="+data.userName
-      				});
-      			}
-
-  			function onCancel (data){}
-    }
-        function openEditUserDialog (user) {}
-        function openCreateNewUserDialog (user) {}
-
+        function openDeleteUserDialog (sUser) {
+            var objResolver =  {user :  sUser};
+            var strTemplateUrl = '/app/pages/users/delete-user/delete.user.view.html';
+            var strController = "UserDeleteCtrl as vm";
+            var objSuccess = {title: "Delete user successfully", body:"user"+sUser.id};
+            WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+        }
     }
 })();

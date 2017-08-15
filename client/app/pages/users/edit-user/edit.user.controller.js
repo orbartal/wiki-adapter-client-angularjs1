@@ -5,7 +5,7 @@
 		.module('wikiApp')
 		.controller('UserEditCtrl',  UserEditCtrl);
 
-	function UserEditCtrl($uibModalInstance, UsersService, user) {
+	function UserEditCtrl($uibModalInstance, UsersResourcesService, user) {
 		var vm = this;
 		vm.save = save;
 		vm.cancel = cancel;
@@ -24,11 +24,7 @@
 
 		function save() {
  			vm.errorMessage = "";
- 		//	delete  vm.tempUser.confirmPassword;
- 		//	delete  vm.tempUser.role;
- 			//delete  vm.userRoleId.roleId;
- 			debugger;
- 			UsersService.updateUser(vm.tempUser).then(onSuccess,onFailure);
+ 			UsersResourcesService.update (vm.tempUser).then(onSuccess,onFailure);
 
 			function onSuccess(){
 				$uibModalInstance.close(vm.user);
