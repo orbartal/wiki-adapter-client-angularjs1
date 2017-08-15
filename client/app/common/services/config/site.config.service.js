@@ -28,6 +28,14 @@
         mapLanguage.actions = "actions";
         mapLanguage.categories = "categories";
         mapLanguage.addArticle = "addArticle";
+
+        mapLanguage.articleTabRead = "Read";
+        mapLanguage.articleTabViewSource = "Source";
+        mapLanguage.articleTabEditSource = "Edit";
+        mapLanguage.articleTabEditWysiwyg = "Wysiwyg";
+        mapLanguage.articleTabRename = "Rename";
+        mapLanguage.articleTabHistory = "History";
+
         var configTemp = {"mapLanguage" : mapLanguage, "languageDirection" : "ltr"};
         config = configTemp;
         return config;

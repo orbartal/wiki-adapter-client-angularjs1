@@ -11,7 +11,9 @@
      }//End run
 
     //Config
-    function config($stateProvider, $urlRouterProvider) {
+    function config($stateProvider, $urlRouterProvider, $qProvider) {
+      //https://github.com/christopherthielen/ui-router-extras/issues/356
+      $qProvider.errorOnUnhandledRejections(false);
     	$urlRouterProvider.otherwise("/home");
     	$stateProvider
 

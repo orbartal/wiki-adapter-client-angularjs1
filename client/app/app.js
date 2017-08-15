@@ -10,6 +10,7 @@
       'smart-table',
       //npm install ng-table --save (not in bower)
       'ngTable',
-      'ngFileUpload'
+      'ngFileUpload',
+      'ui.router.tabs'
     ])
 })();

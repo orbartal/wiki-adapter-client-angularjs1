@@ -6,18 +6,19 @@
     "angular-resource": "*",
     "bootstrap": "*",
     "angular-bootstrap": "*",
-    "jquery":  "*",
-    "moment":  "*",
-    "metisMenu":  "*",
-    "angular-animate":  "*",
+    "jquery": "*",
+    "moment": "*",
+    "metisMenu": "*",
+    "angular-animate": "*",
     "angularjs-toaster": "*",
-    "angular-smart-table":  "*",
-    "angular-cookies":  "*",
+    "angular-smart-table": "*",
+    "angular-cookies": "*",
     "eeh-metis-menu": "*",
     "stompie": "*",
-    "ng-stomp":  "*",
-    "textAngular":  "*",
+    "ng-stomp": "*",
+    "textAngular": "*",
     "angular-permission": "*",
-    "ng-file-upload":  "*"
+    "ng-file-upload": "*",
+    "angular-ui-router-tabs": "*"
   }
 }
