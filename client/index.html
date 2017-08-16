@@ -1,135 +1,118 @@
 <!DOCTYPE html>
 <html ng-app="wikiApp">
   <head>
-    <!--1) Libraries -->
-      <script src="/app/lib/jquery/dist/jquery.js"></script>
-      <script src="/app/lib/angular/angular.js"></script>
-      <script src="/app/lib/angular-ui-router/release/angular-ui-router.js"></script>
-      <script src="/app/lib/angular-permission/dist/angular-permission.js"></script>
-      <script src="/app/lib/angular-permission/dist/angular-permission-ui.js"></script>
-      <script src="/app/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-      <link href="/app/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-      <script src="/app/lib/angularjs-toaster/toaster.js"></script>
-      <link href="/app/lib/angularjs-toaster/toaster.css" rel="stylesheet">
-      <link href="/app/lib/metisMenu/dist/metisMenu.css" rel="stylesheet">
-      <script src="/app/lib/metisMenu/dist/metisMenu.js"></script>
-      <script src="/app/lib/eeh-metis-menu/src/eeh-metis-menu.js"></script>
-      <script src="/app/lib/angular-smart-table/dist/smart-table.js"></script>
-      <script src="/app/lib/moment/moment.js"></script>
-      <link rel="stylesheet" href="/app/lib/font-awesome/css/font-awesome.min.css">
-      <link rel='stylesheet' href='/app/lib/textAngular/dist/textAngular.css'>
-      <script src='/app/lib/textAngular/dist/textAngular-rangy.min.js'></script>
-      <script src='/app/lib/textAngular/dist/textAngular-sanitize.min.js'></script>
-      <script src='/app/lib/textAngular/dist/textAngular.min.js'></script>
-      <script src="/app/lib/ng-file-upload/ng-file-upload.js"></script>
+    <!--(1) /app/assets/libs/ -->
+		<!-- jquery -->
+		<script src="/app/assets/libs/jquery/dist/jquery.js"></script>
+		<!-- angular -->
+		<script src="/app/assets/libs/angular/angular.js"></script>
+		<!-- angular-ui-router -->
+		<script src="/app/assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
+		<!-- angular-permission -->
+		<script src="/app/assets/libs/angular-permission/dist/angular-permission.js"></script>
+		<script src="/app/assets/libs/angular-permission/dist/angular-permission-ui.js"></script>
+		<!-- ui-bootstrap -->
+		<script src="/app/assets/libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<link href="/app/assets/libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+		<!-- toaster -->
+		<script src="/app/assets/libs/angularjs-toaster/toaster.js"></script>
+		<link href="/app/assets/libs/angularjs-toaster/toaster.css" rel="stylesheet">
+		<!-- metisMenu -->
+		<link href="/app/assets/libs/metisMenu/dist/metisMenu.css" rel="stylesheet">
+		<script src="/app/assets/libs/metisMenu/dist/metisMenu.js"></script>
+		<script src="/app/assets/libs/eeh-metis-menu/src/eeh-metis-menu.js"></script>
+		<!-- smart-table -->
+		<script src="/app/assets/libs/angular-smart-table/dist/smart-table.js"></script>
+		<!-- moment -->
+		<script src="/app/assets/libs/moment/moment.js"></script>
+		<!-- ng-file-upload -->
+		<script src="/app/assets/libs/ng-file-upload/ng-file-upload.js"></script>
+		<!-- textAngular -->
+		<script src='/app/assets/libs/textAngular/dist/textAngular-rangy.min.js'></script>
+		<script src='/app/assets/libs/textAngular/dist/textAngular-sanitize.min.js'></script>
+		<script src='/app/assets/libs/textAngular/dist/textAngular.min.js'></script>
+		<link rel='stylesheet' href='/app/assets/libs/textAngular/dist/textAngular.css'>
+		<!-- font-awesome -->
+		<link rel="stylesheet" href="/app/assets/libs/font-awesome/css/font-awesome.min.css">
+		<!-- font-awesome -->	 
+		<script src="/app/assets/libs/ng-table/bundles/ng-table.js"></script>
+		<link href="/app/assets/libs/ng-table/bundles/ng-table.css" rel="stylesheet">
+		<!-- angular-animate -->	 
+		<script src="/app/assets/libs/angular-animate/angular-animate.js"></script>
+		<!-- ui-router-tabs -->
+		<script src="/app/assets/libs/angular-ui-router-tabs/src\ui-router-tabs.js"></script>
+		<!-- Libraries - web sockets -->
+		<script src="/app/assets/libs/sockjs/sockjs.js"></script>
+		<script src="/app/assets/libs/stomp-websocket/lib/stomp.js"></script>
+		<script src="/app/assets/libs/stompie/stompie.js"></script>
 
-      <script src="/app/lib/ng-table/bundles/ng-table.js"></script>
-      <link href="/app/lib/ng-table/bundles/ng-table.css" rel="stylesheet">
-
-      <script src="/app/lib/angular-animate/angular-animate.js"></script>
-      <script src="/app/lib/angular-ui-router-tabs/src\ui-router-tabs.js"></script>
-
-      <!--
-
-
-      <script src="/app/lib/ng-table/bundles/ng-table.js.map"></script>
-      <link href="/app/lib/ng-table/bundles/ng-table.css.map" rel="stylesheet">
-    -->
-
-
-      <!-- Libraries - web sockets -->
-      <script src="/app/lib/sockjs/sockjs.js"></script>
-      <script src="/app/lib/stomp-websocket/lib/stomp.js"></script>
-      <script src="/app/lib/stompie/stompie.js"></script>
-
-
-      <!-- errors
-      <script src="/app/lib/angular-cookies/angular-cookies.js"></script>
-
-
-
-    <link rel='stylesheet' href='/app/lib/vis/dist/vis.css'>
-    <script src="/app/lib/vis/dist/vis.js"></script>
-
-      <link rel="stylesheet" href="/app/lib/ng-table/dist/ng-table.css">
-
-
-        <script src="/app/lib/ng-stomp/ng-stomp.js"></script>
-    -->
-
-    <!--2) config -->
-      <script src="/app/app.js"></script>
-      <script src="/app/config.js"></script>
-
-    <!--3) Common (code used by more than one page) -->
-
-     <!--   Common services utils -->
-     <script src="/app/common/services/utils/wiki.utils.service.js"></script>
-     <script src="/app/common/services/utils/wiki.dialog.service.js"></script>
-     <!--   Common services config -->
-     <script src="/app/common/services/config/articles.config.service.js"></script>
-     <script src="/app/common/services/config/site.config.service.js"></script>
-     <!--   Common services security -->
-     <script src="/app/common/services/security/authentication.service.js"></script>
-     <script src="/app/common/services/security/login.service.js"></script>
-     <script src="/app/common/services/security/permission.service.js"></script>
-      <!--   Common services resources -->
-     <script src="/app/common/services/resources/articles.resources.service.js"></script>
-     <script src="/app/common/services/resources/articles.versions.resources.service.js"></script>
-     <script src="/app/common/services/resources/files.resources.service.js"></script>
-     <script src="/app/common/services/resources/properties.resources.service.js"></script>
-     <script src="/app/common/services/resources/users.resources.service.js"></script>
-
-      <!--   Common frame  -->
-     <script src="/app/common/frame/wiki-main-side-menu/wiki.main.side.menu.js"></script>
-     <script src="/app/common/frame/wiki-main-site-menu/wiki.main.site.menu.js"></script>
-     <script src="/app/common/frame/wiki.frame.controller.js"></script>
-     <link href="/app/common/frame/wiki-main-side-menu/wiki.main.side.menu.css" rel="stylesheet">
-     <link href="/app/common/frame/wiki-main-site-menu/wiki.main.site.menu.css" rel="stylesheet">
-     <link href="/app/common/frame/wiki.frame.style.css" rel="stylesheet">
-
-
-      <!--   Common directives -->
-      <script src="/app/common/directives/files-table/files.table.js"></script>
-      <script src="/app/common/directives/div-image/div.image.directive.js"></script>
-
-      <script src="/app/common/directives/articles-table/actions.on.article.js"></script>
-      <script src="/app/common/directives/articles-table/actions.on.articles.table.js"></script>
-      <script src="/app/common/directives/articles-table/articles.table.js"></script>
-
-      <script src="/app/common/directives/compile/compile.directive.js"></script>
-
-      <script src="/app/common/directives/article-properties-table/article.properties.table.js"></script>
-      <script src="/app/common/directives/properties-of-property/properties.of.property.js"></script>
-
-
-    <!--5) pages (code used by a single page) -->
-
-      <!-- login -->
-		  <script src="/app/pages/login/login.controller.js"></script>
-      <!-- Home page -->
-      <script src="/app/pages/home/home.controller.js"></script>
-      <!-- users -->
-      <script src="/app/pages/users/users.controller.js"></script>
-      <script src="/app/pages/users/create-user/create.user.controller.js"></script>
-      <script src="/app/pages/users/edit-user/edit.user.controller.js"></script>
-      <script src="/app/pages/users/delete-user/delete.user.controller.js"></script>
-      <!-- files -->
-      <script src="/app/pages/files/files.controller.js"></script>
-      <script src="/app/pages/files/file/view/file.view.js"></script>
-      <script src="/app/pages/files/modal/create/modal.add.new.file.js"></script>
-      <!-- articles -->
-      <script src="/app/pages/articles/articles.controller.js"></script>
-
-      <script src="/app/pages/articles/article/read/article.read.controller.js"></script>
-      <script src="/app/pages/articles/article/rename/article.rename.controller.js"></script>
-      <script src="/app/pages/articles/article/history/article.history.controller.js"></script>
-      <script src="/app/pages/articles/article/view-source/article.view.source.controller.js"></script>
-      <script src="/app/pages/articles/article/edit-source/article.edit.source.controller.js"></script>
-
-      <script src="/app/pages/articles/modal/create/modal.create.article.controller.js"></script>
-      <script src="/app/pages/articles/modal/edit/modal.edit.article.controller.js"></script>
-      <script src="/app/pages/articles/modal/delete/modal.delete.article.controller.js"></script>
+    <!--(2.1) config -->
+		<script src="/app/src/v1/app.js"></script>
+		<script src="/app/src/v1/config.js"></script>
+		
+	<!--(2.2) data -->
+		<script src="/app/src/v1/data/services/articles.data.service.js"></script>
+		<script src="/app/src/v1/data/services/articles.versions.data.service.js"></script>
+		<script src="/app/src/v1/data/services/files.info.data.service.js"></script>
+		<script src="/app/src/v1/data/services/properties.data.service.js"></script>
+		<script src="/app/src/v1/data/services/users.data.service.js"></script>
+		
+	<!--(2.3) core (app main logic, independent from the data source, e.g. server, and the ui) -->
+		<!--(2.3.1) config (services that contain the app configuration) -->
+		<script src="/app/src/v1/core/services/config/article.config.service.js"></script>
+		<script src="/app/src/v1/core/services/config/site.config.service.js"></script>
+		<!--(2.3.2) security (authentication and authorization) -->
+		<script src="/app/src/v1/core/services/security/login.service.js"></script>
+		<script src="/app/src/v1/core/services/security/authentication.service.js"></script>
+		<script src="/app/src/v1/core/services/security/permission.service.js"></script>
+		<!--(2.3.3) security (authentication and authorization) -->
+		<script src="/app/src/v1/core/services/utils/wiki.dialog.service.js"></script>
+		<script src="/app/src/v1/core/services/utils/wiki.utils.service.js"></script>
+		
+	<!--(2.4) ui (frame, pages, modal and directives)-->
+		<!--(2.4.1) directives -->
+		<script src="/app/src/v1/ui/directives/article-properties-table/article.properties.table.directive.js"></script>
+		<script src="/app/src/v1/ui/directives/compile-html/compile.html.directive.js"></script>
+		<script src="/app/src/v1/ui/directives/div-static-image/div.static.image.directive.js"></script>
+		<script src="/app/src/v1/ui/directives/files-table/files.table.directive.js"></script>
+		<script src="/app/src/v1/ui/directives/properties-of-property/properties.of.property.directive.js"></script>
+		<!--wiki menu/ directives-->
+		<script src="/app/src/v1/ui/directives/wiki-main-side-menu/wiki.main.side.menu.directive.js"></script>
+		<link  href="/app/src/v1/ui/directives/wiki-main-side-menu/wiki.main.side.menu.directive.css" rel="stylesheet" >
+		<script src="/app/src/v1/ui/directives/wiki-main-site-menu/wiki.main.site.menu.directive.js"></script>
+		<link  href="/app/src/v1/ui/directives/wiki-main-site-menu/wiki.main.site.menu.directive.css" rel="stylesheet">
+		<!--articles-table directives-->
+		<script src="/app/src/v1/ui/directives/articles-table/articles.table.directive.js"></script>
+		<script src="/app/src/v1/ui/directives/articles-table/actions.on.articles.directive.js"></script>
+		<script src="/app/src/v1/ui/directives/articles-table/action.per.article.directive.js"></script>
+		
+		<!--(2.4.2) modal -->
+		<!--article-->
+		<script src="/app/src/v1/ui/modal/article/create/article.create.modal.js"></script>
+		<script src="/app/src/v1/ui/modal/article/delete/article.delete.modal.js"></script>
+		<script src="/app/src/v1/ui/modal/article/update/article.update.modal.js"></script>
+		<!--article-->
+		<script src="/app/src/v1/ui/modal/file/create/file.create.modal.js"></script>
+		<!--user-->
+		<script src="/app/src/v1/ui/modal/user/create/user.create.modal.js"></script>
+		<script src="/app/src/v1/ui/modal/user/delete/user.delete.modal.js"></script>
+		<script src="/app/src/v1/ui/modal/user/update/user.update.modal.js"></script>
+		
+	<!--(2.4.3) page (each js file is a controller for a different page, screen, in the site) -->
+		<script src="/app/src/v1/ui/page/articles/articles.controller.js"></script>
+		<script src="/app/src/v1/ui/page/file/view/file.view.controller.js"></script>
+		<script src="/app/src/v1/ui/page/files/files.controller.js"></script>
+		<script src="/app/src/v1/ui/page/home/home.controller.js"></script>
+		<script src="/app/src/v1/ui/page/login/login.controller.js"></script>
+		<script src="/app/src/v1/ui/page/site/site.frame.controller.js"></script>
+		<link  href="/app/src/v1/ui/page/site/site.frame.style.css" rel="stylesheet" >
+		<script src="/app/src/v1/ui/page/users/users.controller.js"></script>
+		<!--article-->
+		<script src="/app/src/v1/ui/page/article/edit-source/article.edit.source.controller.js"></script>
+		<script src="/app/src/v1/ui/page/article/history/article.history.controller.js"></script>
+		<script src="/app/src/v1/ui/page/article/read/article.read.controller.js"></script>
+		<script src="/app/src/v1/ui/page/article/rename/article.rename.controller.js"></script>
+		
   </head>
 
   <body>
