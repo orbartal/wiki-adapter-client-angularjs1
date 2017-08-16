@@ -4,32 +4,17 @@
     //http://ng-table.com/#/editing/demo-inline
       angular
             .module('wikiApp')
-            .directive('articlesTable', ['SiteConfigService', '$uibModal', '$state', 'toaster', 'NgTableParams', articlesTable]);
+            .directive('articlesTable', ['SiteConfigService', 'NgTableParams', articlesTable]);
 
-      function articlesTable (SiteConfigService, $uibModal, $state, toaster, NgTableParams){
+      function articlesTable (SiteConfigService, NgTableParams){
             var directive = {};
             directive.restrict = 'E';
             directive.scope =  {data : '=', options : '='};
             directive.templateUrl = '/app/src/v1/ui/directives/articles-table/articles.table.directive.html';
             directive.replace = true;
-            directive.controller = articlesTableController;  //Leval 1 function
-            directive.compile = articlesTableCompile; //Leval 2 function
             directive.link = articlesTableLinking; //Leval 3 function
             return directive;
 
-
-	      function articlesTableController($scope){
-	      }
-
-	      // function is executed once (1) for every instance of ui-jq in your original UNRENDERED template.
-	      // Scope is UNAVAILABLE as the templates are only being cached. updatehour()
-	      function articlesTableCompile (element, attributes){
-	            return this.link;
-	      }
-
-	      // Function is executed once (1) for every RENDERED instance.
-	      // Scope IS available because controller logic has finished executing.
-	      // All variables and expression values can finally be determined.
 	      function articlesTableLinking(scope, element, attrs, ctrl){
 	    	  active();
 

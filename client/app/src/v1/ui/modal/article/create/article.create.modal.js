@@ -3,23 +3,19 @@
 
 	angular
 		.module('wikiApp')
-		.controller('ModalCreateArticleCtrl',  ModalCreateArticleCtrl);
+		.controller('ArticleCreateCtrl',  ArticleCreateCtrl);
 
-	function ModalCreateArticleCtrl ($scope, $uibModalInstance, ArticlesResourcesService, toaster, article) {
+	function ArticleCreateCtrl ($scope, $uibModalInstance, ArticlesResourcesService) {
 		var vm = this;
 		vm.create = create;
 		vm.cancel = cancel;
 		vm.errorMessage = "";
-		activate();
+		init();
 
 		////////////////
 
-		function activate() {
-			if (article){
-				vm.article = article;
-			}else{
+		function init() {
 				vm.article = {};
-			}
 		}
 
 		function create() {

@@ -34,10 +34,10 @@
 		<link rel='stylesheet' href='/app/assets/libs/textAngular/dist/textAngular.css'>
 		<!-- font-awesome -->
 		<link rel="stylesheet" href="/app/assets/libs/font-awesome/css/font-awesome.min.css">
-		<!-- font-awesome -->	 
+		<!-- font-awesome -->
 		<script src="/app/assets/libs/ng-table/bundles/ng-table.js"></script>
 		<link href="/app/assets/libs/ng-table/bundles/ng-table.css" rel="stylesheet">
-		<!-- angular-animate -->	 
+		<!-- angular-animate -->
 		<script src="/app/assets/libs/angular-animate/angular-animate.js"></script>
 		<!-- ui-router-tabs -->
 		<script src="/app/assets/libs/angular-ui-router-tabs/src\ui-router-tabs.js"></script>
@@ -49,18 +49,19 @@
     <!--(2.1) config -->
 		<script src="/app/src/v1/app.js"></script>
 		<script src="/app/src/v1/config.js"></script>
-		
+
 	<!--(2.2) data -->
 		<script src="/app/src/v1/data/services/articles.data.service.js"></script>
 		<script src="/app/src/v1/data/services/articles.versions.data.service.js"></script>
 		<script src="/app/src/v1/data/services/files.info.data.service.js"></script>
 		<script src="/app/src/v1/data/services/properties.data.service.js"></script>
 		<script src="/app/src/v1/data/services/users.data.service.js"></script>
-		
+
 	<!--(2.3) core (app main logic, independent from the data source, e.g. server, and the ui) -->
 		<!--(2.3.1) config (services that contain the app configuration) -->
+    <script src="/app/src/v1/core/services/config/site.config.service.js"></script>
 		<script src="/app/src/v1/core/services/config/article.config.service.js"></script>
-		<script src="/app/src/v1/core/services/config/site.config.service.js"></script>
+		<script src="/app/src/v1/core/services/config/button.config.service.js"></script>
 		<!--(2.3.2) security (authentication and authorization) -->
 		<script src="/app/src/v1/core/services/security/login.service.js"></script>
 		<script src="/app/src/v1/core/services/security/authentication.service.js"></script>
@@ -68,10 +69,11 @@
 		<!--(2.3.3) security (authentication and authorization) -->
 		<script src="/app/src/v1/core/services/utils/wiki.dialog.service.js"></script>
 		<script src="/app/src/v1/core/services/utils/wiki.utils.service.js"></script>
-		
+
 	<!--(2.4) ui (frame, pages, modal and directives)-->
 		<!--(2.4.1) directives -->
-		<script src="/app/src/v1/ui/directives/article-properties-table/article.properties.table.directive.js"></script>
+    <script src="/app/src/v1/ui/directives/button-open-dialog/button.open.dialog.directive.js"></script>
+    <script src="/app/src/v1/ui/directives/article-properties-table/article.properties.table.directive.js"></script>
 		<script src="/app/src/v1/ui/directives/compile-html/compile.html.directive.js"></script>
 		<script src="/app/src/v1/ui/directives/div-static-image/div.static.image.directive.js"></script>
 		<script src="/app/src/v1/ui/directives/files-table/files.table.directive.js"></script>
@@ -83,9 +85,8 @@
 		<link  href="/app/src/v1/ui/directives/wiki-main-site-menu/wiki.main.site.menu.directive.css" rel="stylesheet">
 		<!--articles-table directives-->
 		<script src="/app/src/v1/ui/directives/articles-table/articles.table.directive.js"></script>
-		<script src="/app/src/v1/ui/directives/articles-table/actions.on.articles.directive.js"></script>
 		<script src="/app/src/v1/ui/directives/articles-table/action.per.article.directive.js"></script>
-		
+
 		<!--(2.4.2) modal -->
 		<!--article-->
 		<script src="/app/src/v1/ui/modal/article/create/article.create.modal.js"></script>
@@ -97,7 +98,7 @@
 		<script src="/app/src/v1/ui/modal/user/create/user.create.modal.js"></script>
 		<script src="/app/src/v1/ui/modal/user/delete/user.delete.modal.js"></script>
 		<script src="/app/src/v1/ui/modal/user/update/user.update.modal.js"></script>
-		
+
 	<!--(2.4.3) page (each js file is a controller for a different page, screen, in the site) -->
 		<script src="/app/src/v1/ui/page/articles/articles.controller.js"></script>
 		<script src="/app/src/v1/ui/page/file/view/file.view.controller.js"></script>
@@ -112,7 +113,7 @@
 		<script src="/app/src/v1/ui/page/article/history/article.history.controller.js"></script>
 		<script src="/app/src/v1/ui/page/article/read/article.read.controller.js"></script>
 		<script src="/app/src/v1/ui/page/article/rename/article.rename.controller.js"></script>
-		
+
   </head>
 
   <body>

@@ -5,15 +5,16 @@
         .module('wikiApp')
         .controller('ArticlesCtrl', ArticlesCtrl);
 
-    ArticlesCtrl.$inject = ['ArticlesResourcesService', 'toaster'];
+    ArticlesCtrl.$inject = ['ArticlesResourcesService', 'ButtonConfigService', 'toaster'];
 
-    function ArticlesCtrl(ArticlesResourcesService, toaster) {
+    function ArticlesCtrl(ArticlesResourcesService, ButtonConfigService, toaster) {
         var vm = this;
         vm.allArticles = [];
-        vm.options = {};
-        active();
+        vm.optionsTable = {};
+        vm.btnConfig = ButtonConfigService.getCreateArticle();
+        init();
 
-        function active() {
+        function init() {
             getAllArticles();
         }
 

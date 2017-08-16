@@ -42,6 +42,7 @@
         mapLanguage.sourceLanguage="source code language";
 
         var configTemp = {"mapLanguage" : mapLanguage, "languageDirection" : "ltr"};
+        configTemp.isRtl = false;
         config = configTemp;
         return config;
      }
