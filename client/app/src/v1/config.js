@@ -42,6 +42,12 @@
               controller: "HomeCtrl as vm",
 	     })
 
+         .state('site.search', {
+	            url: "/search",
+	            templateUrl: dirPath.concat("search/search.view.html"),
+	            controller: "SearchCtrl as vm"
+	        })
+
        .state('site.users', {
                 url: "/users",
                 templateUrl:  dirPath.concat("users/users.view.html"),

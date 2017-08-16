@@ -1,0 +1,73 @@
+
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child {
+  background-color: #f1f1f1;
+}
+</style>
+
+<div class="col-xs-10">
+    
+    <!-- class="container" -->
+      <div class="page-header">
+        <h1>Search</h1>
+      </div>
+      
+      <div>
+        <div style="display: inline-block;">
+	        <button ng-click='vm.search()' class="btn btn-default" ng-disabled="!vm.isSearchEnable()"> 
+	          <span class="glyphicon glyphicon-search">Search</span>
+	        </button>
+		</div>
+		<input type="text" ng-model="vm.query" size="120"/> 
+      </div>  
+
+      <div class="alert alert-info" role="alert" ng-if="!vm.items || vm.items.length == 0">
+        There are no items yet.
+      </div>
+      <p> Last search term = {{vm.lastQuery}}</p>
+      <p> vm.count = {{vm.count}}</p>
+      <p> vm.startResult = {{vm.startResult}}</p>
+      <p> vm.endResult = {{vm.endResult}}</p>
+      
+      
+      <div paging
+		  page="1" 
+		  page-size="vm.itemsPerPage" 
+		  total="vm.numberOfPages"
+		  paging-action="vm.changePage(page)"
+		  show-prev-next="true"
+    	  show-first-last="true"
+    	  hide-if-empty="true"
+    	  text-next-class="glyphicon glyphicon-chevron-right"
+    	  text-prev-class="glyphicon glyphicon-chevron-left"
+    	  text-first-class="glyphicon glyphicon-backward"
+    	  text-last-class="glyphicon glyphicon-forward"
+	      >
+	  </div> 
+     
+      <div ng-if="vm.items.length > 0">
+      	<table>
+	     <tr>
+		      <th>index</th>
+		      <th>score</th>
+		      <th>title</th>
+		      <th>highlight text</th>
+		 </tr>
+		 <tr ng-repeat="item in vm.items | orderBy : 'index'" >
+		  	<td>{{ $index + 1 }}</td>
+		  	<td>{{item.score}}</td>
+		    <td><a href ng-click="vm.goToArticle(item);">{{item.title}}</a></td>
+		    <td>
+		    	<div compile-html source="item.highlighText"></div>
+		    	<!-- <ng-bind-html ng-bind-html="vm.getHighlighText(item)"></ng-bind-html>  -->
+		    </td>
+		  </tr>
+		</table>
+      </div>
+      
+</div>
