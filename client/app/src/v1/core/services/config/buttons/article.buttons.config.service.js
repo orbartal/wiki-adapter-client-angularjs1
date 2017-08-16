@@ -8,33 +8,16 @@
     ArticleButtonConfigService.$inject = ['$state', 'SiteConfigService', 'WikiDialog'];
     function ArticleButtonConfigService($state, SiteConfigService, WikiDialog) {
         var service = {};
-        service.getCreate = getCreate;
+        service.getTop = getTop;
         service.getRow = getRow;
         return service;
 
-        function getCreate (){
-            var data = getCreateArticleData ();
-            var options = getCreateOptions ();
-            var result = {"data": data, "options":options};
-          	return result;
-
-            function getCreateArticleData (){
-              var result = {};
-              result.resolver =  {};
-              result.templateUrl =  '/app/src/v1/ui/modal/article/create/article.create.modal.html';
-              result.controller =  "ArticleCreateCtrl as vm";
-              result.success = {title: "Create article successfully", body:""};
-              return result;
-            }
-
-            function getCreateOptions (){
-              var result = {};
-              result.title = "create";
-              result.buttonText = "create";
-              result.buttonClass = ["btn", "btn-primary", "btn-xs", "class-round-button", "pull-right"];
-              result.spanClass="glyphicon glyphicon-plus";
-              return result;
-            }
+        function getTop (){
+          var buttonClass = ["btn", "btn-primary", "btn-xs", "class-round-button", "class-right"];
+          var btnCreate = {"title": "create", "buttonClass":buttonClass, "text" : "Add article",
+                          "action": onCreateArticle, "spanClass": ["glyphicon", "glyphicon-plus"]};
+          var results = [btnCreate];
+          return results;
     	  }//End getCreateButton
 
         function getRow (){
@@ -47,6 +30,15 @@
                           "action": onDeleteArticle, "spanClass": ["glyphicon", "glyphicon-trash"]};
           var results = [btnView, btnUpdate, btnDelete];
           return results;
+        }
+
+        function onCreateArticle () {
+              var objResolver =  {};
+              var strTemplateUrl = "/app/src/v1/ui/modal/article/create/article.create.modal.html";
+              var strController = "ArticleCreateCtrl as vm";
+              var objSuccess = {title: "Created article successfully", body:""};
+              WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+          }
 
           function onViewArticle (article) {
             var params = {nameSpace: article.nameSpace, name : article.name};
@@ -73,6 +65,5 @@
               var objSuccess = {title: "Delete article successfully", body:"article"+sArticle.id};
               WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
           }
-        }//End getRowButtons
     }
 })();

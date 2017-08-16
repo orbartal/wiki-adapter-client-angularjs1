@@ -13,7 +13,7 @@
 
         function get (columnsService, buttonsService){
           var optionsTable = {};
-          optionsTable.topButtons = [buttonsService.getCreate()];
+          optionsTable.topButtons = buttonsService.getTop();
           optionsTable.rowButtons = buttonsService.getRow();
           optionsTable.tableCols = columnsService.getColumns();
           return optionsTable
