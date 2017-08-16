@@ -1,0 +1,38 @@
+<div>
+	<p ng-class="classArticleHeader">Property properties</p>
+	
+	<table  class="table table-condensed table-bordered table-striped">
+		<thead>
+			<tr>
+			     <th>Property</th>
+			     <th>Value</th>
+			 </tr>
+		 </thead>
+		  <tbody>
+		  	 <tr>
+			     <td>name</td>
+			     <td>{{property.name}}</td>
+		     </tr>
+		      <tr>
+			     <td>Number of values</td>
+			     <td ng-if="!edit">property.multy</td>
+   				 <td ng-if="edit">
+					<select name="multi" id="multiSelect"
+					     ng-options="option.value as option.name for option in arrTF"
+					     ng-model="property.multy">
+					</select>
+   				 </td> 
+		     </tr>
+		      <tr>
+			     <td>type</td>
+			     <td ng-if="!edit">{{property.type}}</td>
+			      <td ng-if="edit"> <input type="text" ng-model="property.type"> </td>
+		     </tr>
+		  </tbody>
+	</table>
+	<div class="row class-row-space"> </div>
+	<div class="row"  ng-if="edit"> 
+		<button type="button" ng-class="classBtnSave" ng-click="save()">Save property</button> 
+		<button type="button" ng-class="classBtnReset" ng-click="reset()">Reset property</button>
+	</div>
+</div>

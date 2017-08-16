@@ -1,0 +1,14 @@
+<div class="row class-right class-categories-box">
+		<p ng-if="vm.config.isRTL" style="display:inline"> {{vm.config.mapLanguage.categories}}: </p>
+		<p style="display:inline" ng-repeat="category in vm.article.categories">
+			|
+			<a ng-if="category.isValid" class="class-link-valid" ui-sref='site.article-read ({ name: category.value,  nameSpace:"category"})'>
+				{{category.value}}
+			</a>
+			<a ng-if="!category.isValid" class="class-link-invalid" ui-sref='site.article-read ({ name: category.value,  nameSpace:"category"})'>
+				{{category.value}}
+			</a>
+			| 
+		</p>
+		<p ng-if="!vm.config.isRTL" style="display:inline"> {{vm.config.mapLanguage.categories}}: </p>
+</div>

@@ -1,0 +1,20 @@
+<div>
+      <input type="file" 
+      		 ngf-select ng-model="vm.file" 
+      		 ngf-model-invalid="errorFile"
+      		 name="file"    
+             accept="image/*" 
+             ngf-max-size="2MB"
+             required> 
+             <!--  ngf-resize="{width: 250, height: 2S0}"  -->      
+	  <br>
+      <img 	ngf-thumbnail="vm.file" class="thumb" style="width:300px; height:300px;">
+      <br>	
+      <div class="row">
+	      <button ng-click="vm.uploadFile()" ng-disabled="!vm.file">Submit</button>	 
+	      <button ng-click="vm.cancel()">Cancel</button>
+	      <button ng-click="vm.fileContent = null" ng-disabled="!vm.file">Remove</button>
+	  </div>
+      <p class="class-error-message">{{vm.errorMessage}}</p>
+    <br>
+</div>

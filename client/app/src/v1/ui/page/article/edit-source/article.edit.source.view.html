@@ -1,0 +1,25 @@
+<div ng-include="'/app/src/v1/ui/page/article/tabs.html'"> </div>
+<div class="row class-row-space"> </div>
+<div class="row class-row-space"> </div>
+<div>
+	<div class="row class-row-space"> </div>
+	<div class="row class-row-space"> </div>
+	<div class="row">
+		<p ng-class="classArticleHeader"> {{vm.tempArticle.name}}</p>
+	</div>
+	<div class="row class-row-space"> </div>
+	<div class="row" style="margin:7px;">
+		<textarea ng-class="classArticleContent" name="contentSource" cols="20" rows="40"
+				ng-model="vm.tempArticle.source"  required style="width: 80%;">
+		</textarea>
+	</div>
+	<div class="row class-row-space"> </div>
+	<div class="row">
+		<button type="button" ng-class="classBtnSave" ng-click="vm.save()">{{textBtnSave}}</button>
+		<button type="button" ng-class="classBtnReset" ng-click="vm.reset()">{{textBtnReset}}</button>
+	</div>
+	<div ng-if="vm.tempArticle.isProperty==true">
+		<div class="row class-row-space"> </div>
+		<properties-of-property property-name ="vm.tempArticle.name" edit='true'> </properties-of-property>
+	</div>
+</div>
