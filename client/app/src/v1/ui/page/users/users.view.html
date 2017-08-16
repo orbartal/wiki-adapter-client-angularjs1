@@ -1,34 +1,4 @@
-<p class="class-center class-page-headr-text">Manage Wiki Users</p>
-
- <button type="button" class="btn btn-primary btn-xs pull-left class-round-button "
-	ng-click="vm.create()" title="Create">
-    <span class="glyphicon glyphicon-plus"></span> Add User
-</button>
-
- <table st-table="vm.displayUsers" st-safe-src="vm.allUsers" class="table">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th  class="class-right">Actions</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="user in vm.allUsers">
-			<td>{{user.id}}</td>
-			<td>{{user.name}}</td>
-			<td>
-				<div>
-					<button type="button" class="btn class-right class-row-button"
-							ng-click="vm.delete(user)" title="Delete">
-						<span class="glyphicon glyphicon-trash">
-					</button>
-					<button type="button" class="btn  class-right class-row-button"
-							ng-click="vm.edit(user)" title="Edit">
-						<span class="glyphicon glyphicon-pencil">
-					</button>
-				</div>
-			</td>
-		</tr>
-	</tbody>
-</table>
+<div class = "col-sm-11 pull-right">
+	<p class="class-center class-page-headr-text">Users</p>
+	<table-wiki data="vm.dataTable" options=vm.optionsTable></table-wiki>
+</div>

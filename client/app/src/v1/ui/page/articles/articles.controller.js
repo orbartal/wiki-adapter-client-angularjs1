@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('ArticlesCtrl', ArticlesCtrl);
 
-    ArticlesCtrl.$inject = ['ArticlesResourcesService', 'ArticleTableConfigService', 'toaster'];
+    ArticlesCtrl.$inject = ['toaster', 'ArticlesResourcesService', 'ArticleTableConfigService'];
 
-    function ArticlesCtrl(ArticlesResourcesService, ArticleTableConfigService, toaster) {
+    function ArticlesCtrl(toaster, ArticlesResourcesService, ArticleTableConfigService) {
         var vm = this;
         vm.dataTable = [];
         vm.optionsTable = ArticleTableConfigService.getTableOptions();
