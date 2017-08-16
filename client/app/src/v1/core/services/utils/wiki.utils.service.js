@@ -15,6 +15,10 @@
         service.isNotEmpty = isNotEmpty;
         service.isEqualsText = isEqualsText;
         service.textToNumber = textToNumber;
+
+        service.getValues = getValues;
+        service.miliToHHmmss = miliToHHmmss;
+        service.getDurationTime = getDurationTime;
         return service;
 
 		 function isEmpty (obj) {
@@ -46,7 +50,50 @@
 	        return parseInt(s);
 	      }
 	      return undefined;
-		 }//isEqualsText
+	}
+
+    function getValues (data) {
+		var arrValues = [];
+		var arrKeys = Object.keys(data);
+		for (var i = 0; i < arrKeys.length; i++) {
+			var key = arrKeys[i];
+			arrValues.push(data[key]);
+		}
+		return arrValues;
+	}
+
+	function miliToHHmmss (milli){
+		  var time = new Date(milli);
+		  var hours = time.getHours();
+		  hours = (hours - 2)%24;
+		  if (hours<10){
+			  hours = '0'+hours;
+		  }
+		  var minutes = time.getMinutes();
+		  if (minutes<10){
+			  minutes = '0'+minutes;
+		  }
+		  var seconds = time.getSeconds();
+		  if (seconds<10){
+			  seconds = '0'+seconds;
+		  }
+		  var milliseconds = time.getMilliseconds();
+		  var result = hours + ":" + minutes + ":" + seconds; // + '.'+milliseconds;
+		  return result;
+	}
+
+	function getDurationTime (nStart, nEnd){
+		  var end;
+		  if (!nStart){
+			  return 'Error: no start time';
+		  }
+		  if (!nEnd){
+			  nEnd = new Date().getTime();
+		  }
+		  var miliDuration =  nEnd-nStart;
+		  var time = service.miliToHHmmss(miliDuration);
+		  return time;
+	}
 
 
 	}//WikiUtils

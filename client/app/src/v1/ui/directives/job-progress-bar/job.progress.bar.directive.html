@@ -1,0 +1,17 @@
+<div>
+
+	  <div ng-if="!options.hideText">
+		  <h3>{{options.title}}: {{data.taskId}}</h3>
+		  <p>Start time: {{getStartTime()}}</p>
+		  <p>End time: {{getEndTime()}}</p>
+		  <p>Time Duration: {{getDurationTime()}}</p>
+	  </div>
+	  
+	  <div class="progress" >
+	  	<div 	class="progress-bar" role="progressbar" aria-valuenow="nowValue" aria-valuemin="minValue" 
+	  			aria-valuemax="maxValue"  ng-style="progressStyle">
+	  		<span>{{nowValue}}%</span>
+	  	</div>
+	  </div>
+	  
+</div>

@@ -95,5 +95,11 @@
                 templateUrl: dirPath.concat("article/history/article.history.view.html"),
                 controller: "ArticleHistoryCtrl as vm",
             })
+
+            .state('site.jobs', {
+                url: "/jobs",
+                templateUrl: dirPath.concat("jobs/jobs.view.html"),
+                controller: "JobsCtrl as vm",
+            })
     }
 })();

@@ -1,0 +1,44 @@
+<p class="class-center class-page-headr-text">Jobs</p>
+
+  <div>
+		<button type="button" ng-class="tableButtonClass"
+			ng-click="vm.addNewJob()" title="Create">
+		    <span class="glyphicon glyphicon-plus"></span>
+			Add new job
+		</button>
+		<input ng-model="vm.strCommand"> </input>
+	</div>
+
+  <table st-table="vm.displayJobs" st-safe-src="vm.allJobs" class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Start</th>
+			<th>Duration</th>
+			<th>value</th>
+			<th>Progress</th>
+			<th>actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="job in vm.allJobs">
+			<td>{{job.id}}</td>
+			<th data-toggle="tooltip" data-placement="bottom" data-original-title="{{job.details}}" title="{{job.details}}">
+					{{job.title}}
+			</th>
+			<td>{{vm.getStartTime (job)}}</td>
+			<td>{{vm.getDuration  (job)}}</td>
+			<td>{{job.value}}</td>
+			<td>
+				<job-progress-bar  data = "vm.getData(job)" options = "vm.getOptions(job)">
+				</job-progress-bar>
+			</td>
+			<td>
+				<button ng-click='vm.stop(job)' class="btn btn-default"">
+		          	<span class="glyphicon glyphicon-stop"></span>
+		        </button>
+			</td>
+		</tr>
+	</tbody>
+</table>
