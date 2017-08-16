@@ -1,0 +1,58 @@
+.class-error-message{
+	background: yellow;
+    color: red;
+}
+
+.class-page-headr-text{
+	text-decoration: underline;
+	font-family: "Times New Roman", Times, serif;
+	font-size: xx-large;
+	text-align: center;
+}
+
+.class-article-header{
+  font-family: 'Helvetica', Arial, Lucida Grande, sans-serif;
+  font-size: 32px;   /* if that’s what you want... */
+  line-height: 1.4;  /* somewhat excessive */
+  color: black;    /* if that’s what you want, but it reduces legibility */
+  background: white;
+  margin-top: 20px;
+  margin-right: 20px;
+  text-decoration: underline;
+}
+
+.class-article-top-info{
+/*
+	display: inline-block;
+	margin: 10px;
+*/
+	font-size:20;
+}
+
+.class-page-area{
+    border: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.class-row-space{
+	height:10px;
+}
+
+.class-html-view{
+	border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    width : 100%;
+    padding: 10px 10px;
+    margin: 10px 10px;
+}
+
+.class-categories-box {
+	border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    text-align: center;
+    padding: 10px 10px;
+    margin: 10px 10px;
+}

@@ -1,0 +1,14 @@
+.class-right{
+	float: right;
+	direction: rtl;
+	text-align:right
+}
+.class-left{
+	float: left;
+	direction: ltr;
+	text-align:left
+}
+
+.class-center{
+	text-align: center;
+}

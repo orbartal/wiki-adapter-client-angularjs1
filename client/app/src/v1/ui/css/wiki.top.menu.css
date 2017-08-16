@@ -1,0 +1,24 @@
+.class-top-menu li a{
+    color: black!important;
+}
+
+.class-top-menu li a:hover{
+	color: black!important;
+	  font-weight: bold;
+	  text-decoration: underline;
+}
+
+.class-top-menu li a:focus {
+	color: white!important;
+}
+
+.class-wiki-top-menu-bar{
+	margin-bottom: 0px; 
+	background:#f6f6f6; 
+	border-color:#f6f6f6;
+}
+
+.class-wiki-logo{
+	height:100%; 
+	background:#f6f6f6;
+}

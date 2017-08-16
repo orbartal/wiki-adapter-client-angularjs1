@@ -1,0 +1,18 @@
+.class-round-button{
+	border-radius: 24px;
+	padding: 5px;
+	margin-left: 10px;
+}
+
+.class-row-button{
+	border: 2px solid #0099cc;
+    color: #0099cc;
+    background: white;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.class-button-margin{
+	margin-left: 20px;
+    margin-right: 20px;
+}
