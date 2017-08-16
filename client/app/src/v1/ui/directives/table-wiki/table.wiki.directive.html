@@ -4,11 +4,11 @@
              dir="{{config.languageDirection}}"
              disable-filter="false"
              show-filter="true">
-        <tr ng-repeat="article in data">
+        <tr ng-repeat="rowData in data">
           <td ng-repeat="col in $columns">
-	          	<p ng-if="col.field!='actions'">{{options.getDisplayProperty (article, col)}}<p>
+	          	<p ng-if="col.field!='actions'">{{options.getDisplayProperty (rowData, col)}}<p>
 							<div ng-if="col.field=='actions'">
-									<buttons-in-row data="article" options="options.actions"> </buttons-in-row>
+									<buttons-in-row data="rowData" options="options.actions"> </buttons-in-row>
 							</div>
           </td>
         </tr>
