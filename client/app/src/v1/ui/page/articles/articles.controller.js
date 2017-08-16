@@ -9,7 +9,7 @@
 
     function ArticlesCtrl(ArticlesResourcesService, ArticleTableConfigService, toaster) {
         var vm = this;
-        vm.allArticles = [];
+        vm.dataTable = [];
         vm.optionsTable = ArticleTableConfigService.getTableOptions();
         init();
 
@@ -21,7 +21,7 @@
         	ArticlesResourcesService.getAll().then(onSuccess, onFailure);
 
         function onSuccess (articles) {
-                vm.allArticles = articles;
+                vm.dataTable = articles;
         }
 
         function onFailure (error) {
