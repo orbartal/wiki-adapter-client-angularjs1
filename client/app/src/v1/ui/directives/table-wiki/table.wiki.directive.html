@@ -8,7 +8,7 @@
           <td ng-repeat="col in $columns">
 	          	<p ng-if="col.field!='actions'">{{options.getDisplayProperty (rowData, col)}}<p>
 							<div ng-if="col.field=='actions'">
-									<buttons-in-row data="rowData" options="options.actions"> </buttons-in-row>
+									<buttons-in-row data="rowData" options="options.rowButtons"> </buttons-in-row>
 							</div>
           </td>
         </tr>

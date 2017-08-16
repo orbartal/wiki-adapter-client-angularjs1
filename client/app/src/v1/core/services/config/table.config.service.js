@@ -5,14 +5,18 @@
         .module('wikiApp')
         .service('TableConfigService', TableConfigService);
 
-    ArticleButtonConfigService.$inject = [];
+    TableConfigService.$inject = [];
     function TableConfigService() {
         var service = {};
-        service.get= getBy;
+        service.get= get;
         return service;
 
-        function get (columnsService, topButtonsService, rowButtonsService){
-          vm.optionsTable.topButtons = [topButtonsService.getCreate()];
+        function get (columnsService, buttonsService){
+          var optionsTable = {};
+          optionsTable.topButtons = [buttonsService.getCreate()];
+          optionsTable.rowButtons = buttonsService.getRow();
+          optionsTable.tableCols = columnsService.getColumns();
+          return optionsTable
     	  }//End getCreateButton
 
 

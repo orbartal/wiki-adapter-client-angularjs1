@@ -5,14 +5,12 @@
         .module('wikiApp')
         .controller('ArticlesCtrl', ArticlesCtrl);
 
-    ArticlesCtrl.$inject = ['ArticlesResourcesService', 'ArticleButtonConfigService', 'toaster'];
+    ArticlesCtrl.$inject = ['ArticlesResourcesService', 'ArticleTableConfigService', 'toaster'];
 
-    function ArticlesCtrl(ArticlesResourcesService, ArticleButtonConfigService, toaster) {
+    function ArticlesCtrl(ArticlesResourcesService, ArticleTableConfigService, toaster) {
         var vm = this;
-        vm.btnConfig = ArticleButtonConfigService.getCreate();
-        var articleRowActions = ArticleButtonConfigService.getRow();
         vm.allArticles = [];
-        vm.optionsTable = {"actions" : articleRowActions};
+        vm.optionsTable = ArticleTableConfigService.getTableOptions();
         init();
 
         function init() {
@@ -22,11 +20,11 @@
         function getAllArticles() {
         	ArticlesResourcesService.getAll().then(onSuccess, onFailure);
 
-        	function onSuccess (articles) {
+        function onSuccess (articles) {
                 vm.allArticles = articles;
-            }
+        }
 
-        	function onFailure (error) {
+        function onFailure (error) {
         		toaster.error({
         			title: 'Error',
 	                body: 'Failed to get articles due to error: ' + error.message,
