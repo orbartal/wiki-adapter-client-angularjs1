@@ -5,7 +5,7 @@
 		.module('wikiApp')
 		.controller('ModalEditArticleCtrl',  ModalEditArticleCtrl);
 
-	function ModalEditArticleCtrl($scope, $uibModalInstance, toaster, ArticlesResourcesService, article) {
+	function ModalEditArticleCtrl($scope, $uibModalInstance, toaster, ArticlesDataService, article) {
 		var vm = this;
 		vm.save = save;
 		vm.cancel = cancel;
@@ -27,7 +27,7 @@
  			delete vm.tempArticle.versionTime;
     		delete vm.tempArticle.mapPropertyToValue;
     		delete vm.tempArticle.categories;
- 			ArticlesResourcesService.update(vm.tempArticle).then(onSuccess,onFailure);
+ 			ArticlesDataService.update(vm.tempArticle).then(onSuccess,onFailure);
 
 			function onSuccess(){
 				$uibModalInstance.close(vm.article);

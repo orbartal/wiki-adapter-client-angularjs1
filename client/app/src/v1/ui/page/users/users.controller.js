@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('UsersCtrl', UsersCtrl);
 
-    UsersCtrl.$inject = ['toaster', 'UsersResourcesService', 'UserTableConfigService'];
+    UsersCtrl.$inject = ['toaster', 'UsersDataService', 'UserTableConfigService'];
 
-    function UsersCtrl (toaster, UsersResourcesService, UserTableConfigService) {
+    function UsersCtrl (toaster, UsersDataService, UserTableConfigService) {
         var vm = this;
         vm.dataTable = [];
         vm.optionsTable = UserTableConfigService.getTableOptions();
@@ -18,7 +18,7 @@
         }
 
         function getAll () {
-            UsersResourcesService.getAll().then(onSuccess, onFailure);
+            UsersDataService.getAll().then(onSuccess, onFailure);
         	function onSuccess (users) {
                 vm.dataTable = users;
           }

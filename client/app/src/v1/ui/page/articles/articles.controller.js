@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('ArticlesCtrl', ArticlesCtrl);
 
-    ArticlesCtrl.$inject = ['toaster', 'ArticlesResourcesService', 'ArticleTableConfigService'];
+    ArticlesCtrl.$inject = ['toaster', 'ArticlesDataService', 'ArticleTableConfigService'];
 
-    function ArticlesCtrl(toaster, ArticlesResourcesService, ArticleTableConfigService) {
+    function ArticlesCtrl(toaster, ArticlesDataService, ArticleTableConfigService) {
         var vm = this;
         vm.dataTable = [];
         vm.optionsTable = ArticleTableConfigService.getTableOptions();
@@ -18,7 +18,7 @@
         }
 
         function getAllArticles() {
-        	ArticlesResourcesService.getAll().then(onSuccess, onFailure);
+        	ArticlesDataService.getAll().then(onSuccess, onFailure);
 
         function onSuccess (articles) {
                 vm.dataTable = articles;

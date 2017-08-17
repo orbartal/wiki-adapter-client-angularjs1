@@ -5,10 +5,10 @@
         .module('wikiApp')
         .controller('ReadArticleCtrl', ReadArticleCtrl);
 
-    ReadArticleCtrl.$inject = ['$scope', '$sce', '$interpolate', '$compile' , '$state' , '$stateParams', 'ArticlesResourcesService', 'SiteConfigService' , 'toaster', '$uibModal', 'ArticlesConfigService', 'WikiUtils'];
+    ReadArticleCtrl.$inject = ['$scope', '$sce', '$interpolate', '$compile' , '$state' , '$stateParams', 'ArticlesDataService', 'SiteConfigService' , 'toaster', '$uibModal', 'ArticlesConfigService', 'WikiUtils'];
 
     function ReadArticleCtrl($scope, $sce, $interpolate, $compile, $state, $stateParams,
-                            ArticlesResourcesService, SiteConfigService, toaster, $uibModal,
+                            ArticlesDataService, SiteConfigService, toaster, $uibModal,
                             ArticlesConfigService, WikiUtils){
         var vm = this;
         vm.article = null;
@@ -21,7 +21,7 @@
         	if (true){ //ArticlesConfigService.areParamsValide($stateParams)
         		  $scope.tabData   = ArticlesConfigService.getArticleTabsAndSetSiteConfig($scope, $stateParams);
             	$scope.classArticleContent="class-right class-html-view row";
-            	ArticlesResourcesService.getById($stateParams.name).then (onSuccess, onFailure);
+            	ArticlesDataService.getById($stateParams.name).then (onSuccess, onFailure);
         	}
 
         	function onSuccess (data){
@@ -66,7 +66,7 @@
         }
 
         function getArticlesByCategory() {
-        	ArticlesResourcesService.getByCategory(vm.article.name).then(onSuccess, onFailure);
+        	ArticlesDataService.getByCategory(vm.article.name).then(onSuccess, onFailure);
 
         	function onSuccess (articles) {
                 vm.allArticles = articles;

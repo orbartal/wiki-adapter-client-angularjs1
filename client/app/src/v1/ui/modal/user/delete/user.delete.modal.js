@@ -5,7 +5,7 @@
 		.module('wikiApp')
 		.controller('UserDeleteCtrl', UserDeleteCtrl);
 
-	function UserDeleteCtrl($scope, $uibModalInstance, UsersResourcesService, user) {
+	function UserDeleteCtrl($scope, $uibModalInstance, UsersDataService, user) {
 		var vm = this;
 		vm.user = null;
 		vm.ok = ok;
@@ -17,7 +17,7 @@
 		function ok() {
 			vm.errorMessage = "";
 
-			UsersResourcesService.delete(user).then(onSuccess, onFailure);
+			UsersDataService.delete(user).then(onSuccess, onFailure);
 
 			function onSuccess() {
 				$uibModalInstance.close(user);

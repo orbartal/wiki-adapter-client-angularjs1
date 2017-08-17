@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('JobsCtrl', JobsCtrl);
 
-    JobsCtrl.$inject = ['$scope', 'toaster', 'JobsResourcesService', 'WikiUtils'];
+    JobsCtrl.$inject = ['$scope', 'toaster', 'JobsDataService', 'WikiUtils'];
 
-    function JobsCtrl ($scope, toaster, JobsResourcesService, WikiUtils) {
+    function JobsCtrl ($scope, toaster, JobsDataService, WikiUtils) {
         var vm = this;
         vm.allJobs = [];
         vm.displayJobs = [];
@@ -25,7 +25,7 @@
         }
 
         function getAllJobs() {
-        	JobsResourcesService.getAll().then(onSuccess, onFailure);
+        	JobsDataService.getAll().then(onSuccess, onFailure);
 
         	function onSuccess (jobs) {
                 vm.allJobs = jobs;
@@ -58,7 +58,7 @@
         }
 
         vm.stop = function(job) {
-        	JobsResourcesService.end (job.id).then(onSuccess, onFailure);
+        	JobsDataService.end (job.id).then(onSuccess, onFailure);
 
         	function onSuccess (jobs) {
         		var jobs = vm.allJobs.filter(function( t ) {
@@ -76,7 +76,7 @@
         }
 
         vm.addNewJob = function() {
-        JobsResourcesService.create(vm.strCommand).then(onSuccess, onFailure);
+        JobsDataService.create(vm.strCommand).then(onSuccess, onFailure);
 
         	function onSuccess (job) {
         		getAllJobs();

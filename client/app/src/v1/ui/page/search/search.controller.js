@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('SearchCtrl', SearchCtrl);
 
-    SearchCtrl.$inject = ['$state', 'toaster', 'SearchResourcesService', 'WikiUtils'];
+    SearchCtrl.$inject = ['$state', 'toaster', 'SearchDataService', 'WikiUtils'];
 
-    function SearchCtrl ($state, toaster, SearchResourcesService, WikiUtils) {
+    function SearchCtrl ($state, toaster, SearchDataService, WikiUtils) {
         var vm = this;
         vm.items =[];
         vm.searchable = true;
@@ -45,7 +45,7 @@
         	vm.items = [];
         	vm.lastQuery = vm.query;
         	vm.searchable = false;
-        	SearchResourcesService.search(vm.query, vm.startResult, vm.endResult).then(onSuccess, onFailure);
+        	SearchDataService.search(vm.query, vm.startResult, vm.endResult).then(onSuccess, onFailure);
 
         	function onSuccess(data) {
         		vm.items = data.items;

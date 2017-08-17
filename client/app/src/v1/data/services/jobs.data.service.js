@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .factory('JobsResourcesService', JobsResourcesService);
+        .factory('JobsDataService', JobsDataService);
 
-    JobsResourcesService.$inject = ['$q', 'toaster', 'SiteConfigService'];
-    function JobsResourcesService($q, toaster, SiteConfigService) {
+    JobsDataService.$inject = ['$q', 'toaster', 'SiteConfigService'];
+    function JobsDataService($q, toaster, SiteConfigService) {
         var service = {};
 
         //Crud

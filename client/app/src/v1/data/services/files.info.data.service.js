@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('FilesResourcesService', FilesResourcesService);
+        .service('FilesDataService', FilesDataService);
 
-    FilesResourcesService.$inject = ['$q', 'toaster'];
-    function FilesResourcesService($q, toaster) {
+    FilesDataService.$inject = ['$q', 'toaster'];
+    function FilesDataService($q, toaster) {
         var service = {};
         service.getById = getById;
         service.getAll = getAll;

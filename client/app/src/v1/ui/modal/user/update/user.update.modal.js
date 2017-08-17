@@ -5,7 +5,7 @@
 		.module('wikiApp')
 		.controller('UserEditCtrl',  UserEditCtrl);
 
-	function UserEditCtrl($uibModalInstance, UsersResourcesService, user) {
+	function UserEditCtrl($uibModalInstance, UsersDataService, user) {
 		var vm = this;
 		vm.save = save;
 		vm.cancel = cancel;
@@ -24,7 +24,7 @@
 
 		function save() {
  			vm.errorMessage = "";
- 			UsersResourcesService.update (vm.tempUser).then(onSuccess,onFailure);
+ 			UsersDataService.update (vm.tempUser).then(onSuccess,onFailure);
 
 			function onSuccess(){
 				$uibModalInstance.close(vm.user);

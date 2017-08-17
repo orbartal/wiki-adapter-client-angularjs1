@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .factory('ArticlesVersionsResourcesService', ArticlesVersionsResourcesService);
+        .factory('ArticlesVersionsDataService', ArticlesVersionsDataService);
 
-    ArticlesVersionsResourcesService.$inject = ['$q', 'SiteConfigService', 'toaster'];
-    function ArticlesVersionsResourcesService($q, SiteConfigService, toaster) {
+    ArticlesVersionsDataService.$inject = ['$q', 'SiteConfigService', 'toaster'];
+    function ArticlesVersionsDataService($q, SiteConfigService, toaster) {
         var service = {};
         service.getArticleHistory = getArticleHistory;
         service.getById = getById;

@@ -3,9 +3,9 @@
 
       angular
             .module('wikiApp')
-            .directive('jobProgressBar', ['SiteConfigService', 'JobsResourcesService', '$timeout', 'toaster', 'WikiUtils', jobProgressBar]);
+            .directive('jobProgressBar', ['SiteConfigService', 'JobsDataService', '$timeout', 'toaster', 'WikiUtils', jobProgressBar]);
 
-      function jobProgressBar (SiteConfigService, JobsResourcesService, $timeout, toaster, WikiUtils){
+      function jobProgressBar (SiteConfigService, JobsDataService, $timeout, toaster, WikiUtils){
             var directive = {};
             directive.restrict = 'E';
             directive.scope =  {data : '=', options : '='};
@@ -59,7 +59,7 @@
 	    			  scope.data.finished = true;
 	    			  return;
 	    		  }
-	    		  JobsResourcesService.getProgress(scope.data.jobId).then(onSuccess, onFailure);
+	    		  JobsDataService.getProgress(scope.data.jobId).then(onSuccess, onFailure);
 
 	    		  function onSuccess(result) {
 	    			  $timeout(updateBar);

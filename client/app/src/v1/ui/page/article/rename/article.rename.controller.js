@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('RenameArticleCtrl', RenameArticleCtrl);
 
-    RenameArticleCtrl.$inject = ['$scope', '$stateParams', '$state', 'ArticlesResourcesService', 'ArticlesConfigService', 'SiteConfigService', 'toaster'];
+    RenameArticleCtrl.$inject = ['$scope', '$stateParams', '$state', 'ArticlesDataService', 'ArticlesConfigService', 'SiteConfigService', 'toaster'];
 
-    function RenameArticleCtrl($scope, $stateParams, $state, ArticlesResourcesService, ArticlesConfigService, SiteConfigService, toaster) {
+    function RenameArticleCtrl($scope, $stateParams, $state, ArticlesDataService, ArticlesConfigService, SiteConfigService, toaster) {
         var vm = this;
         vm.tempArticle = null;
         vm.save = save;
@@ -24,7 +24,7 @@
         }
 
         function getArticleFromServer() {
-        	ArticlesResourcesService.getById($stateParams.id).then (onSuccess);
+        	ArticlesDataService.getById($stateParams.id).then (onSuccess);
 
 
         	function onSuccess (data) {
@@ -49,7 +49,7 @@
         	delete vm.article.versionTime;
         	delete vm.tempArticle.mapPropertyToValue;
     		  delete vm.tempArticle.categories;
-        	ArticlesResourcesService.update(vm.tempArticle).then(onSuccess, onFailure);
+        	ArticlesDataService.update(vm.tempArticle).then(onSuccess, onFailure);
 
 			function onSuccess(article){
 				toaster.success({

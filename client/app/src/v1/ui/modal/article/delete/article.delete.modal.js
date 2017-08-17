@@ -5,7 +5,7 @@
 		.module('wikiApp')
 		.controller('ModalDeleteArticleCtrl', ModalDeleteArticleCtrl);
 
-	function ModalDeleteArticleCtrl ($scope, $uibModalInstance, ArticlesResourcesService, article) {
+	function ModalDeleteArticleCtrl ($scope, $uibModalInstance, ArticlesDataService, article) {
 		var vm = this;
 		vm.article = null;
 		vm.ok = ok;
@@ -23,7 +23,7 @@
 
 			vm.errorMessage = "";
 
-			ArticlesResourcesService.delete(article).then(onDeleteSuccess,onDeleteFailure);
+			ArticlesDataService.delete(article).then(onDeleteSuccess,onDeleteFailure);
 
 			function onDeleteSuccess() {
 				$uibModalInstance.close(vm.article);

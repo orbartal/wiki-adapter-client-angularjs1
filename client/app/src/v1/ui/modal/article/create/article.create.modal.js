@@ -5,7 +5,7 @@
 		.module('wikiApp')
 		.controller('ArticleCreateCtrl',  ArticleCreateCtrl);
 
-	function ArticleCreateCtrl ($scope, $uibModalInstance, ArticlesResourcesService) {
+	function ArticleCreateCtrl ($scope, $uibModalInstance, ArticlesDataService) {
 		var vm = this;
 		vm.create = create;
 		vm.cancel = cancel;
@@ -20,7 +20,7 @@
 
 		function create() {
  			vm.errorMessage = "";
- 			ArticlesResourcesService.create(vm.article).then(onUpdateSuccess,onUpdateFailure);
+ 			ArticlesDataService.create(vm.article).then(onUpdateSuccess,onUpdateFailure);
 
 			function onUpdateSuccess(){
 				$uibModalInstance.close(vm.article);

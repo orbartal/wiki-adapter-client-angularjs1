@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('ArticleHistoryCtrl', ArticleHistoryCtrl);
 
-    ArticleHistoryCtrl.$inject = ['ArticlesVersionsResourcesService', 'ArticlesConfigService', '$scope', '$stateParams', '$uibModal', '$state', 'toaster', 'NgTableParams', 'SiteConfigService'];
+    ArticleHistoryCtrl.$inject = ['ArticlesVersionsDataService', 'ArticlesConfigService', '$scope', '$stateParams', '$uibModal', '$state', 'toaster', 'NgTableParams', 'SiteConfigService'];
 
-    function ArticleHistoryCtrl(ArticlesVersionsResourcesService, ArticlesConfigService, $scope, $stateParams, $uibModal, $state, toaster, NgTableParams, SiteConfigService) {
+    function ArticleHistoryCtrl(ArticlesVersionsDataService, ArticlesConfigService, $scope, $stateParams, $uibModal, $state, toaster, NgTableParams, SiteConfigService) {
         var vm = this;
         vm.article = null;
         vm.articleVersions = [];
@@ -35,7 +35,7 @@
 
         function getArticleHistory(nameSpace, name) {
 
-        	ArticlesVersionsResourcesService.getArticleHistory(nameSpace, name).then(onSuccess, onFailure);
+        	ArticlesVersionsDataService.getArticleHistory(nameSpace, name).then(onSuccess, onFailure);
 
         	function onSuccess (data) {
                 vm.articleVersions = data;

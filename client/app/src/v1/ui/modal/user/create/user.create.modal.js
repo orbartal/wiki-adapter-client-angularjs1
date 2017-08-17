@@ -5,7 +5,7 @@
 		.module('wikiApp')
 		.controller('UserCreateCtrl',  UserCreateCtrl);
 
-	function UserCreateCtrl($uibModalInstance, UsersResourcesService) {
+	function UserCreateCtrl($uibModalInstance, UsersDataService) {
 		var vm = this;
 		vm.create = create;
 		vm.cancel = cancel;
@@ -15,7 +15,7 @@
 		function create() {
  			vm.errorMessage = "";
 
- 			UsersResourcesService.create (vm.user).then(onSuccess,onFailure);
+ 			UsersDataService.create (vm.user).then(onSuccess,onFailure);
 
 			function onSuccess(){
 				$uibModalInstance.close(vm.user);

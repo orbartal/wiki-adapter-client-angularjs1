@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('FilesCtrl', FilesCtrl);
 
-    FilesCtrl.$inject = ['toaster', 'FilesResourcesService', 'FileTableConfigService'];
+    FilesCtrl.$inject = ['toaster', 'FilesDataService', 'FileTableConfigService'];
 
-    function FilesCtrl(toaster, FilesResourcesService, FileTableConfigService) {
+    function FilesCtrl(toaster, FilesDataService, FileTableConfigService) {
     	var vm = this;
 		vm.options = {};
 		vm.files = [];
@@ -25,7 +25,7 @@
          }
 
          function getAllFiles (){
-        	  FilesResourcesService.getAll().then(onSuccess, onFailure);
+        	  FilesDataService.getAll().then(onSuccess, onFailure);
 
            	function onSuccess (files1) {
            		vm.files = files1;

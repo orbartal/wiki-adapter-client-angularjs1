@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .factory('PropertiesResourcesService', PropertiesResourcesService);
+        .factory('PropertiesDataService', PropertiesDataService);
 
-    PropertiesResourcesService.$inject = ['$http', 'toaster'];
-    function PropertiesResourcesService($http, toaster) {
+    PropertiesDataService.$inject = ['$http', 'toaster'];
+    function PropertiesDataService($http, toaster) {
         var service = {};
 
         //Crud

@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .factory('UsersResourcesService', UsersResourcesService);
+        .factory('UsersDataService', UsersDataService);
 
-    UsersResourcesService.$inject = ['$q'];
-    function UsersResourcesService($q) {
+    UsersDataService.$inject = ['$q'];
+    function UsersDataService($q) {
         var service = {};
         service.getAll = getAll;
         service.getById = getById;

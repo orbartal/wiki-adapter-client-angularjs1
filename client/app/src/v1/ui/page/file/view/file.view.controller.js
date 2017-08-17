@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('ViewFileCtrl', ViewFileCtrl);
 
-    ViewFileCtrl.$inject = ['$scope', '$state' , '$stateParams', 'FilesResourcesService', 'SiteConfigService' , 'toaster', '$uibModal'];
+    ViewFileCtrl.$inject = ['$scope', '$state' , '$stateParams', 'FilesDataService', 'SiteConfigService' , 'toaster', '$uibModal'];
 
-    function ViewFileCtrl($scope, $state, $stateParams, FilesResourcesService, SiteConfigService, toaster, $uibModal){
+    function ViewFileCtrl($scope, $state, $stateParams, FilesDataService, SiteConfigService, toaster, $uibModal){
         var vm = this;
         vm.width = 250;
         vm.height = 250;
@@ -17,7 +17,7 @@
         function init() {
           vm.fileUrl = "https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg"; //TODO: remove
           vm.file = {"type" : "image"};
-          //FilesResourcesService.getFileByName($stateParams.name).then(onSuccess, onFailure);
+          //FilesDataService.getFileByName($stateParams.name).then(onSuccess, onFailure);
 
           	function onSuccess (file1) {
           		vm.file = file1;

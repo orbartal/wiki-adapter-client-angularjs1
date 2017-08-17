@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('ArticlesResourcesService', ArticlesResourcesService);
+        .service('ArticlesDataService', ArticlesDataService);
 
-    ArticlesResourcesService.$inject = ['$q', 'toaster'];
-    function ArticlesResourcesService($q, toaster) {
+    ArticlesDataService.$inject = ['$q', 'toaster'];
+    function ArticlesDataService($q, toaster) {
         var service = {};
         //Crud
         service.getAll = getAll;

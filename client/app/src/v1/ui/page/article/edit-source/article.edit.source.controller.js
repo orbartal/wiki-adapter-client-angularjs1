@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('EditSourceArticleCtrl', EditSourceArticleCtrl);
 
-    EditSourceArticleCtrl.$inject = ['$scope', '$stateParams', '$state', 'ArticlesResourcesService', 'ArticlesConfigService' , 'WikiUtils', 'toaster'];
+    EditSourceArticleCtrl.$inject = ['$scope', '$stateParams', '$state', 'ArticlesDataService', 'ArticlesConfigService' , 'WikiUtils', 'toaster'];
 
-    function EditSourceArticleCtrl($scope, $stateParams, $state, ArticlesResourcesService, ArticlesConfigService, WikiUtils, toaster) {
+    function EditSourceArticleCtrl($scope, $stateParams, $state, ArticlesDataService, ArticlesConfigService, WikiUtils, toaster) {
         var vm = this;
         vm.tempArticle = null;
         vm.save = save;
@@ -24,7 +24,7 @@
         }
 
         function getArticleFromServer (){
-        	ArticlesResourcesService.getById($stateParams.title).then (onSuccess);
+        	ArticlesDataService.getById($stateParams.title).then (onSuccess);
 
         	function onSuccess (data) {
         		vm.article = data;
@@ -44,7 +44,7 @@
         		delete vm.tempArticle.mapPropertyToValue;
         		delete vm.tempArticle.categories;
         	}
-        	ArticlesResourcesService.update(vm.tempArticle).then(onSuccess, onFailure);
+        	ArticlesDataService.update(vm.tempArticle).then(onSuccess, onFailure);
 
 			function onSuccess(article){
 				toaster.success({

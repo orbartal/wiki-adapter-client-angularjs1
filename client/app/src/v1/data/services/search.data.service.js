@@ -3,11 +3,11 @@
 
     angular
         .module('wikiApp')
-        .factory('SearchResourcesService', SearchResourcesService);
+        .factory('SearchDataService', SearchDataService);
 
-    SearchResourcesService.$inject = ['$q'];
+    SearchDataService.$inject = ['$q'];
 
-    function SearchResourcesService($q) {
+    function SearchDataService($q) {
     	var service = {};
         service.search = search;
         return service;
