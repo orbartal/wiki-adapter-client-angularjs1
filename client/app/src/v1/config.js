@@ -101,5 +101,17 @@
                 templateUrl: dirPath.concat("jobs/jobs.view.html"),
                 controller: "JobsCtrl as vm",
             })
+
+            .state('site.import', {
+               url: "/import",
+               templateUrl: dirPath.concat("import/import.view.html"),
+               controller: "ImportCtrl as vm",
+           })
+
+           .state('site.export', {
+               url: "/export",
+               templateUrl: dirPath.concat("export/export.view.html"),
+               controller: "ExportCtrl as vm",
+           })
     }
 })();

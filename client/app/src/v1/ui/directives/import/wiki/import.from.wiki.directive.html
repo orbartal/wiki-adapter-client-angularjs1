@@ -1,0 +1,99 @@
+<table class="table import-table"  id="importConfigTable">
+	<thead>
+	  <tr>
+	  	<th> </th>
+	  	<th> </th>
+	  </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td ng-if="!config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.history}}</span>
+			</td>
+			<td>
+				<select name="singleSelect" ng-model="data.history" dir="{{config.languageDirection}}">
+			      <option value=false>{{language.onlyCurrentVersion}}</option>
+			      <option value=true>{{language.allVersions}}</option>
+			    </select>
+			</td>
+			<td ng-if="config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.history}}</span>
+			</td>
+		</tr>
+		
+		<tr>
+			<td ng-if="!config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.url}}</span>
+			</td>
+			<td>
+				<input ng-model="data.url">
+			</td>
+			<td ng-if="config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.url}}</span>
+			</td>
+		</tr>
+		<tr>
+			<td ng-if="!config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.language}}</span>
+			</td>
+			<td>
+				<input ng-model="data.language">
+			</td>
+			<td ng-if="config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.language}}
+			</span></td>
+		</tr>
+		<tr>
+			<td ng-if="!config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.filter}}</span>
+			</td>
+			<td>
+				<select name="singleSelect" ng-model="data.filter" dir="{{config.languageDirection}}">
+			      <option value="allPages">{{language.allPages}}</option>
+			      <option value="nameSpace">{{language.nameSpace}}</option>
+			      <option value="category">{{language.category}}</option>
+			      <option value="article">{{language.article}}</option>
+			    </select>
+			</td>
+			<td ng-if="config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.filter}}</span>
+			</td>
+		</tr>
+		
+		<tr ng-if="data.filter=='nameSpace'">
+			<td ng-if="!config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.nameSpace}}</span>
+			</td>
+			<td>
+				<input class="input-in-table" ng-model="data.nameSpace">
+			</td>
+			<td ng-if="config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.nameSpace}}
+			</span></td>
+		</tr>
+		
+		<tr ng-if="data.filter=='category'">
+			<td ng-if="!config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.category}}</span>
+			</td>
+			<td>
+				<input class="input-in-table" ng-model="data.category">
+			</td>
+			<td ng-if="config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.category}}
+			</span></td>
+		</tr>
+		
+		<tr ng-if="data.filter=='article'">
+			<td ng-if="!config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.article}}</span>
+			</td>
+			<td>
+				<input class="input-in-table" ng-model="data.article">
+			</td>
+			<td ng-if="config.isRtl">
+				<span  ng-class="tdLabelClass">{{language.article}}
+			</span></td>
+		</tr>	
+	</tbody>
+</table>

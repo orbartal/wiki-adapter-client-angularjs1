@@ -41,6 +41,9 @@
         mapLanguage.btnReset = "btnReset";
         mapLanguage.sourceLanguage="source code language";
 
+        mapLanguage.import = "import";
+        mapLanguage.export = "export";
+
         var configTemp = {"mapLanguage" : mapLanguage, "languageDirection" : "ltr"};
         configTemp.isRtl = false;
         config = configTemp;

@@ -1,0 +1,26 @@
+<div class = "col-sm-11 pull-right">
+	<p class="class-center class-page-headr-text">{{vm.language.exportPages}}</p>
+	<div class="row">
+		<label>Export source type</label>
+	    <select id="selectSourceType" ng-model="vm.selectedSourceType" ng-disabled="vm.isBusy">
+	   		<option ng-repeat="sourceType in vm.arrSourcesTypes" value="{{sourceType.id}}">{{sourceType.name}}</option>
+	  	</select>
+  	</div>
+  	<div class="row">
+	  	<div ng-switch on="vm.selectedSourceType">
+		      <div ng-switch-when="1"><export-to-file data="vm.fileData"></export-to-file></div>
+	  	</div>
+  	</div>
+	<div class="row">
+		<button type="button" ng-class="vm.classBtnExport" ng-click="vm.exportData()"
+				ng-disabled="(vm.isBusy || !vm.selectedSourceType)">
+				{{vm.language.export}}
+		</button>
+		<button ng-click='vm.stop()' ng-class="vm.classBtnExport" ng-disabled="!vm.isBusy">
+		          	<span class="glyphicon glyphicon-stop">stop</span>
+		</button>
+	</div>
+	<p>{{vm.message}}<p>
+	<job-progress-bar options = "vm.progress.options" data = "vm.progress.data"  style="width:60%">
+	</job-progress-bar>
+</div>
