@@ -2,17 +2,9 @@
 	<buttons-in-row data="data" options="options.topButtons"> </buttons-in-row>
 	<br/><br/>
 	<table ng-table-dynamic="tableParams with options.tableCols"
-             class="table table-condensed table-bordered table-striped"
-             dir="{{config.languageDirection}}"
-             disable-filter="false"
-             show-filter="true">
-        <tr ng-repeat="rowData in data">
-          <td ng-repeat="col in $columns">
-	          	<p ng-if="col.field!='actions'">{{options.getDisplayProperty (rowData, col)}}<p>
-							<div ng-if="col.field=='actions'">
-									<buttons-in-row data="rowData" options="options.rowButtons"> </buttons-in-row>
-							</div>
-          </td>
-        </tr>
-      </table>
+			class="table table-condensed table-bordered table-striped">
+           <tr ng-repeat="row in $data">
+             <td ng-repeat="col in $columns">{{row[col.field]}}</td>
+           </tr>
+         </table>
  </div>

@@ -20,9 +20,9 @@
           var config = SiteConfigService.getSiteConfig();
           var lang = config.mapLanguage;
           var tableCols =  [
-             { field: "id", title: lang.id, sortable: "id", filter: {name: "text" }, show: true},
+             { field: "id", title: lang.id, sortable: "id", filter: {id: "text" }, show: true},
              { field: "name", title: lang.name, sortable: "name", filter: {name: "text" }, show: true},
-             { field: "role", title: lang.role, sortable: "role", filter: {name: "text" }, show: true},
+             { field: "role", title: lang.role, sortable: "role", filter: {role: "text" }, show: true},
              { field: "actions", title: "actions", show: true}
           ];
           return tableCols;

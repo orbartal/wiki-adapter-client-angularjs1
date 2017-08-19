@@ -44,8 +44,12 @@
                 return;
               }
 	        	 initializeOptions();
-        		 scope.tableParams = new NgTableParams(scope.options.initialSettings, { data: scope.data});
-        		 scope.tableParams.data = scope.data;
+                 var options1 = { sorting: { id: "desc" }};
+                 var data1 = { dataset: scope.data};
+        		 scope.tableParams = new NgTableParams(options1, data1);
+
+                 //new NgTableParams(scope.options.initialSettings, { data: scope.data});
+        		// scope.tableParams.data = scope.data;
 	          }
 
 	          function initializeOptions (){
