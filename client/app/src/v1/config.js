@@ -16,7 +16,8 @@
       $qProvider.errorOnUnhandledRejections(false);
     	$urlRouterProvider.otherwise("/home");
       var dirPath = "/app/src/v1/ui/page/";
-    	$stateProvider
+       var dirTestPath = "/app/test/v1/ui/page/";
+      $stateProvider
 
       .state('login', {
 	            url: "/login",

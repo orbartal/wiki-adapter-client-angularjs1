@@ -18,8 +18,8 @@
           scope.applay = applay;
 	    	  init();
 
-          function applay (action) {
-            return action(scope.data);
+          function applay (btn) {
+            return btn.action(scope.data);
           }
 
   	    function init() {

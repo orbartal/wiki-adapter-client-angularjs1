@@ -4,9 +4,9 @@
     //http://ng-table.com/#/editing/demo-inline
       angular
             .module('wikiApp')
-            .directive('tableWiki', ['SiteConfigService', 'NgTableParams', tableWiki]);
+            .directive('tableWiki', ['SiteConfigService', 'NgTableParams', '$interpolate', '$sce', tableWiki]);
 
-      function tableWiki (SiteConfigService, NgTableParams){
+      function tableWiki (SiteConfigService, NgTableParams, $interpolate, $sce){
             var directive = {};
             directive.restrict = 'E';
             directive.scope =  {data : '=', options : '='};
@@ -17,6 +17,26 @@
 
 	      function articlesTableLinking(scope, element, attrs, ctrl){
 	    	  init();
+              scope.toHtml = toHtml;
+
+              function getDisplayProperty (row, col){
+                     return row[col.field];
+              }//End getDisplayProperty
+
+
+              function toHtml (colIndex, rowIndex, $data) {
+                   //var col = scope.options.tableCols[colIndex];
+                   var html = scope.options.makeCell
+                            (colIndex, rowIndex, $data, scope.options);
+                   var result = processHtml (html);
+                   return result;
+              }
+              function processHtml (html) {
+                  var html2 = html.replace(/&quot;/g, "'");
+                  var html3 = $interpolate(html2)(scope);
+                  var html4 = $sce.trustAsHtml(html3);
+                   return html4;
+               }
 
 	    	  function init() {
 	    		  	scope.config = SiteConfigService.getSiteConfig();
@@ -78,11 +98,6 @@
 	                      ];
   	        	 return tableCols;
 	  	       }
-
-	  	       function getDisplayProperty (row, col){
-		  	    	  return row[col.field];
-		  	   }//End getDisplayProperty
-
 	      }//End articlesTableLinking
       }//End articlesTable
 })();

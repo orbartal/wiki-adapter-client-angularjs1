@@ -9,29 +9,11 @@
       function compile ($compile){
             var directive = {};
             directive.restrict = 'A';
-            directive.scope =  {};
-        //    directive.templateUrl = '/app/common/directives/div-image/div.image.view.html';
             directive.replace = true;
-            directive.controller = compileController;  //Leval 1 function
-            directive.compile = compileCompile; //Leval 2 function
             directive.link = compileLinking; //Leval 3 function
             return directive;
 
-
-	      function compileController($scope){
-	      }
-
-	      // function is executed once (1) for every instance of ui-jq in your original UNRENDERED template.
-	      // Scope is UNAVAILABLE as the templates are only being cached. updatehour()
-	      function compileCompile (element, attributes){
-	            return this.link;
-	      }
-
-	      // Function is executed once (1) for every RENDERED instance.
-	      // Scope IS available because controller logic has finished executing.
-	      // All variables and expression values can finally be determined.
 	      function compileLinking(scope, element, attrs, ctrl){
-	    	  var x = 0;
 	    	  scope.$watch(watchFun,watchFun2);
 
     			// watch the 'compile' expression for changes

@@ -22,9 +22,9 @@
         //Crud methods
         function getAll() {
               var article1 = {"id" : 1, "name" : "article1", "nameSpace":"main", "source" : "source1", "html": "<h1>html</h1>", "datetime" : "11:10:11"};
-              var article2 = {"id" : 1, "name" : "file1", "nameSpace":"main", "source" : "source2", "html": "<h1>html</h1>", "datetime" : "11:10:11"};
-              var article3 = {"id" : 1, "name" : "source1",  "nameSpace":"category", "source" : "source3", "html": "<h1>html</h1>", "datetime" : "10:10:10"};
-              var article4 = {"id" : 1, "name" : "property",  "nameSpace":"property", "source" : "source4", "html": "<h1>html</h1>", "datetime" : "10:10:10"};
+              var article2 = {"id" : 2, "name" : "file1", "nameSpace":"main", "source" : "source2", "html": "<h1>html</h1>", "datetime" : "11:10:11"};
+              var article3 = {"id" : 3, "name" : "source1",  "nameSpace":"category", "source" : "source3", "html": "<h1>html</h1>", "datetime" : "10:10:10"};
+              var article4 = {"id" : 4, "name" : "property",  "nameSpace":"property", "source" : "source4", "html": "<h1>html</h1>", "datetime" : "10:10:10"};
               var results = [article1, article2, article3, article4];
               return $q.when(results);
         }

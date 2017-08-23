@@ -3,8 +3,11 @@
 	<br/><br/>
 	<table ng-table-dynamic="tableParams with options.tableCols"
 			class="table table-condensed table-bordered table-striped">
-           <tr ng-repeat="row in $data">
-             <td ng-repeat="col in $columns">{{row[col.field]}}</td>
-           </tr>
-         </table>
+		<tr ng-repeat="row in $data track by $index" ng-init="rowIndex = $index">
+			<td ng-repeat="col in options.tableCols track by $index" ng-init="colIndex = $index">
+				<div compile="{{toHtml(colIndex, rowIndex, $data)}}"></div>
+			</td>
+		</tr>
+		</tr>
+	</table>
  </div>

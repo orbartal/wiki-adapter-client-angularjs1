@@ -6,15 +6,14 @@
         .controller('HomeCtrl', HomeCtrl);
 
     HomeCtrl.$inject = [];
-
-    function HomeCtrl($uibModal, toaster) {
+    function HomeCtrl() {
         var vm = this;
         vm.currentLoginUser = null;
         init();
 
         function init() {
         	vm.currentLoginUser = {};
-          vm.currentLoginUser.name = "orbartal";
+            vm.currentLoginUser.name = "orbartal";
         }
     }
 })();

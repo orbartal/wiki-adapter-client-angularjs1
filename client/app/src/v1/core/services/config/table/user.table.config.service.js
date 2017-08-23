@@ -5,27 +5,20 @@
         .module('wikiApp')
         .service('UserTableConfigService', UserTableConfigService);
 
-    UserTableConfigService.$inject = ['SiteConfigService', 'TableConfigService', 'UserButtonConfigService'];
-    function UserTableConfigService(SiteConfigService, TableConfigService, UserButtonConfigService) {
+    UserTableConfigService.$inject = ['TableConfigService', 'UserButtonConfigService'];
+    function UserTableConfigService(TableConfigService, UserButtonConfigService) {
         var service = {};
+        service.makeCell = TableConfigService.makeCell;
         service.getColumns = getColumns;
         service.getTableOptions = getTableOptions;
         return service;
 
         function getTableOptions (){
-          return TableConfigService.get(service, UserButtonConfigService);
+            return TableConfigService.getOptions (service, UserButtonConfigService);
         }
 
         function getColumns (){
-          var config = SiteConfigService.getSiteConfig();
-          var lang = config.mapLanguage;
-          var tableCols =  [
-             { field: "id", title: lang.id, sortable: "id", filter: {id: "text" }, show: true},
-             { field: "name", title: lang.name, sortable: "name", filter: {name: "text" }, show: true},
-             { field: "role", title: lang.role, sortable: "role", filter: {role: "text" }, show: true},
-             { field: "actions", title: "actions", show: true}
-          ];
-          return tableCols;
-    	  }//End getColumns
+             return TableConfigService.geteColsDesc (["id", "name", "role"]);
+        }//End getColumns
     }
 })();
