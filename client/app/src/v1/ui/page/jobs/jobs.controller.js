@@ -5,16 +5,21 @@
         .module('wikiApp')
         .controller('JobsCtrl', JobsCtrl);
 
-    JobsCtrl.$inject = ['$scope', 'toaster', 'JobsDataService', 'WikiUtils'];
+    JobsCtrl.$inject = ['$scope', 'toaster', 'JobsDataService', 'WikiUtils', 'JobTableConfigService'];
 
-    function JobsCtrl ($scope, toaster, JobsDataService, WikiUtils) {
+    function JobsCtrl ($scope, toaster, JobsDataService, WikiUtils, JobTableConfigService) {
         var vm = this;
         vm.allJobs = [];
         vm.displayJobs = [];
         vm.strCommand = "";
+
+        vm.dataTable = [];
+        vm.optionsTable = undefined;
+
         active();
 
         function active() {
+            vm.optionsTable = JobTableConfigService.getTableOptions();
 			getAllJobs();
             //TODO: fix
             /*
@@ -29,6 +34,12 @@
 
         	function onSuccess (jobs) {
                 vm.allJobs = jobs;
+                vm.dataTable = jobs;
+                for (var i = 0; i < vm.dataTable.length; i++) {
+                    var job = vm.dataTable[i];
+                    job.start = vm.getStartTime (job);
+                    job.duration = vm.getStartTime (job);
+                }
             }
 
         	function onFailure (error) {

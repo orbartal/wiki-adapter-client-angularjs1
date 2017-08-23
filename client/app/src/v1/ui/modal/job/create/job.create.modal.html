@@ -1,0 +1,27 @@
+<div class="inmodal">
+	<form name="jobForm" class="horizontal-form" novalidate ng-submit="vm.create()">
+    <div class="modal-header">
+        <h4 class="modal-title">Create Article</h4>
+    </div>
+   		<div class="modal-body">
+
+	   		<div class="form-group" ng-class="{ 'has-error': jobForm.name.$touched && jobForm.name.$invalid}">
+	                <label class="control-label">name</label>
+	                <input type="text" name="name" class="form-control" ng-model="vm.article.name" ng-minlength="1" ng-maxlength="30" required/>
+	                <form-validation ng-messages="jobForm.name.$error" ng-if="jobForm.name.$touched" field-name="name"></form-validation>
+	        </div>
+
+	        <div class="form-group" ng-class="{ 'has-error': jobForm.command.$touched && jobForm.command.$invalid}">
+	                <label class="control-label">command</label>
+	                <input type="text" name="command" class="form-control" ng-model="vm.job.command" ng-minlength="1" ng-maxlength="30" required/>
+	                <form-validation ng-messages="jobForm.command.$error" ng-if="jobForm.command.$touched" field-name="command"></form-validation>
+	        </div>
+
+             <p class="class-error-message">{{vm.errorMessage}}</p>
+    	</div>
+	    <div class="modal-footer">
+	    	    <button type="button" class="btn btn-white" ng-click="vm.cancel()">Cancel</button>
+	        	<button type="submit" class="btn btn-primary" ng-disabled="!jobForm.$valid">Create</button>
+	    </div>
+   </form>
+</div>
