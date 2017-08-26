@@ -1,41 +1,26 @@
 (function () {
     'use strict';
 
-      angular
-            .module('wikiApp')
-            .directive('buttonsInRow', ['LanguageConfigService', buttonsInRow]);
+    angular
+    .module('wikiApp')
+    .directive('buttonsInRow', [buttonsInRow]);
 
-      function buttonsInRow (language){
-            var directive = {};
-            directive.restrict = 'E';
-            directive.scope =  {data : '=', options : '='};
-            directive.templateUrl = '/app/src/v1/ui/directives/buttons-in-row/buttons.in.row.directive.html';
-            directive.replace = true;
-            directive.link = actionsLinking; //Leval 3 function
-            return directive;
+    function buttonsInRow (){
+        var directive = {};
+        directive.restrict = 'E';
+        directive.scope =  {data : '=', options : '='};
+        directive.templateUrl = '/app/src/v1/ui/directives/buttons-in-row/buttons.in.row.directive.html';
+        directive.replace = true;
+        directive.link = buttonsInRowLinking; //Leval 3 function
+        return directive;
 
-	   function actionsLinking (scope, element, attrs, ctrl){
-          scope.applay = applay;
-	    	  init();
+        function buttonsInRowLinking (scope, element, attrs, ctrl){
+            scope.applay = applay;
 
-          function applay (btn) {
-            return btn.action(scope.data);
-          }
+            function applay (btn) {
+                return btn.action(scope.data);
+            }
 
-  	    function init() {
-  		          setStyle();
-  	    }
-
-  	   function setStyle (){
-  		          	scope.rowButtonClass =["btn", "class-row-button"];
-  		          	if (language.isRtl()){
-  		          		scope.rowButtonClass.push("class-right");
-  		          	}else{
-  		          		scope.rowButtonClass.push("class-left");
-  		          	}
-  	          }
-        }
-
-
-  }
+        }//End buttonsInRowLinking
+    }//End buttonsInRow
 })();
