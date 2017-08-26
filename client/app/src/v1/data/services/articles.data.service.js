@@ -21,7 +21,10 @@
               var article2 = {"id" : 2, "name" : "file1", "nameSpace":"main", "source" : "source2", "html": "<h1>html</h1>", "datetime" : "11:10:11"};
               var article3 = {"id" : 3, "name" : "source1",  "nameSpace":"category", "source" : "source3", "html": "<h1>html</h1>", "datetime" : "10:10:10"};
               var article4 = {"id" : 4, "name" : "property",  "nameSpace":"property", "source" : "source4", "html": "<h1>html</h1>", "datetime" : "10:10:10"};
-              var results = [article1, article2, article3, article4];
+              var article5 = {"id" : 5, "name" : "article5", "nameSpace":"main", "source" : "source1", "html": "<h1>html5</h1>", "datetime" : "11:10:11"};
+              var article6 = {"id" : 6, "name" : "article6", "nameSpace":"main", "source" : "source1", "html": "<h1>html6</h1>", "datetime" : "11:10:11"};
+              var article7 = {"id" : 7, "name" : "article7", "nameSpace":"main", "source" : "source1", "html": "<h1>html7</h1>", "datetime" : "11:10:11"};
+              var results = [article1, article2, article3, article4, article5, article6, article7];
               return $q.when(results);
         }
 

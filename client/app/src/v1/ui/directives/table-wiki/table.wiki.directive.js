@@ -43,38 +43,26 @@
                   if (!scope.data || !scope.options){
                     return;
                   }
-	        	 initializeOptions();
-                 var options1 = { sorting: { id: "desc" }};
-                 var data1 = { dataset: scope.data};
-        		 scope.tableParams = new NgTableParams(options1, data1);
+                 var options1 = {page: 1, count: 2, sorting: { id: "desc" }};
+                // var data1 = { dataset: scope.data};
+                 var data1 = {
+                     counts:[1, 2, 4, 6, 10],
+                     getData: getData2
+                 };
+                 scope.tableParams = new NgTableParams(options1, data1);
+                 var x = 1; //TODO: remove
 	          }
 
-	          function initializeOptions (){
-		  	    	if (!scope.options.tableCols){
-		  	    		scope.options.tableCols = getTableDefualtCols();
-		  	    	}
-		  	    	if (!scope.initialSettings){
-		  	    		scope.options.initialSettings = {
-		  	    				count: 10,
-		  	    				sorting: { datetime: "desc" }
-		  	    		};
-		  	    	}
-		  	    	if (!scope.options.getDisplayProperty ){
-		  	    		scope.options.getDisplayProperty = getDisplayProperty;
-		  	    	}
-	  	      }
-
-              function getDisplayProperty (row, col){
-                     return row[col.field];
-              }//End getDisplayProperty
-
-	  	      function getTableDefualtCols (){
-  	        	 var tableCols =  [
-	                        { field: "id", title: language.get('id'), show: true, sortable: "id" },
-	                        { field: "actions", title: language.get('actions'), show: true }
-	                      ];
-  	        	 return tableCols;
-	  	       }
+              function getData2 ($defer, params) {
+                    var params2 = $defer.prevParamsMemento.params;
+                    var page = params2.page;
+                    var count = params2.count;
+                    var start = (page - 1) * count;
+                    var end = page * count;
+                    var data1 = scope.data.slice(start, end);
+                    scope.tableParams.total(scope.data.length);
+                    return data1;
+                }
 
                function toHtml (colIndex, rowIndex, $data) {
                     var html = scope.options.makeCell
@@ -88,7 +76,7 @@
                    var html4 = $sce.trustAsHtml(html3);
                     return html4;
                 }
-                
+
 	      }//End articlesTableLinking
       }//End articlesTable
 })();
