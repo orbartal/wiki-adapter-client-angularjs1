@@ -3,13 +3,13 @@
 
       angular
             .module('wikiApp')
-            .directive('importFromWiki', [importFromWiki]);
+            .directive('importFromWiki', ['LanguageConfigService', importFromWiki]);
 
-      function importFromWiki (){
+      function importFromWiki (LanguageConfigService){
             var directive = {};
             directive.restrict = 'E';
             directive.scope =  {data : '=', options : '='};
-            directive.templateUrl = "app/src/v1/ui/directives/import/wiki/import.from.wiki.html"
+            directive.templateUrl =  "/app/src/v1/ui/directives/import/wiki/import.from.wiki.directive.html"
             directive.replace = true;
             directive.link = importLinking; //Leval 3 function
             return directive;
@@ -44,10 +44,14 @@
 
 	          function setSettingsByConfig(){
 	          	scope.tdLabelClass =[];
-	          	if (scope.config.isRtl){
+                scope.isRtl = LanguageConfigService.isRtl();
+                scope.languageDirection =LanguageConfigService.getDirection();
+                var arrKeys = ['history', 'onlyCurrentVersion', 'allVersions', 'url', 'language',
+                            'filter', 'allPages', 'nameSpace', 'category', 'article'];
+                scope.language = LanguageConfigService.getMap(arrKeys);
+	          	if (scope.isRtl){
 	          		scope.tdLabelClass.push("pull-right");
 	          	}else{
-	          		scope.config.languageDirection=="rlt";
 	          		scope.tdLabelClass.push("pull-left");
 	          	}
 	          	scope.classBtnSave = "btn btn-primary class-right class-button-margin";

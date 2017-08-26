@@ -5,8 +5,8 @@
         .module('wikiApp')
         .factory('PropertiesDataService', PropertiesDataService);
 
-    PropertiesDataService.$inject = ['$http'];
-    function PropertiesDataService($http) {
+    PropertiesDataService.$inject = ['$q'];
+    function PropertiesDataService($q) {
         var service = {};
         service.getAll = getAll;
         service.getById = getById;

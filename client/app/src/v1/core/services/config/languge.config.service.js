@@ -14,6 +14,7 @@
         service.getMap = getMap;
         service.isLtr = isLtr;
         service.isRtl = isRtl;
+        service.getDirection = getDirection;
         return service;
 
         function isLtr () {
@@ -22,6 +23,13 @@
 
         function isRtl() {
             return false;
+        }
+
+        function getDirection() {
+            if (isRtl()){
+                return "rtl"
+            }
+            return "ltr";
         }
 
         function getMap(keys){
@@ -64,6 +72,6 @@
             mapLanguage.export = "export";
             return mapLanguage;
      }//End getLanguage
-     
+
  }//End LanguageConfigService
 })();

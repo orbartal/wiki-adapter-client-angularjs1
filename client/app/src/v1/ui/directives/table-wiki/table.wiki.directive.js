@@ -19,25 +19,6 @@
 	    	  init();
               scope.toHtml = toHtml;
 
-              function getDisplayProperty (row, col){
-                     return row[col.field];
-              }//End getDisplayProperty
-
-
-              function toHtml (colIndex, rowIndex, $data) {
-                   //var col = scope.options.tableCols[colIndex];
-                   var html = scope.options.makeCell
-                            (colIndex, rowIndex, $data, scope.options);
-                   var result = processHtml (html);
-                   return result;
-              }
-              function processHtml (html) {
-                  var html2 = html.replace(/&quot;/g, "'");
-                  var html3 = $interpolate(html2)(scope);
-                  var html4 = $sce.trustAsHtml(html3);
-                   return html4;
-               }
-
 	    	  function init() {
 		          	setStyle();
 	          		scope.$watch('data', createSmartTable);
@@ -59,22 +40,16 @@
 	          }
 
 	          function createSmartTable(){
-              if (!scope.data){
-                return;
-              }
+                  if (!scope.data || !scope.options){
+                    return;
+                  }
 	        	 initializeOptions();
                  var options1 = { sorting: { id: "desc" }};
                  var data1 = { dataset: scope.data};
         		 scope.tableParams = new NgTableParams(options1, data1);
-
-                 //new NgTableParams(scope.options.initialSettings, { data: scope.data});
-        		// scope.tableParams.data = scope.data;
 	          }
 
 	          function initializeOptions (){
-		  	    	if (!scope.options){
-		  	    		scope.options = {};
-		  	    	}
 		  	    	if (!scope.options.tableCols){
 		  	    		scope.options.tableCols = getTableDefualtCols();
 		  	    	}
@@ -89,6 +64,10 @@
 		  	    	}
 	  	      }
 
+              function getDisplayProperty (row, col){
+                     return row[col.field];
+              }//End getDisplayProperty
+
 	  	      function getTableDefualtCols (){
   	        	 var tableCols =  [
 	                        { field: "id", title: language.get('id'), show: true, sortable: "id" },
@@ -96,6 +75,20 @@
 	                      ];
   	        	 return tableCols;
 	  	       }
+
+               function toHtml (colIndex, rowIndex, $data) {
+                    var html = scope.options.makeCell
+                             (colIndex, rowIndex, $data, scope.options);
+                    var result = processHtml (html);
+                    return result;
+               }
+               function processHtml (html) {
+                   var html2 = html.replace(/&quot;/g, "'");
+                   var html3 = $interpolate(html2)(scope);
+                   var html4 = $sce.trustAsHtml(html3);
+                    return html4;
+                }
+                
 	      }//End articlesTableLinking
       }//End articlesTable
 })();

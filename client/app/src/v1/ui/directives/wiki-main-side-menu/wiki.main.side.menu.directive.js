@@ -16,8 +16,6 @@
 
             //Directive methods
             directive.controller = wikiMainSideMenuController;  //Leval 1 function
-            directive.compile = wikiMainSideMenuCompile; //Leval 2 function
-            directive.link = wikiMainSideMenuLinking; //Leval 3 function
 
             return directive;
       }
@@ -56,16 +54,4 @@
 			    }//isSelectedState
 		  	}//findSelectedState
 	   }//onStateChange
-
-      // function is executed once (1) for every instance of ui-jq in your original UNRENDERED template.
-      // Scope is UNAVAILABLE as the templates are only being cached. updatehour()
-      function wikiMainSideMenuCompile (element, attributes){
-            return this.link;
-      }
-
-      // Function is executed once (1) for every RENDERED instance.
-      // Scope IS available because controller logic has finished executing.
-      // All variables and expression values can finally be determined.
-      function wikiMainSideMenuLinking(scope, element, attrs, ctrl){
-      }
 })();

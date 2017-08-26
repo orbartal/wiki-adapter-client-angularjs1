@@ -9,7 +9,7 @@
             var directive = {};
             directive.restrict = 'E';
             directive.scope =  {data : '=', options : '='};
-            directive.templateUrl = "app/src/v1/ui/directives/import/folder/import.from.folder.html"
+            directive.templateUrl = "/app/src/v1/ui/directives/import/folder/import.from.folder.directive.html"
             directive.replace = true;
             directive.link = importLinking; //Leval 3 function
             return directive;

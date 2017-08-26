@@ -7,44 +7,44 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td ng-if="!config.isRtl">
+			<td ng-if="!isRtl">
 				<span  ng-class="tdLabelClass">{{language.history}}</span>
 			</td>
 			<td>
-				<select name="singleSelect" ng-model="data.history" dir="{{config.languageDirection}}">
+				<select name="singleSelect" ng-model="data.history" dir="{{languageDirection}}">
 			      <option value=false>{{language.onlyCurrentVersion}}</option>
 			      <option value=true>{{language.allVersions}}</option>
 			    </select>
 			</td>
-			<td ng-if="config.isRtl">
+			<td ng-if="isRtl">
 				<span  ng-class="tdLabelClass">{{language.history}}</span>
 			</td>
 		</tr>
-		
+
 		<tr>
-			<td ng-if="!config.isRtl">
+			<td ng-if="!isRtl">
 				<span  ng-class="tdLabelClass">{{language.url}}</span>
 			</td>
 			<td>
 				<input ng-model="data.url">
 			</td>
-			<td ng-if="config.isRtl">
+			<td ng-if="isRtl">
 				<span  ng-class="tdLabelClass">{{language.url}}</span>
 			</td>
 		</tr>
 		<tr>
-			<td ng-if="!config.isRtl">
+			<td ng-if="!isRtl">
 				<span  ng-class="tdLabelClass">{{language.language}}</span>
 			</td>
 			<td>
 				<input ng-model="data.language">
 			</td>
-			<td ng-if="config.isRtl">
+			<td ng-if="isRtl">
 				<span  ng-class="tdLabelClass">{{language.language}}
 			</span></td>
 		</tr>
 		<tr>
-			<td ng-if="!config.isRtl">
+			<td ng-if="!isRtl">
 				<span  ng-class="tdLabelClass">{{language.filter}}</span>
 			</td>
 			<td>
@@ -59,7 +59,7 @@
 				<span  ng-class="tdLabelClass">{{language.filter}}</span>
 			</td>
 		</tr>
-		
+
 		<tr ng-if="data.filter=='nameSpace'">
 			<td ng-if="!config.isRtl">
 				<span  ng-class="tdLabelClass">{{language.nameSpace}}</span>
@@ -71,7 +71,7 @@
 				<span  ng-class="tdLabelClass">{{language.nameSpace}}
 			</span></td>
 		</tr>
-		
+
 		<tr ng-if="data.filter=='category'">
 			<td ng-if="!config.isRtl">
 				<span  ng-class="tdLabelClass">{{language.category}}</span>
@@ -83,7 +83,7 @@
 				<span  ng-class="tdLabelClass">{{language.category}}
 			</span></td>
 		</tr>
-		
+
 		<tr ng-if="data.filter=='article'">
 			<td ng-if="!config.isRtl">
 				<span  ng-class="tdLabelClass">{{language.article}}</span>
@@ -94,6 +94,6 @@
 			<td ng-if="config.isRtl">
 				<span  ng-class="tdLabelClass">{{language.article}}
 			</span></td>
-		</tr>	
+		</tr>
 	</tbody>
 </table>
