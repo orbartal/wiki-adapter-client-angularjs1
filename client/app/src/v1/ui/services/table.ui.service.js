@@ -11,6 +11,7 @@
         service.getOptions = getOptions;
         service.geteColsDesc = geteColsDesc;
         service.makeCell = makeCell;
+        service.setConfig = setConfig;
         return service;
 
         function getOptions (columnsService, buttonsService){
@@ -62,5 +63,25 @@
             }
             return result;
         }
+
+        function setConfig (scope2, source, config, onSuccess, onFailure){
+            if (!onSuccess){
+                onSuccess = function (data){
+                    scope2.dataTable = data;
+                };
+            }
+            if (!onFailure){
+                onFailure = function (error) {
+                        toaster.error({
+                            title: 'Error',
+                            body: 'Failed to get data due to error: ' + error.message,
+                        });
+                }
+            }
+            scope2.dataTable = [];
+            scope2.optionsTable = null;
+            scope2.optionsTable = config.getTableOptions();
+            source.getAll().then(onSuccess, onFailure);
+        }//End set
     }//End
 })();
