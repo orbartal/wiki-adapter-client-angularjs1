@@ -5,8 +5,8 @@
         .module('wikiApp')
         .service('FilesDataService', FilesDataService);
 
-    FilesDataService.$inject = ['$q', 'toaster'];
-    function FilesDataService($q, toaster) {
+    FilesDataService.$inject = ['$q'];
+    function FilesDataService($q) {
         var service = {};
         service.getById = getById;
         service.getAll = getAll;

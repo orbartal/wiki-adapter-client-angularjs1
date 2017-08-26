@@ -6,7 +6,7 @@
         .service('JobTableConfigService', JobTableConfigService);
 
     JobTableConfigService.$inject = ['TableConfigService', 'JobButtonConfigService'];
-    function JobTableConfigService(TableConfigService, JobButtonConfigService) {
+    function JobTableConfigService(TableConfig, JobButton) {
         var service = {};
         service.makeCell = makeCell;
         service.getColumns = getColumns;
@@ -14,11 +14,11 @@
         return service;
 
         function getTableOptions (){
-            return TableConfigService.getOptions (service, JobButtonConfigService);
+            return TableConfig.getOptions (service, JobButton);
         }
 
         function getColumns (){
-            return  TableConfigService.geteColsDesc
+            return  TableConfig.geteColsDesc
                 (["id", "title", "start", "duration", "value", "progress"]);
         }//End getColumns
 
@@ -31,7 +31,7 @@
                             'options = "{hideText: true, title:' + row.title + '}">' +
     				    '</job-progress-bar>';
             }
-            return TableConfigService.makeCell(colIndex, rowIndex, data, options);
+            return TableConfig.makeCell(colIndex, rowIndex, data, options);
         }
     }
 })();

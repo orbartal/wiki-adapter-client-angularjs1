@@ -6,19 +6,19 @@
         .service('FileTableConfigService', FileTableConfigService);
 
     FileTableConfigService.$inject = ['TableConfigService', 'FileButtonConfigService'];
-    function FileTableConfigService(TableConfigService, FileButtonConfigService) {
+    function FileTableConfigService(TableConfig, FileButton) {
         var service = {};
-        service.makeCell = TableConfigService.makeCell;
+        service.makeCell = TableConfig.makeCell;
         service.getColumns = getColumns;
         service.getTableOptions = getTableOptions;
         return service;
 
         function getTableOptions (){
-            return TableConfigService.getOptions (service, FileButtonConfigService);
+            return TableConfig.getOptions (service, FileButton);
         }
 
         function getColumns (){
-             return TableConfigService.geteColsDesc (["id", "name", "type", "extension"]);
+             return TableConfig.geteColsDesc (["id", "name", "type", "extension"]);
         }//End getColumns
     }
 })();

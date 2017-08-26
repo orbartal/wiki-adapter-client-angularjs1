@@ -5,8 +5,8 @@
         .module('wikiApp')
         .service('ArticlesDataService', ArticlesDataService);
 
-    ArticlesDataService.$inject = ['$q', 'toaster'];
-    function ArticlesDataService($q, toaster) {
+    ArticlesDataService.$inject = ['$q'];
+    function ArticlesDataService($q) {
         var service = {};
         //Crud
         service.getAll = getAll;

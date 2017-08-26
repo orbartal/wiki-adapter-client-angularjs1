@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('ArticleHistoryCtrl', ArticleHistoryCtrl);
 
-    ArticleHistoryCtrl.$inject = ['ArticlesVersionsDataService', 'ArticlesConfigService', '$scope', '$stateParams', '$uibModal', '$state', 'toaster', 'NgTableParams', 'SiteConfigService'];
+    ArticleHistoryCtrl.$inject = ['ArticlesVersionsDataService', 'ArticlesConfigService', '$scope', '$stateParams', '$uibModal', '$state', 'toaster', 'NgTableParams', 'LanguageConfigService'];
 
-    function ArticleHistoryCtrl(ArticlesVersionsDataService, ArticlesConfigService, $scope, $stateParams, $uibModal, $state, toaster, NgTableParams, SiteConfigService) {
+    function ArticleHistoryCtrl(ArticlesVersionsDataService, ArticlesConfigService, $scope, $stateParams, $uibModal, $state, toaster, NgTableParams, language) {
         var vm = this;
         vm.article = null;
         vm.articleVersions = [];
@@ -26,11 +26,10 @@
         }
 
         function getSiteConfigs() {
-        	vm.config = SiteConfigService.getSiteConfig();
-        	vm.lId = vm.config.mapLanguage.id;
-        	vm.lName = vm.config.mapLanguage.name;
-        	vm.lDatetime = vm.config.mapLanguage.datetime;
-        	vm.lActions = vm.config.mapLanguage.actions;
+        	vm.lId = language.get('id');
+        	vm.lName = language.get('name');
+        	vm.lDatetime = language.get('datetime');
+        	vm.lActions =  language.get('actions');
         }
 
         function getArticleHistory(nameSpace, name) {

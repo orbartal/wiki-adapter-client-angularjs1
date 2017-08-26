@@ -5,8 +5,8 @@
         .module('wikiApp')
         .factory('JobsDataService', JobsDataService);
 
-    JobsDataService.$inject = ['$q', 'toaster', 'SiteConfigService'];
-    function JobsDataService($q, toaster, SiteConfigService) {
+    JobsDataService.$inject = ['$q'];
+    function JobsDataService($q) {
         var service = {};
 
         //Crud

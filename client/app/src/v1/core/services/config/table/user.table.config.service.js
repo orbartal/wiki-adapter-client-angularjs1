@@ -6,19 +6,19 @@
         .service('UserTableConfigService', UserTableConfigService);
 
     UserTableConfigService.$inject = ['TableConfigService', 'UserButtonConfigService'];
-    function UserTableConfigService(TableConfigService, UserButtonConfigService) {
+    function UserTableConfigService(TableConfig, UserButton) {
         var service = {};
-        service.makeCell = TableConfigService.makeCell;
+        service.makeCell = TableConfig.makeCell;
         service.getColumns = getColumns;
         service.getTableOptions = getTableOptions;
         return service;
 
         function getTableOptions (){
-            return TableConfigService.getOptions (service, UserButtonConfigService);
+            return TableConfig.getOptions (service, UserButton);
         }
 
         function getColumns (){
-             return TableConfigService.geteColsDesc (["id", "name", "role"]);
+             return TableConfig.geteColsDesc (["id", "name", "role"]);
         }//End getColumns
     }
 })();

@@ -4,9 +4,9 @@
     //http://ng-table.com/#/editing/demo-inline
       angular
             .module('wikiApp')
-            .directive('tableWiki', ['SiteConfigService', 'NgTableParams', '$interpolate', '$sce', tableWiki]);
+            .directive('tableWiki', ['LanguageConfigService', 'NgTableParams', '$interpolate', '$sce', tableWiki]);
 
-      function tableWiki (SiteConfigService, NgTableParams, $interpolate, $sce){
+      function tableWiki (language, NgTableParams, $interpolate, $sce){
             var directive = {};
             directive.restrict = 'E';
             directive.scope =  {data : '=', options : '='};
@@ -39,7 +39,6 @@
                }
 
 	    	  function init() {
-	    		  	scope.config = SiteConfigService.getSiteConfig();
 		          	setStyle();
 	          		scope.$watch('data', createSmartTable);
 	          		scope.$watch('options', createSmartTable);
@@ -50,7 +49,7 @@
 		          	scope.fieldStyle = {};
 		          	scope.tableHeaderStyle["font-weight"] = "bold";
 
-		          	if (scope.config.isRtl){
+		          	if (language.isRtl()){
 		          		scope.fieldStyle["text-align"] = "right";
 		          		scope.tableHeaderStyle["text-align"] = "right";
 		          	}else{
@@ -91,10 +90,9 @@
 	  	      }
 
 	  	      function getTableDefualtCols (){
-  	        	 var lang = scope.config.mapLanguage;
   	        	 var tableCols =  [
-	                        { field: "id", title: lang.id, show: true, sortable: "id" },
-	                        { field: "actions", title: lang.actions, show: true }
+	                        { field: "id", title: language.get('id'), show: true, sortable: "id" },
+	                        { field: "actions", title: language.get('actions'), show: true }
 	                      ];
   	        	 return tableCols;
 	  	       }

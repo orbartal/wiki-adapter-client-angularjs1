@@ -10,7 +10,7 @@
     var config = null;
 
     function SiteConfigService() {
-		    var service = {};
+		var service = {};
         service.reloadConfig = reloadConfig;
         service.getSiteConfig = getSiteConfig;
         service.config = reloadConfig();

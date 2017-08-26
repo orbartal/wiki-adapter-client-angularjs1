@@ -3,9 +3,9 @@
 
       angular
             .module('wikiApp')
-            .directive('buttonsInRow', ['SiteConfigService', buttonsInRow]);
+            .directive('buttonsInRow', ['LanguageConfigService', buttonsInRow]);
 
-      function buttonsInRow (SiteConfigService){
+      function buttonsInRow (language){
             var directive = {};
             directive.restrict = 'E';
             directive.scope =  {data : '=', options : '='};
@@ -23,13 +23,12 @@
           }
 
   	    function init() {
-  	    		  	scope.config = SiteConfigService.getSiteConfig();
   		          setStyle();
   	    }
 
   	   function setStyle (){
   		          	scope.rowButtonClass =["btn", "class-row-button"];
-  		          	if (scope.config.isRtl){
+  		          	if (language.isRtl()){
   		          		scope.rowButtonClass.push("class-right");
   		          	}else{
   		          		scope.rowButtonClass.push("class-left");

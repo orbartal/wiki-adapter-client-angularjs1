@@ -5,8 +5,8 @@
         .module('wikiApp')
         .factory('PropertiesDataService', PropertiesDataService);
 
-    PropertiesDataService.$inject = ['$http', 'toaster'];
-    function PropertiesDataService($http, toaster) {
+    PropertiesDataService.$inject = ['$http'];
+    function PropertiesDataService($http) {
         var service = {};
 
         //Crud

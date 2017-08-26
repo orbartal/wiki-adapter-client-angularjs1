@@ -3,9 +3,9 @@
 
       angular
             .module('wikiApp')
-            .directive('jobProgressBar', ['SiteConfigService', 'JobsDataService', '$timeout', 'toaster', 'WikiUtils', jobProgressBar]);
+            .directive('jobProgressBar', ['JobsDataService', '$timeout', 'toaster', 'WikiUtils', jobProgressBar]);
 
-      function jobProgressBar (SiteConfigService, JobsDataService, $timeout, toaster, WikiUtils){
+      function jobProgressBar (JobsDataService, $timeout, toaster, WikiUtils){
             var directive = {};
             directive.restrict = 'E';
             directive.scope =  {data : '=', options : '='};

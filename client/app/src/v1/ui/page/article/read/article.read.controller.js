@@ -5,10 +5,10 @@
         .module('wikiApp')
         .controller('ReadArticleCtrl', ReadArticleCtrl);
 
-    ReadArticleCtrl.$inject = ['$scope', '$sce', '$interpolate', '$compile' , '$state' , '$stateParams', 'ArticlesDataService', 'SiteConfigService' , 'toaster', '$uibModal', 'ArticlesConfigService', 'WikiUtils'];
+    ReadArticleCtrl.$inject = ['$scope', '$sce', '$interpolate', '$compile' , '$state' , '$stateParams', 'ArticlesDataService', 'LanguageConfigService' , 'toaster', '$uibModal', 'ArticlesConfigService', 'WikiUtils'];
 
     function ReadArticleCtrl($scope, $sce, $interpolate, $compile, $state, $stateParams,
-                            ArticlesDataService, SiteConfigService, toaster, $uibModal,
+                            ArticlesDataService, language, toaster, $uibModal,
                             ArticlesConfigService, WikiUtils){
         var vm = this;
         vm.article = null;
@@ -52,16 +52,8 @@
         	}
 
         	 function setSettings (){
-             	vm.config = SiteConfigService.getSiteConfig();
-     	       	if (!vm.config){
-     	       		var mapLanguage1 = {addArticle : 'add article'};
-     	       		vm.config = {mapLanguage : mapLanguage1};
-     	       	}
-     	       	if (vm.config.languageDirection=="rtl"){
-     	       		vm.config.isRTL = true;
-     	       	}else{
-     	       		vm.config.isRTL = false;
-     	       	}
+                 vm.config = {};
+                vm.config.isRTL = language.isRtl()
              }
         }
 
@@ -85,7 +77,7 @@
         }
 
         $scope.getMissingArticleWarning = function() {
-        	return processHtml (vm.config.mapLanguage.articleRead.ArticleDoesntExist);
+        	return processHtml (language.get('ArticleDoesntExist'));
         }
 
        function processHtml (html) {

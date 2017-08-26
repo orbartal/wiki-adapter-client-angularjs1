@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('ImportCtrl', ImportCtrl);
 
-    ImportCtrl.$inject = ['SiteConfigService', 'JobsDataService', '$scope'];
+    ImportCtrl.$inject = ['LanguageConfigService', 'JobsDataService', '$scope'];
 
-    function ImportCtrl(SiteConfigService, JobsDataService, $scope) {
+    function ImportCtrl(language, JobsDataService, $scope) {
         var vm = this;
         vm.arrSourcesTypes = null;
         vm.selectedSourceType = null;
@@ -47,7 +47,7 @@
         }
 
         function setSettings (){
-        	vm.language = SiteConfigService.config.mapLanguage;
+        	vm.language = language.getMap(['importPages', 'import']);
         	vm.message = "Ready to start import";
         	vm.classBtnImport = ["btn", "btn-primary", "class-right", "class-button-margin"];
         }

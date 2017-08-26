@@ -5,8 +5,8 @@
         .module('wikiApp')
         .service('TableConfigService', TableConfigService);
 
-    TableConfigService.$inject = ['SiteConfigService'];
-    function TableConfigService(SiteConfigService) {
+    TableConfigService.$inject = ['LanguageConfigService'];
+    function TableConfigService(language) {
         var service = {};
         service.getOptions = getOptions;
         service.geteColsDesc = geteColsDesc;
@@ -34,11 +34,9 @@
         }
 
         function getOneColDesc (fieldName) {
-            var config = SiteConfigService.getSiteConfig();
-            var lang = config.mapLanguage;
             var filterDef = {};
             filterDef[fieldName] = "text";
-            var strTitle = lang[fieldName];
+            var strTitle = language.get(fieldName);
             var result = {
                 field: fieldName,
                 title: strTitle,

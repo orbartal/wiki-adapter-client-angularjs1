@@ -5,8 +5,8 @@
         .module('wikiApp')
         .factory('ArticlesVersionsDataService', ArticlesVersionsDataService);
 
-    ArticlesVersionsDataService.$inject = ['$q', 'SiteConfigService', 'toaster'];
-    function ArticlesVersionsDataService($q, SiteConfigService, toaster) {
+    ArticlesVersionsDataService.$inject = ['$q'];
+    function ArticlesVersionsDataService($q) {
         var service = {};
         service.getArticleHistory = getArticleHistory;
         service.getById = getById;

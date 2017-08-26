@@ -5,8 +5,8 @@
         .module('wikiApp')
         .service('ArticlesConfigService', ArticlesConfigService);
 
-    ArticlesConfigService.$inject = ['SiteConfigService', 'toaster'];
-    function ArticlesConfigService(SiteConfigService, toaster) {
+    ArticlesConfigService.$inject = ['LanguageConfigService', 'toaster'];
+    function ArticlesConfigService(langue, toaster) {
         var service = {};
         //Config
         service.getArticleTabsAndSetSiteConfig = getArticleTabsAndSetSiteConfig;
@@ -20,18 +20,17 @@
           	$scope.isCurrentVersion = $stateParams.isCurrentVersion;
           	setSiteConfig($scope);
           	var tabData   = getArticleTabs($stateParams, $scope.config);
-          	if ($scope.config.languageDirection==="rtl"){
+          	if (langue.isRtl()){
           		tabData.reverse();
           	}
           	return tabData;
     	  }
 
         function setSiteConfig($scope) {
-        	$scope.config = SiteConfigService.getSiteConfig();
         	$scope.classTabs="class-right";
         	$scope.classArticleContent="class-right";
         	$scope.classArticleHeader="class-article-header class-right";
-        	if ($scope.config.languageDirection==="rtl"){
+        	if (langue.isRtl()){
         		$scope.classArticleHeader = "class-article-header class-right";
         		$scope.classBtnSave = "btn btn-primary class-right class-button-margin";
         		$scope.classBtnReset = "btn btn-white class-right class-button-margin";
@@ -40,23 +39,22 @@
         		$scope.classBtnSave = "btn btn-primary class-left class-button-margin";
         		$scope.classBtnReset = "btn btn-white class-left class-button-margin";
         	}
-        	$scope.textBtnSave = $scope.config.mapLanguage.btnSave;
-        	$scope.textBtnReset = $scope.config.mapLanguage.btnReset;
+        	$scope.textBtnSave = langue.get('btnSave');
+        	$scope.textBtnReset = langue.get('btnReset');
         }
 
 
         function getArticleTabs($stateParams, config) {
         	//Get tabs args
         	var args = processStateParams ();
-        	var lang = config.mapLanguage;
 
         	//Creates tabs
-        	var readTab = getTab(lang.articleTabRead, 'site.article-read', args);
-        	var viewSourceTab = getTab(lang.articleTabViewSource, 'site.article-view-source', args);
-        	var editSourceTab = getTab(lang.articleTabEditSource, 'site.article-edit-source', args);
-        	var editWysiwygTab = getTab(lang.articleTabEditWysiwyg, 'site.article-edit-wysiwyg', args);
-        	var renameTab = getTab(lang.articleTabRename, 'site.article-rename', args);
-        	var historyTab = getTab(lang.articleTabHistory, 'site.article-history', args);
+        	var readTab = getTab(langue.get('articleTabRead'), 'site.article-read', args);
+        	var viewSourceTab = getTab(langue.get('articleTabViewSource'), 'site.article-view-source', args);
+        	var editSourceTab = getTab(langue.get('articleTabEditSource'), 'site.article-edit-source', args);
+        	var editWysiwygTab = getTab(langue.get('articleTabEditWysiwyg'), 'site.article-edit-wysiwyg', args);
+        	var renameTab = getTab(langue.get('articleTabRename'), 'site.article-rename', args);
+        	var historyTab = getTab(langue.get('articleTabHistory'), 'site.article-history', args);
 
         	//Create tabs array
         	var tabData   = [];
