@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('ArticleTableConfigService', ArticleTableConfigService);
+        .service('ArticleTableUiService', ArticleTableUiService);
 
-    ArticleTableConfigService.$inject = ['TableConfigService', 'ArticleButtonConfigService'];
-    function ArticleTableConfigService(TableConfig, ArticleButton) {
+    ArticleTableUiService.$inject = ['TableUiService', 'ArticleButtonUiService'];
+    function ArticleTableUiService(TableConfig, ArticleButton) {
         var service = {};
         service.makeCell = TableConfig.makeCell;
         service.getColumns = getColumns;

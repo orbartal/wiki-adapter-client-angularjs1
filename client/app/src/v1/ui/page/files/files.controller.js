@@ -5,15 +5,15 @@
         .module('wikiApp')
         .controller('FilesCtrl', FilesCtrl);
 
-    FilesCtrl.$inject = ['toaster', 'FilesDataService', 'FileTableConfigService'];
-    function FilesCtrl(toaster, FilesDataService, FileTableConfigService) {
+    FilesCtrl.$inject = ['toaster', 'FilesDataService', 'FileTableUiService'];
+    function FilesCtrl(toaster, FilesDataService, FileTableUiService) {
     	var vm = this;
 		vm.dataTable = [];
         vm.optionsTable = null;
 		init();
 
          function init (){
-             vm.optionsTable =  FileTableConfigService.getTableOptions();
+             vm.optionsTable =  FileTableUiService.getTableOptions();
              getAllFiles ();
          }
 

@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('JobTableConfigService', JobTableConfigService);
+        .service('JobTableUiService', JobTableUiService);
 
-    JobTableConfigService.$inject = ['TableConfigService', 'JobButtonConfigService'];
-    function JobTableConfigService(TableConfig, JobButton) {
+    JobTableUiService.$inject = ['TableUiService', 'JobButtonUiService'];
+    function JobTableUiService(TableConfig, JobButton) {
         var service = {};
         service.makeCell = makeCell;
         service.getColumns = getColumns;

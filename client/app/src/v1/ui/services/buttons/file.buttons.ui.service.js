@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('FileButtonConfigService', FileButtonConfigService);
+        .service('FileButtonUiService', FileButtonUiService);
 
-    FileButtonConfigService.$inject = ['$state', 'WikiDialog', 'ButtonConfigService'];
-    function FileButtonConfigService($state, WikiDialog, ButtonConfig) {
+    FileButtonUiService.$inject = ['$state', 'DialogUiService', 'ButtonUiService'];
+    function FileButtonUiService($state, DialogUiService, ButtonConfig) {
         var service = {};
         service.getTop = getTop;
         service.getRow = getRow;
@@ -25,7 +25,7 @@
               var strTemplateUrl = "/app/pages/file/modal/create/modal.add.new.file.html";
               var strController = "FileCreateModalCtrl as vm";
               var objSuccess = {title: "Created file successfully", body:""};
-              WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+              DialogUiService.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
         }
 
         function onView (file) {

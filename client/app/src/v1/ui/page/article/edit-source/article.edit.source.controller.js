@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('EditSourceArticleCtrl', EditSourceArticleCtrl);
 
-    EditSourceArticleCtrl.$inject = ['$scope', '$stateParams', '$state', 'ArticlesDataService', 'ArticlesConfigService' , 'WikiUtils', 'toaster'];
+    EditSourceArticleCtrl.$inject = ['$scope', '$stateParams', '$state', 'ArticlesDataService', 'ArticlesTabsUiService' , 'WikiUtils', 'toaster'];
 
-    function EditSourceArticleCtrl($scope, $stateParams, $state, ArticlesDataService, ArticlesConfigService, WikiUtils, toaster) {
+    function EditSourceArticleCtrl($scope, $stateParams, $state, ArticlesDataService, ArticlesTabsUiService, WikiUtils, toaster) {
         var vm = this;
         vm.tempArticle = null;
         vm.save = save;
@@ -17,7 +17,7 @@
 
         function init () {
         	if (true){ //ArticlesService.areParamsValide($stateParams)
-        		$scope.tabData   = ArticlesConfigService.getArticleTabsAndSetSiteConfig($scope, $stateParams);
+        		$scope.tabData   = ArticlesTabsUiService.getArticleTabsAndSetSiteConfig($scope, $stateParams);
         		$scope.classArticleContent="class-right form-control";
         		getArticleFromServer ();
         	}

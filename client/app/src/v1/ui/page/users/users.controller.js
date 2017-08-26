@@ -5,15 +5,15 @@
         .module('wikiApp')
         .controller('UsersCtrl', UsersCtrl);
 
-    UsersCtrl.$inject = ['toaster', 'UsersDataService', 'UserTableConfigService'];
-    function UsersCtrl (toaster, UsersDataService, UserTableConfigService) {
+    UsersCtrl.$inject = ['toaster', 'UsersDataService', 'UserTableUiService'];
+    function UsersCtrl (toaster, UsersDataService, UserTableUiService) {
         var vm = this;
         vm.dataTable = [];
         vm.optionsTable = null;
         init();
 
         function init() {
-             vm.optionsTable = UserTableConfigService.getTableOptions();
+             vm.optionsTable = UserTableUiService.getTableOptions();
              getAll();
         }
 

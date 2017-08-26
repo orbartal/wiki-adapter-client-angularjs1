@@ -5,11 +5,11 @@
         .module('wikiApp')
         .controller('ReadArticleCtrl', ReadArticleCtrl);
 
-    ReadArticleCtrl.$inject = ['$scope', '$sce', '$interpolate', '$compile' , '$state' , '$stateParams', 'ArticlesDataService', 'LanguageConfigService' , 'toaster', '$uibModal', 'ArticlesConfigService', 'WikiUtils'];
+    ReadArticleCtrl.$inject = ['$scope', '$sce', '$interpolate', '$compile' , '$state' , '$stateParams', 'ArticlesDataService', 'LanguageConfigService' , 'toaster', '$uibModal', 'ArticlesTabsUiService', 'WikiUtils'];
 
     function ReadArticleCtrl($scope, $sce, $interpolate, $compile, $state, $stateParams,
                             ArticlesDataService, language, toaster, $uibModal,
-                            ArticlesConfigService, WikiUtils){
+                            ArticlesTabsUiService, WikiUtils){
         var vm = this;
         vm.article = null;
         vm.openCreateArticleDialog=openCreateArticleDialog;
@@ -18,8 +18,8 @@
         function active() {
         	vm.stateParams = $stateParams;
         	setSettings ();
-        	if (true){ //ArticlesConfigService.areParamsValide($stateParams)
-        		  $scope.tabData   = ArticlesConfigService.getArticleTabsAndSetSiteConfig($scope, $stateParams);
+        	if (true){ //ArticlesTabsUiService.areParamsValide($stateParams)
+        		  $scope.tabData   = ArticlesTabsUiService.getArticleTabsAndSetSiteConfig($scope, $stateParams);
             	$scope.classArticleContent="class-right class-html-view row";
             	ArticlesDataService.getById($stateParams.name).then (onSuccess, onFailure);
         	}

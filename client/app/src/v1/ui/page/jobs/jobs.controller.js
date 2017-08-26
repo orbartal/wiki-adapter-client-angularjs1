@@ -5,15 +5,15 @@
         .module('wikiApp')
         .controller('JobsCtrl', JobsCtrl);
 
-    JobsCtrl.$inject = ['JobsDataService', 'toaster','WikiUtils', 'JobTableConfigService'];
-    function JobsCtrl (JobsDataService, toaster, WikiUtils, JobTableConfigService) {
+    JobsCtrl.$inject = ['JobsDataService', 'toaster','WikiUtils', 'JobTableUiService'];
+    function JobsCtrl (JobsDataService, toaster, WikiUtils, JobTableUiService) {
         var vm = this;
         vm.dataTable = [];
         vm.optionsTable = null;
         init ();
 
         function init() {
-            vm.optionsTable = JobTableConfigService.getTableOptions();
+            vm.optionsTable = JobTableUiService.getTableOptions();
 			getAllJobs();
         }
 

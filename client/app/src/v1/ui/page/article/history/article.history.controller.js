@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('ArticleHistoryCtrl', ArticleHistoryCtrl);
 
-    ArticleHistoryCtrl.$inject = ['ArticlesVersionsDataService', 'ArticlesConfigService', '$scope', '$stateParams', '$uibModal', '$state', 'toaster', 'NgTableParams', 'LanguageConfigService'];
+    ArticleHistoryCtrl.$inject = ['ArticlesVersionsDataService', 'ArticlesTabsUiService', '$scope', '$stateParams', '$uibModal', '$state', 'toaster', 'NgTableParams', 'LanguageConfigService'];
 
-    function ArticleHistoryCtrl(ArticlesVersionsDataService, ArticlesConfigService, $scope, $stateParams, $uibModal, $state, toaster, NgTableParams, language) {
+    function ArticleHistoryCtrl(ArticlesVersionsDataService, ArticlesTabsUiService, $scope, $stateParams, $uibModal, $state, toaster, NgTableParams, language) {
         var vm = this;
         vm.article = null;
         vm.articleVersions = [];
@@ -19,7 +19,7 @@
         	var actions2 = {onView : true, onDelete: false, onEdit : true};
         	vm.options = {actions : actions2};
         	if (true){ //ArticlesService.areParamsValide($stateParams)
-        		$scope.tabData   = ArticlesConfigService.getArticleTabsAndSetSiteConfig($scope, $stateParams);
+        		$scope.tabData   = ArticlesTabsUiService.getArticleTabsAndSetSiteConfig($scope, $stateParams);
         		getSiteConfigs();
         		getArticleHistory($stateParams.nameSpace, $stateParams.name);
         	}

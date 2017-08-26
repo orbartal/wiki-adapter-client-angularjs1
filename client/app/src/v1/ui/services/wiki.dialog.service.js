@@ -3,10 +3,10 @@
 
   angular
     .module('wikiApp')
-    .service('WikiDialog', WikiDialog);
+    .service('DialogUiService', DialogUiService);
 
-    WikiDialog.$inject = ['$uibModal', 'toaster'];
-    function WikiDialog ($uibModal, toaster) {
+    DialogUiService.$inject = ['$uibModal', 'toaster'];
+    function DialogUiService ($uibModal, toaster) {
         var service = {};
         service.getUiModal = getUiModal;
         service.runUiModal = runUiModal;
@@ -34,5 +34,5 @@
             return modalInstance;
         }
 
-	}//WikiDialog
+	}//DialogUiService
 })();

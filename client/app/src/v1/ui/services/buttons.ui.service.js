@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('ButtonConfigService', ButtonConfigService);
+        .service('ButtonUiService', ButtonUiService);
 
-    ButtonConfigService.$inject = [];
-    function ButtonConfigService () {
+    ButtonUiService.$inject = [];
+    function ButtonUiService () {
         var service = {};
         service.get = get;
         return service;

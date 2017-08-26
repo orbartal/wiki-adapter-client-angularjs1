@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('ArticleButtonConfigService', ArticleButtonConfigService);
+        .service('ArticleButtonUiService', ArticleButtonUiService);
 
-    ArticleButtonConfigService.$inject = ['$state', 'WikiDialog', 'ButtonConfigService'];
-    function ArticleButtonConfigService($state, WikiDialog, ButtonConfig) {
+    ArticleButtonUiService.$inject = ['$state', 'DialogUiService', 'ButtonUiService'];
+    function ArticleButtonUiService($state, DialogUiService, ButtonConfig) {
         var service = {};
         service.getTop = getTop;
         service.getRow = getRow;
@@ -25,7 +25,7 @@
               var strTemplateUrl = "/app/src/v1/ui/modal/article/create/article.create.modal.html";
               var strController = "ArticleCreateModelCtrl as vm";
               var objSuccess = {title: "Created article successfully", body:""};
-              WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+              DialogUiService.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
           }
 
           function onView (article) {
@@ -43,7 +43,7 @@
               var strTemplateUrl = "app/src/v1/ui/modal/article/update/article.update.modal.html";
               var strController = "ArticleUpdateModalCtrl as vm";
               var objSuccess = {title: "Update article successfully", body:"article"+sArticle.id};
-              WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+              DialogUiService.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
           }
 
           function onDelete (sArticle) {
@@ -51,7 +51,7 @@
               var strTemplateUrl = "app/src/v1/ui/modal/article/delete/article.delete.modal.html";
               var strController = "ArticleDeleteModalCtrl as vm";
               var objSuccess = {title: "Delete article successfully", body:"article"+sArticle.id};
-              WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+              DialogUiService.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
           }
     }
 })();

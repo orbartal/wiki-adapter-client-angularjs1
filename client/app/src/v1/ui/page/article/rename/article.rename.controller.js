@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('RenameArticleCtrl', RenameArticleCtrl);
 
-    RenameArticleCtrl.$inject = ['$scope', '$stateParams', '$state', 'ArticlesDataService', 'ArticlesConfigService',, 'toaster'];
+    RenameArticleCtrl.$inject = ['$scope', '$stateParams', '$state', 'ArticlesDataService', 'ArticlesTabsUiService',, 'toaster'];
 
-    function RenameArticleCtrl($scope, $stateParams, $state, ArticlesDataService, ArticlesConfigService, toaster) {
+    function RenameArticleCtrl($scope, $stateParams, $state, ArticlesDataService, ArticlesTabsUiService, toaster) {
         var vm = this;
         vm.tempArticle = null;
         vm.save = save;
@@ -17,7 +17,7 @@
 
         function initController() {
         	if (true){ //ArticlesService.areParamsValide($stateParams)
-        		$scope.tabData   = ArticlesConfigService.getArticleTabsAndSetSiteConfig($scope, $stateParams);
+        		$scope.tabData   = ArticlesTabsUiService.getArticleTabsAndSetSiteConfig($scope, $stateParams);
         		getArticleFromServer ();
         	}
         }

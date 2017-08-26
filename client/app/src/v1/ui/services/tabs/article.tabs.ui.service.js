@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('ArticlesConfigService', ArticlesConfigService);
+        .service('ArticlesTabsUiService', ArticlesTabsUiService);
 
-    ArticlesConfigService.$inject = ['LanguageConfigService', 'toaster'];
-    function ArticlesConfigService(langue, toaster) {
+    ArticlesTabsUiService.$inject = ['LanguageConfigService', 'toaster'];
+    function ArticlesTabsUiService(langue, toaster) {
         var service = {};
         //Config
         service.getArticleTabsAndSetSiteConfig = getArticleTabsAndSetSiteConfig;

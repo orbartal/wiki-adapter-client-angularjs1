@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('TableConfigService', TableConfigService);
+        .service('TableUiService', TableUiService);
 
-    TableConfigService.$inject = ['LanguageConfigService'];
-    function TableConfigService(language) {
+    TableUiService.$inject = ['LanguageConfigService'];
+    function TableUiService(language) {
         var service = {};
         service.getOptions = getOptions;
         service.geteColsDesc = geteColsDesc;

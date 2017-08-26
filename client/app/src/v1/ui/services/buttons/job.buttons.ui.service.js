@@ -3,10 +3,10 @@
 
     angular
         .module('wikiApp')
-        .service('JobButtonConfigService', JobButtonConfigService);
+        .service('JobButtonUiService', JobButtonUiService);
 
-    JobButtonConfigService.$inject = ['WikiDialog', 'ButtonConfigService'];
-    function JobButtonConfigService(WikiDialog, ButtonConfig) {
+    JobButtonUiService.$inject = ['DialogUiService', 'ButtonUiService'];
+    function JobButtonUiService(DialogUiService, ButtonConfig) {
         var service = {};
         service.getTop = getTop;
         service.getRow = getRow;
@@ -25,7 +25,7 @@
               var strTemplateUrl = "/app/src/v1/ui/modal/job/create/job.create.modal.html";
               var strController = "JobCreateModalCtrl as vm";
               var objSuccess = {title: "Created job successfully", body:""};
-              WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+              DialogUiService.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
           }
 
           function onDelete (sJob) {
@@ -33,7 +33,7 @@
               var strTemplateUrl = "app/src/v1/ui/modal/job/delete/job.delete.modal.html";
               var strController = "JobDeleteModalCtrl as vm";
               var objSuccess = {title: "Delete job successfully", body:"job"+sJob.id};
-              WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
+              DialogUiService.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
           }
     }
 })();
