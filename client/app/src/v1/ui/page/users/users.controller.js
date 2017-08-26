@@ -6,22 +6,23 @@
         .controller('UsersCtrl', UsersCtrl);
 
     UsersCtrl.$inject = ['toaster', 'UsersDataService', 'UserTableConfigService'];
-
     function UsersCtrl (toaster, UsersDataService, UserTableConfigService) {
         var vm = this;
         vm.dataTable = [];
-        vm.optionsTable = UserTableConfigService.getTableOptions();
+        vm.optionsTable = null;
         init();
 
         function init() {
+             vm.optionsTable = UserTableConfigService.getTableOptions();
              getAll();
         }
 
         function getAll () {
             UsersDataService.getAll().then(onSuccess, onFailure);
+            
         	function onSuccess (users) {
                 vm.dataTable = users;
-          }
+            }
         	function onFailure (error) {
         		toaster.error({
         			title: 'Error',
