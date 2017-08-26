@@ -3,7 +3,7 @@
 
 	angular
 		.module('wikiApp')
-		.controller('ModalDeleteJobCtrl', ModalDeleteJobCtrl);
+		.controller('JobDeleteModalCtrl', ModalDeleteJobCtrl);
 
 	function ModalDeleteJobCtrl ($scope, $uibModalInstance, JobsDataService, job) {
 		var vm = this;

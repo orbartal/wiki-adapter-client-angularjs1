@@ -17,13 +17,13 @@
         }
 
         function getRow (){
-              return ButtonConfig.get('row', {'update': onUpdate, 'delete': onDelete});
+             return ButtonConfig.get('row', {'update': onUpdate, 'delete': onDelete});
         }
 
         function onCreate () {
           var objResolver =  {};
           var strTemplateUrl =  '/app/src/v1/ui/modal/user/create/user.create.modal.html';
-          var strController =  "UserCreateCtrl as vm";
+          var strController =  "UserCreateModalCtrl as vm";
           var objSuccess = {title: "Create user successfully", body:"user"};
           WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
         }
@@ -31,7 +31,7 @@
         function onUpdate (sUser) {
           var objResolver =  {user :  sUser};
           var strTemplateUrl = '/app/src/v1/ui/modal/user/update/user.update.modal.html';
-          var strController = "UserEditCtrl as vm";
+          var strController = "UserUpdateModalCtrl as vm";
           var objSuccess = {title: "Edit user successfully", body:"user"+sUser.id};
           WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
         }
@@ -39,8 +39,8 @@
         function onDelete (sUser) {
             var objResolver =  {user :  sUser};
             var strTemplateUrl = '/app/src/v1/ui/modal/user/delete/user.delete.modal.html';
-            var strController = "UserDeleteCtrl as vm";
-            var objSuccess = {title: "Delete user successfully", body:"user"+sUser.id};
+            var strController = "UserDeleteModalCtrl as vm";
+            var objSuccess = {title: "Delete user successfully", body:"user: "+sUser.name};
             WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
         }
     }

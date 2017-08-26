@@ -3,16 +3,14 @@
 
 	angular
 		.module('wikiApp')
-		.controller('ArticleCreateCtrl',  ArticleCreateCtrl);
+		.controller('ArticleCreateModelCtrl', ['$uibModalInstance', 'ArticlesDataService', ArticleCreateModelCtrl]);
 
-	function ArticleCreateCtrl ($scope, $uibModalInstance, ArticlesDataService) {
+	function ArticleCreateModelCtrl ($uibModalInstance, ArticlesDataService) {
 		var vm = this;
 		vm.create = create;
 		vm.cancel = cancel;
 		vm.errorMessage = "";
 		init();
-
-		////////////////
 
 		function init() {
 				vm.article = {};
@@ -20,14 +18,14 @@
 
 		function create() {
  			vm.errorMessage = "";
- 			ArticlesDataService.create(vm.article).then(onUpdateSuccess,onUpdateFailure);
+ 			ArticlesDataService.create(vm.article).then(onSuccess,onFailure);
 
-			function onUpdateSuccess(){
+			function onSuccess(){
 				$uibModalInstance.close(vm.article);
 			}
 
-			function onUpdateFailure(error) {
-				vm.errorMessage = error.message;
+			function onFailure(error) {
+				vm.errorMessage = error.data.message;
 			}
 		}
 

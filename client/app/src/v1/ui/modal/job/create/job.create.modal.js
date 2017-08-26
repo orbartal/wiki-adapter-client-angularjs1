@@ -3,16 +3,14 @@
 
 	angular
 		.module('wikiApp')
-		.controller('JobCreateCtrl',  JobCreateCtrl);
+		.controller('JobCreateModalCtrl',  ['$uibModalInstance', 'JobsDataService', JobCreateModalCtrl]);
 
-	function JobCreateCtrl ($scope, $uibModalInstance, JobsDataService) {
+	function JobCreateModalCtrl ($uibModalInstance, JobsDataService) {
 		var vm = this;
 		vm.create = create;
 		vm.cancel = cancel;
 		vm.errorMessage = "";
 		init();
-
-		////////////////
 
 		function init() {
 				vm.job = {};
@@ -20,14 +18,14 @@
 
 		function create() {
  			vm.errorMessage = "";
- 			JobsDataService.create(vm.job).then(onUpdateSuccess,onUpdateFailure);
+ 			JobsDataService.create(vm.job).then(onSuccess,onFailure);
 
-			function onUpdateSuccess(){
+			function onSuccess(){
 				$uibModalInstance.close(vm.job);
 			}
 
-			function onUpdateFailure(error) {
-				vm.errorMessage = error.message;
+			function onFailure(error) {
+				vm.errorMessage = error.data.message;
 			}
 		}
 

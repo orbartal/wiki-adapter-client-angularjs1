@@ -3,9 +3,9 @@
 
 	angular
 		.module('wikiApp')
-		.controller('AddNewFileCtrl', ['$scope', '$uibModalInstance', 'Upload', AddNewFileCtrl]);
+		.controller('FileCreateModalCtrl', ['$uibModalInstance', 'Upload', FileCreateModalCtrl]);
 
-	function AddNewFileCtrl ($scope, $uibModalInstance, Upload) {
+	function FileCreateModalCtrl ($uibModalInstance, Upload) {
 		var vm = this;
 		vm.errorMessage = "";
 		vm.file = undefined;
@@ -28,7 +28,6 @@
         	vm.file.upload.then (onSuccess, onFailed);
 
         	 function onSuccess(response) {
-               // return response.data;
         		 $uibModalInstance.dismiss('success');
             }
 

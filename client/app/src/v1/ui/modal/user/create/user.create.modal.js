@@ -3,9 +3,9 @@
 
 	angular
 		.module('wikiApp')
-		.controller('UserCreateCtrl',  UserCreateCtrl);
+		.controller('UserCreateModalCtrl',  ['$uibModalInstance', 'UsersDataService', UserCreateModalCtrl]);
 
-	function UserCreateCtrl($uibModalInstance, UsersDataService) {
+	function UserCreateModalCtrl($uibModalInstance, UsersDataService) {
 		var vm = this;
 		vm.create = create;
 		vm.cancel = cancel;
@@ -22,7 +22,7 @@
 			};
 
 			function onFailure(error) {
-				vm.errorMessage = error.message;
+				vm.errorMessage = error.data.message;
 			};
 		};
 

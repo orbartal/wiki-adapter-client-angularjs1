@@ -23,7 +23,7 @@
         function onCreate () {
               var objResolver =  {};
               var strTemplateUrl = "/app/pages/file/modal/create/modal.add.new.file.html";
-              var strController = "AddNewFileCtrl as vm";
+              var strController = "FileCreateModalCtrl as vm";
               var objSuccess = {title: "Created file successfully", body:""};
               WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
         }

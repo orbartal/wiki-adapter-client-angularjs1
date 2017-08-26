@@ -3,9 +3,9 @@
 
 	angular
 		.module('wikiApp')
-		.controller('ModalEditArticleCtrl',  ModalEditArticleCtrl);
+		.controller('ArticleUpdateModalCtrl',  ['$uibModalInstance', 'ArticlesDataService', 'article', ArticleUpdateModalCtrl]);
 
-	function ModalEditArticleCtrl($scope, $uibModalInstance, toaster, ArticlesDataService, article) {
+	function ArticleUpdateModalCtrl($uibModalInstance, ArticlesDataService, article) {
 		var vm = this;
 		vm.save = save;
 		vm.cancel = cancel;
@@ -13,8 +13,6 @@
 		vm.errorMessage = "";
 		vm.tempArticle = null;
 		active();
-
-		////////////////
 
 		function active() {
 			vm.article = article;
@@ -34,7 +32,7 @@
 			};
 
 			function onFailure(error) {
-				vm.errorMessage = error.message;
+				vm.errorMessage = error.data.message;
 			};
 		};
 

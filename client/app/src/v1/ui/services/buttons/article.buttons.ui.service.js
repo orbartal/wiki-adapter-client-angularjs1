@@ -23,7 +23,7 @@
         function onCreate () {
               var objResolver =  {};
               var strTemplateUrl = "/app/src/v1/ui/modal/article/create/article.create.modal.html";
-              var strController = "ArticleCreateCtrl as vm";
+              var strController = "ArticleCreateModelCtrl as vm";
               var objSuccess = {title: "Created article successfully", body:""};
               WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
           }
@@ -41,7 +41,7 @@
           function onUpdate (sArticle) {
               var objResolver =  {article :  sArticle};
               var strTemplateUrl = "app/src/v1/ui/modal/article/update/article.update.modal.html";
-              var strController = "ModalEditArticleCtrl as vm";
+              var strController = "ArticleUpdateModalCtrl as vm";
               var objSuccess = {title: "Update article successfully", body:"article"+sArticle.id};
               WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
           }
@@ -49,7 +49,7 @@
           function onDelete (sArticle) {
               var objResolver =  {article :  sArticle};
               var strTemplateUrl = "app/src/v1/ui/modal/article/delete/article.delete.modal.html";
-              var strController = "ModalDeleteArticleCtrl as vm";
+              var strController = "ArticleDeleteModalCtrl as vm";
               var objSuccess = {title: "Delete article successfully", body:"article"+sArticle.id};
               WikiDialog.runUiModal(strTemplateUrl, strController, objResolver, objSuccess);
           }

@@ -3,9 +3,9 @@
 
 	angular
 		.module('wikiApp')
-		.controller('UserEditCtrl',  UserEditCtrl);
+		.controller('UserUpdateModalCtrl',  ['$uibModalInstance', 'UsersDataService', 'user', UserUpdateModalCtrl]);
 
-	function UserEditCtrl($uibModalInstance, UsersDataService, user) {
+	function UserUpdateModalCtrl($uibModalInstance, UsersDataService, user) {
 		var vm = this;
 		vm.save = save;
 		vm.cancel = cancel;
@@ -31,7 +31,7 @@
 			};
 
 			function onFailure(error) {
-				vm.errorMessage = error.message;
+				vm.errorMessage = error.data.message;
 			};
 		};
 

@@ -3,17 +3,15 @@
 
 	angular
 		.module('wikiApp')
-		.controller('ModalDeleteArticleCtrl', ModalDeleteArticleCtrl);
+		.controller('ArticleDeleteModalCtrl', ['$uibModalInstance', 'ArticlesDataService', 'article', ArticleDeleteModalCtrl]);
 
-	function ModalDeleteArticleCtrl ($scope, $uibModalInstance, ArticlesDataService, article) {
+	function ArticleDeleteModalCtrl ($uibModalInstance, ArticlesDataService, article) {
 		var vm = this;
 		vm.article = null;
 		vm.ok = ok;
 		vm.cancel = cancel;
 		vm.errorMessage = "";
 		activate();
-
-		////////////////
 
 		function activate() {
 			vm.article = article;
@@ -23,14 +21,14 @@
 
 			vm.errorMessage = "";
 
-			ArticlesDataService.delete(article).then(onDeleteSuccess,onDeleteFailure);
+			ArticlesDataService.delete(article).then(onSuccess,onFailure);
 
-			function onDeleteSuccess() {
+			function onSuccess() {
 				$uibModalInstance.close(vm.article);
 			};
 
-			function onDeleteFailure(error) {
-				vm.errorMessage = error.message;
+			function onFailure(error) {
+				vm.errorMessage = error.data.message;
 			};
 		};
 

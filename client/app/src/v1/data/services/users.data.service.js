@@ -18,8 +18,8 @@
         //public methods
         function getAll () {
             var user1 = {"id" : 1, "name": "admin", "role" : "admin"};
-            var user2 = {"id" : 1, "name": "user1", "role" : "user"};
-            var userAdmin = {"id" : 2, "name": "user2", "role" : "user"};
+            var user2 = {"id" : 2, "name": "user1", "role" : "user"};
+            var userAdmin = {"id" : 3, "name": "user2", "role" : "user"};
             var results = [user1, user2, userAdmin];
             return $q.when(results);
         }

@@ -3,16 +3,15 @@
 
 	angular
 		.module('wikiApp')
-		.controller('UserDeleteCtrl', UserDeleteCtrl);
+		.controller('UserDeleteModalCtrl', ['$uibModalInstance', 'UsersDataService', 'user', UserDeleteModalCtrl]);
 
-	function UserDeleteCtrl($scope, $uibModalInstance, UsersDataService, user) {
+	function UserDeleteModalCtrl($uibModalInstance, UsersDataService, user) {
 		var vm = this;
 		vm.user = null;
 		vm.ok = ok;
 		vm.cancel = cancel;
 		vm.errorMessage = "";
 		vm.user = user;
-
 
 		function ok() {
 			vm.errorMessage = "";
@@ -24,7 +23,7 @@
 			}
 
 			function onFailure(error) {
-				vm.errorMessage = error.message;
+				vm.errorMessage = error.data.message;
 			}
 		}
 
