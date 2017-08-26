@@ -8,17 +8,14 @@
     JobsDataService.$inject = ['$q'];
     function JobsDataService($q) {
         var service = {};
-
-        //Crud
         service.getProgress = getProgress;
         service.start = start;
         service.create = create;
         service.getAll = getAll;
         service.end = end;
-
         return service;
 
-        ///////////////////////////
+        //public methods
         function getProgress(id) {
             var result = {"id" : id, "value" : 50,  "startTime" : 100, "endTime": 200, "title" : "job1"};
             return $q.when(result);
@@ -47,13 +44,13 @@
             return $q.when(results);
         }
 
-     // private functions
+        //private functions
         function onSuccess(result) {
-        	return result.data;
+        	return result;
         }
 
         function onFailure(error) {
-            throw error.data;
+            throw error;
         }
     }
 

@@ -15,6 +15,7 @@
         service.delete = deleteUser;
         return service;
 
+        //public methods
         function getAll () {
             var user1 = {"id" : 1, "name": "admin", "role" : "admin"};
             var user2 = {"id" : 1, "name": "user1", "role" : "user"};
@@ -40,13 +41,13 @@
             return $q.when(user);
         }
 
-        // private functions
+        //private functions
         function onSuccess(result) {
-        	return result.data;
+        	return result;
         }
 
         function onFailure(error) {
-            throw error.data;
+            throw error;
         }
     }
 

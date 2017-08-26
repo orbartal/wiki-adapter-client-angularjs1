@@ -8,16 +8,12 @@
     PropertiesDataService.$inject = ['$http'];
     function PropertiesDataService($http) {
         var service = {};
-
-        //Crud
         service.getAll = getAll;
         service.getById = getById;
         service.update = updateProperty;
         return service;
 
-        ///////////////////////////
-
-        //Crud methods
+        //public methods
         function getAll() {
           var property1 = {"id" : 1};
           var property2 = {"id" : 2};
@@ -35,13 +31,13 @@
             return $q.when(property);
         }
 
-     // private functions
+        //private functions
         function onSuccess(result) {
-        	return result.data;
+        	return result;
         }
 
         function onFailure(error) {
-            throw error.data;
+            throw error;
         }
     }
 

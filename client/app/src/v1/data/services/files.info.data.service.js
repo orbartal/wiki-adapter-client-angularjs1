@@ -12,9 +12,7 @@
         service.getAll = getAll;
         return service;
 
-        ///////////////////////////
-
-	    //Crud methods
+	    //public methods
         function getById(fileName) {
           var result = {"id" : id};
           return $q.when(result);
@@ -28,13 +26,13 @@
         return $q.when(results);
 	    }
 
-     // private functions
+        //private functions
         function onSuccess(result) {
-        	return result.data;
+        	return result;
         }
 
         function onFailure(error) {
-            throw error.data;
+            throw error;
         }
     }
 

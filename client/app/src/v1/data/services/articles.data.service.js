@@ -8,18 +8,14 @@
     ArticlesDataService.$inject = ['$q'];
     function ArticlesDataService($q) {
         var service = {};
-        //Crud
         service.getAll = getAll;
         service.getById = getById;
         service.create = createArticle;
         service.update = updateArticle;
         service.delete = deleteArticle;
         return service;
-        ///////////////////////////
 
-        // /Rest/V1/Wikis/{wikiId}/Spaces/{spaceId}/Articles
-
-        //Crud methods
+        //public methods
         function getAll() {
               var article1 = {"id" : 1, "name" : "article1", "nameSpace":"main", "source" : "source1", "html": "<h1>html</h1>", "datetime" : "11:10:11"};
               var article2 = {"id" : 2, "name" : "file1", "nameSpace":"main", "source" : "source2", "html": "<h1>html</h1>", "datetime" : "11:10:11"};
@@ -47,13 +43,13 @@
             return $q.when(article);
         }
 
-     // private functions
+        //private functions
         function onSuccess(result) {
-        	return result.data;
+        	return result;
         }
 
         function onFailure(error) {
-            throw error.data;
+            throw error;
         }
     }
 

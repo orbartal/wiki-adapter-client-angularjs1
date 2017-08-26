@@ -6,12 +6,12 @@
         .factory('TokensDataService', TokensDataService);
 
     TokensDataService.$inject = ['$q'];
-
     function TokensDataService ($q) {
     	var service = {};
         service.get = get;
         return service;
 
+        //public methods
         function get (requst) {
             var userData = {"name" : username, 'role' : 'admin'};
             var sign = "BlaBla";
@@ -19,7 +19,7 @@
             return $q.when(result);
         }
 
-        // private functions
+        //private functions
         function onSuccess(result) {
         	return result;
         }
