@@ -37,14 +37,12 @@
 	          }
 
 	          function setSettings (){
-	          	scope.config = SiteConfigService.getSiteConfig();
 	          	setSettingsByConfig();
 	  	       	$("table input").addClass("input-in-table");
 	  	       	$("table select").addClass("input-in-table");
 	          }
 
 	          function setSettingsByConfig(){
-	          	scope.language = scope.config.mapLanguage;
 	          	scope.tdLabelClass =[];
 	          	if (scope.config.isRtl){
 	          		scope.tdLabelClass.push("pull-right");

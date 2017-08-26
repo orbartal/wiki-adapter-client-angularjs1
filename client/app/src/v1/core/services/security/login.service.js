@@ -16,7 +16,6 @@
         function login(username, password) {
             var userData = {"name" : username, 'role' : 'admin'}; //TODO: remove
             AuthenticationService.setAuth(userData);
-    			 // SiteConfigService.getSiteConfig();
             $state.go("site.home");
         }
     }

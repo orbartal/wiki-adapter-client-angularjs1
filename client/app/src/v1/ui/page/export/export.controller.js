@@ -5,9 +5,9 @@
         .module('wikiApp')
         .controller('ExportCtrl', ExportCtrl);
 
-    ExportCtrl.$inject = ['SiteConfigService', 'JobsDataService', '$scope'];
+    ExportCtrl.$inject = ['JobsDataService', '$scope'];
 
-    function ExportCtrl(SiteConfigService, JobsDataService, $scope) {
+    function ExportCtrl(JobsDataService, $scope) {
         var vm = this;
         vm.arrSourcesTypes = null;
         vm.selectedSourceType = null;
@@ -38,7 +38,6 @@
         }
 
         function setSettings (){
-        	vm.language = SiteConfigService.config.mapLanguage;
         	vm.message = "Ready to start export";
         	vm.classBtnExport = ["btn", "btn-primary", "class-right", "class-button-margin"];
         }
