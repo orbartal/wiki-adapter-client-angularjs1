@@ -6,11 +6,9 @@
     .service('LanguageConfigService', LanguageConfigService);
 
     LanguageConfigService.$inject = [];
-
-    var mapLanguage = null;
-
     function LanguageConfigService() {
-        mapLanguage = getLanguage();
+
+        var mapLanguage = getLanguage();
         var service = {};
         service.get = get;
         service.getMap = getMap;
@@ -18,10 +16,8 @@
         service.isRtl = isRtl;
         return service;
 
-
-
         function isLtr () {
-            return true;
+            return !isRtl();
         }
 
         function isRtl() {
@@ -37,6 +33,7 @@
             }
             return result;
         }
+
         function get(key) {
            var result = mapLanguage[key];
            if (!result){
@@ -66,6 +63,7 @@
             mapLanguage.import = "import";
             mapLanguage.export = "export";
             return mapLanguage;
-     }
-	}
+     }//End getLanguage
+     
+ }//End LanguageConfigService
 })();
