@@ -67,7 +67,18 @@
         function setConfig (scope2, source, config, onSuccess, onFailure){
             if (!onSuccess){
                 onSuccess = function (data){
-                    scope2.dataTable = data;
+                    scope2.dataTable = getData2;
+
+                    function getData2 ($defer, params) {
+                          var params2 = $defer.prevParamsMemento.params;
+                          var page = params2.page;
+                          var count = params2.count;
+                          var start = (page - 1) * count;
+                          var end = page * count;
+                          var data1 = data.slice(start, end);
+                          $defer.total(data.length);
+                          return data1;
+                     }
                 };
             }
             if (!onFailure){

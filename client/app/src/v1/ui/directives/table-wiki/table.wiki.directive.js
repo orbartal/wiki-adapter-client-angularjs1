@@ -43,26 +43,33 @@
                   if (!scope.data || !scope.options){
                     return;
                   }
-                 var options1 = {page: 1, count: 2, sorting: { id: "desc" }};
-                // var data1 = { dataset: scope.data};
-                 var data1 = {
-                     counts:[1, 2, 4, 6, 10],
-                     getData: getData2
-                 };
-                 scope.tableParams = new NgTableParams(options1, data1);
-                 var x = 1; //TODO: remove
+                  var data1 = getData1 ();
+                  if (!data1){
+                    return;
+                  }
+                  var options1 = {page: 1, count: 2, sorting: { id: "asc" }};
+                  scope.tableParams = new NgTableParams(options1, data1);
 	          }
 
-              function getData2 ($defer, params) {
-                    var params2 = $defer.prevParamsMemento.params;
-                    var page = params2.page;
-                    var count = params2.count;
-                    var start = (page - 1) * count;
-                    var end = page * count;
-                    var data1 = scope.data.slice(start, end);
-                    scope.tableParams.total(scope.data.length);
-                    return data1;
-                }
+              function isFunction(obj) {
+                 var getType = {};
+                 return obj && getType.toString.call(obj) === '[object Function]';
+             }
+             function getData1 () {
+                 scope.options.pageSizes = [1, 2, 4, 6, 10];
+                 if (isFunction(scope.data)){
+                     return {
+                         counts: scope.options.pageSizes,
+                         getData: scope.data
+                     };
+                 }else if (scope.data instanceof Array){
+                     return {
+                         counts: scope.options.pageSizes,
+                         dataset: scope.data
+                     };
+                 }
+                 return null;
+             }
 
                function toHtml (colIndex, rowIndex, $data) {
                     var html = scope.options.makeCell
