@@ -5,9 +5,8 @@
         .module('wikiApp')
         .controller('ViewFileCtrl', ViewFileCtrl);
 
-    ViewFileCtrl.$inject = ['$scope', '$state' , '$stateParams', 'FilesDataService', 'toaster', '$uibModal'];
-
-    function ViewFileCtrl($scope, $state, $stateParams, FilesDataService, toaster, $uibModal){
+    ViewFileCtrl.$inject = ['$state' , '$stateParams', 'FilesDataService', 'toaster'];
+    function ViewFileCtrl($state, $stateParams, FilesDataService, toaster){
         var vm = this;
         vm.width = 250;
         vm.height = 250;

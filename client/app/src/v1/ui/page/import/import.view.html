@@ -1,31 +1,28 @@
-<div class = "col-sm-11 pull-right">
-	<p class="class-center class-page-headr-text">{{vm.language.importPages}}</p>
-
-	<div class="row">
-		<label>Input source type</label>
-	    <select id="selectSourceType" ng-model="vm.selectedSourceType" ng-disabled="vm.isBusy">
-	   		<option ng-repeat="sourceType in vm.arrSourcesTypes" value="{{sourceType.id}}">{{sourceType.name}}</option>
-	  	</select>
-  	</div>
-
-  	<div class="row">
-	  	<div ng-switch on="vm.selectedSourceType">
-		      <div ng-switch-when="1"><import-from-wiki data="vm.wikiData"></import-from-wiki></div>
-		      <div ng-switch-when="2"><import-from-file data="vm.fileData"></import-from-file></div>
-		      <div ng-switch-when="3"><import-from-folder data="vm.folderData"></import-from-folder></div>
-	  	</div>
-  	</div>
-
-	<div class="row">
-		<button type="button" ng-class="vm.classBtnImport" ng-click="vm.importData()"
-				ng-disabled="(vm.isBusy || !vm.selectedSourceType)">
-			{{vm.language.import}}
-		</button>
-		<button ng-click='vm.stop()' ng-class="vm.classBtnImport" ng-disabled="!vm.isBusy">
-		          	<span class="glyphicon glyphicon-stop">stop</span>
-		</button>
+<p class="class-center class-page-headr-text">{{vm.language.importPages}}</p>
+<!--(1) Select import source -->
+<div class="row">
+	<label>Input source type</label>
+    <select id="selectSourceType" ng-model="vm.selectedSourceType" ng-disabled="vm.isBusy">
+   		<option ng-repeat="sourceType in vm.arrSourcesTypes" value="{{sourceType.id}}">{{sourceType.name}}</option>
+  	</select>
 	</div>
-
-	<p>{{vm.message}}<p>
-	<job-progress-bar options = "vm.progress.options" data = "vm.progress.data"  style="width:60%"></job-progress-bar>
+	<div class="row">
+  	<div ng-switch on="vm.selectedSourceType">
+	      <div ng-switch-when="1"><import-from-wiki data="vm.wikiData"></import-from-wiki></div>
+	      <div ng-switch-when="2"><import-from-file data="vm.fileData"></import-from-file></div>
+	      <div ng-switch-when="3"><import-from-folder data="vm.folderData"></import-from-folder></div>
+  	</div>
 </div>
+<!--2) Import buttons -->
+<div class="row">
+	<button type="button" ng-class="vm.classBtnImport" ng-click="vm.importData()"
+			ng-disabled="(vm.isBusy || !vm.selectedSourceType)">
+		{{vm.language.import}}
+	</button>
+	<button ng-click='vm.stop()' ng-class="vm.classBtnImport" ng-disabled="!vm.isBusy">
+	          	<span class="glyphicon glyphicon-stop">stop</span>
+	</button>
+</div>
+<!--2) Import status -->
+<p>{{vm.message}}<p>
+<job-progress-bar options = "vm.progress.options" data = "vm.progress.data"  style="width:60%"></job-progress-bar>

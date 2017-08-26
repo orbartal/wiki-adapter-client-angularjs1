@@ -13,35 +13,12 @@
         vm.searchable = true;
         vm.query= "";
         vm.lastQuery = "";
-        vm.count = 0;
-        vm.numberOfPages = 1;
-        vm.itemsPerPage = 10;
-        vm.startResult = 0;
-        vm.endResult = 10;
 
-        vm.search = function() {
-        	search (0, 9)
-        }
+        vm.search = search;
+        vm.isSearchEnable = isSearchEnable;
+        vm.goToArticle = goToArticle;
 
-        vm.goToArticle = function(item) {
-        	var params = {nameSpace: '', name : item.title};
-          	$state.go('site.article-read', params);
-        }
-
-        vm.isSearchEnable = function(item) {
-        	var isEmpty = WikiUtils.isEmpty (vm.query);
-        	var searchEnable =  vm.searchable && !isEmpty;
-        	return searchEnable;
-        }
-
-        vm.changePage = function(page) {
-        	page = page - 1;
-        	vm.startResult = page * vm.itemsPerPage;
-        	vm.endResult = vm.startResult + vm.itemsPerPage;
-        	search (vm.startResult, vm.endResult);
-        }
-
-        function search (start, end) {
+        function search () {
         	vm.items = [];
         	vm.lastQuery = vm.query;
         	vm.searchable = false;
@@ -49,8 +26,6 @@
 
         	function onSuccess(data) {
         		vm.items = data.items;
-        		vm.count = data.count;
-        		vm.numberOfPages = Math.ceil(vm.count/vm.itemsPerPage);
         		vm.searchable = true;
             }
 
@@ -61,6 +36,17 @@
  	            });
                 vm.searchable = true;
             }
+        }
+
+        function goToArticle (item) {
+        	var params = {nameSpace: '', name : item.title};
+          	$state.go('site.article-read', params);
+        }
+
+        function isSearchEnable () {
+        	var isEmpty = WikiUtils.isEmpty (vm.query);
+        	var searchEnable =  vm.searchable && !isEmpty;
+        	return searchEnable;
         }
     }
 })();
