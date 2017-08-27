@@ -5,8 +5,8 @@
         .module('wikiApp')
         .factory('JobsDataService', JobsDataService);
 
-    JobsDataService.$inject = ['$q'];
-    function JobsDataService($q) {
+    JobsDataService.$inject = ['$q', 'PageUtils'];
+    function JobsDataService($q, PageUtils) {
         var service = {};
         service.getProgress = getProgress;
         service.start = start;
@@ -36,12 +36,13 @@
             return $q.when(result);
         }
 
-        function getAll() {
+        function getAll(page) {
             var job1 = {"id" : 1, "value" : 50, "startTime" : 100, "endTime": 200, "title" : "job1"};
             var job2 = {"id" : 2, "value" : 20, "startTime" : 150, "endTime": 240, "title" : "job2"};
             var job3 = {"id" : 3, "value" : 70, "startTime" : 50, "endTime": 300, "title" : "job3"};
-            var results = [job1, job2, job3];
-            return $q.when(results);
+            var jobs = [job1, job2, job3];
+            var result = PageUtils.arrayToPage(jobs, page);
+            return $q.when(result);
         }
 
         //private functions

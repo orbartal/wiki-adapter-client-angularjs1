@@ -5,8 +5,8 @@
         .module('wikiApp')
         .factory('UsersDataService', UsersDataService);
 
-    UsersDataService.$inject = ['$q'];
-    function UsersDataService($q) {
+    UsersDataService.$inject = ['$q', 'PageUtils'];
+    function UsersDataService($q, PageUtils) {
         var service = {};
         service.getAll = getAll;
         service.getById = getById;
@@ -16,12 +16,13 @@
         return service;
 
         //public methods
-        function getAll () {
+        function getAll (page) {
             var user1 = {"id" : 1, "name": "admin", "role" : "admin"};
             var user2 = {"id" : 2, "name": "user1", "role" : "user"};
             var userAdmin = {"id" : 3, "name": "user2", "role" : "user"};
-            var results = [user1, user2, userAdmin];
-            return $q.when(results);
+            var users = [user1, user2, userAdmin];
+            var result = PageUtils.arrayToPage(users, page);
+            return $q.when(result);
         }
 
         function getById(id) {

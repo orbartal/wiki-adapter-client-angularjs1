@@ -5,8 +5,8 @@
         .module('wikiApp')
         .factory('PropertiesDataService', PropertiesDataService);
 
-    PropertiesDataService.$inject = ['$q'];
-    function PropertiesDataService($q) {
+    PropertiesDataService.$inject = ['$q', 'PageUtils'];
+    function PropertiesDataService($q, PageUtils) {
         var service = {};
         service.getAll = getAll;
         service.getById = getById;
@@ -14,12 +14,13 @@
         return service;
 
         //public methods
-        function getAll() {
+        function getAll(page) {
           var property1 = {"id" : 1};
           var property2 = {"id" : 2};
           var property3 = {"id" : 3};
-          var results = [property1, property2, property3];
-          return $q.when(results);
+          var properties = [property1, property2, property3];
+          var result = PageUtils.arrayToPage(properties, page);
+          return $q.when(result);
         }
 
         function getById(id) {

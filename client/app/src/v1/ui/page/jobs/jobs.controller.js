@@ -8,15 +8,15 @@
     JobsCtrl.$inject = ['JobsDataService', 'TableUiService','WikiUtils', 'JobTableUiService'];
     function JobsCtrl (JobsDataService, TableUiService, WikiUtils, JobTableUiService) {
         var vm = this;
-        TableUiService.setConfig (this, JobsDataService, JobTableUiService, onSuccess);
-
+        TableUiService.setConfig (this, JobsDataService, JobTableUiService);
+        //TODO:add onSuccess
         function onSuccess (jobs) {
-            vm.dataTable = jobs;
-            for (var i = 0; i < vm.dataTable.length; i++) {
+            for (var i = 0; i < jobs.length; i++) {
                 var job = vm.dataTable[i];
                 job.start = WikiUtils.miliToHHmmss (job.startTime)
                 job.duration = WikiUtils.getDurationTime (job.startTime, job.endTime);
             }
+            vm.dataTable = jobs;
         }
     }//End JobsCtrl
 })();
