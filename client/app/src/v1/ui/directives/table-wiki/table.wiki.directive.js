@@ -51,7 +51,7 @@
                   scope.tableParams = new NgTableParams(options1, data1);
 	          }
 
-              function isFunction(obj) {
+             function isFunction(obj) {
                  var getType = {};
                  return obj && getType.toString.call(obj) === '[object Function]';
              }
