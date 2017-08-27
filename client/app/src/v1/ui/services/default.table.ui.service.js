@@ -8,7 +8,6 @@
     DefaultTableUiService.$inject = ['LanguageConfigService'];
     function DefaultTableUiService(language) {
         var service = {};
-        service.getDataFunc = getDataFunc;
         service.geteColsDesc = geteColsDesc;
         service.getOneColDesc = getOneColDesc;
         service.makeCell = makeCell;
@@ -51,39 +50,6 @@
                 result = '<p>' + row [col.field]+'</p>';
             }
             return result;
-        }
-
-        function getDataFunc (source){
-            if (isFunction(source)){
-                return source;
-            }
-            return getData;
-
-            function getData ($defer, params) {
-                  var params2 = $defer.prevParamsMemento.params;
-                  var pageNumber = params2.page;
-                  var pageSize = params2.count;
-                  var page = {'page' : pageNumber, 'size' : pageSize};
-                  var result = source.getAll(page).then(onSuccess, onFailure);
-                  return result;
-
-                  function onSuccess (responce){
-                      var total = responce.totalElements;
-                      var data1 = responce.content;
-                      $defer.total(total);
-                      return data1;
-                  }
-
-                   function onFailure (responce){
-                       $defer.total(0);
-                       return [];
-                   }
-             }//End getData1
-
-              function isFunction(obj) {
-                  var getType = {};
-                  return obj && getType.toString.call(obj) === '[object Function]';
-              }
         }
     }//End
 })();

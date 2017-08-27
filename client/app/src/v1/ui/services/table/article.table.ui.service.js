@@ -5,20 +5,19 @@
         .module('wikiApp')
         .service('ArticleTableUiService', ArticleTableUiService);
 
-    ArticleTableUiService.$inject = ['TableUiService', 'ArticleButtonUiService'];
-    function ArticleTableUiService(TableConfig, ArticleButton) {
+    ArticleTableUiService.$inject = ['ArticleButtonUiService'];
+    function ArticleTableUiService(ArticleButton) {
         var service = {};
-        service.makeCell = TableConfig.makeCell;
-        service.getColumns = getColumns;
-        service.getTableOptions = getTableOptions;
+        service.getButtonsService = getButtonsService;
+        service.getColumnsNames = getColumnsNames;
         return service;
 
-        function getTableOptions (){
-            return TableConfig.getOptions (service, ArticleButton);
+        function getButtonsService (){
+            return ArticleButton;
         }
 
-        function getColumns (){
-             return TableConfig.geteColsDesc (["id", "name", "nameSpace"]);
+        function getColumnsNames (){
+             return ["id", "name", "nameSpace"];
         }//End getColumns
     }
 })();

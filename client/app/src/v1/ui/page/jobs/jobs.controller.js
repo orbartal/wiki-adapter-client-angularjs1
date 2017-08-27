@@ -5,10 +5,10 @@
         .module('wikiApp')
         .controller('JobsCtrl', JobsCtrl);
 
-    JobsCtrl.$inject = ['JobsDataService', 'TableUiService','WikiUtils', 'JobTableUiService'];
-    function JobsCtrl (JobsDataService, TableUiService, WikiUtils, JobTableUiService) {
+    JobsCtrl.$inject = ['JobsDataWrapperService', 'TableUiService','WikiUtils', 'JobTableUiService'];
+    function JobsCtrl (JobsDataWrapperService, TableUiService, WikiUtils, JobTableUiService) {
         var vm = this;
-        TableUiService.setConfig (this, JobsDataService, JobTableUiService);
+        TableUiService.setConfig (this, JobsDataWrapperService, JobTableUiService);
         //TODO:add onSuccess
         function onSuccess (jobs) {
             for (var i = 0; i < jobs.length; i++) {

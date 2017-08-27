@@ -5,22 +5,21 @@
         .module('wikiApp')
         .service('JobTableUiService', JobTableUiService);
 
-    JobTableUiService.$inject = ['TableUiService', 'JobButtonUiService'];
-    function JobTableUiService(TableConfig, JobButton) {
+    JobTableUiService.$inject = ['JobButtonUiService', 'DefaultTableUiService'];
+    function JobTableUiService (JobButton, DefaultTableUiService) {
         var service = {};
+        service.getButtonsService = getButtonsService;
+        service.getColumnsNames = getColumnsNames;
         service.makeCell = makeCell;
-        service.getColumns = getColumns;
-        service.getTableOptions = getTableOptions;
         return service;
 
-        function getTableOptions (){
-            return TableConfig.getOptions (service, JobButton);
+        function getButtonsService (){
+            return JobButton;
         }
 
-        function getColumns (){
-            return  TableConfig.geteColsDesc
-                (["id", "title", "start", "duration", "value", "progress"]);
-        }//End getColumns
+        function getColumnsNames (){
+             return ["id", "title", "start", "duration", "value", "progress"];
+        }
 
         function makeCell (colIndex, rowIndex, data, options){
             var col = options.tableCols[colIndex];
@@ -31,7 +30,7 @@
                             'options = "{hideText: true, title:' + row.title + '}">' +
     				    '</job-progress-bar>';
             }
-            return TableConfig.makeCell(colIndex, rowIndex, data, options);
+            return DefaultTableUiService.makeCell(colIndex, rowIndex, data, options);
         }
     }
 })();

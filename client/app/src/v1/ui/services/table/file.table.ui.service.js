@@ -5,20 +5,19 @@
         .module('wikiApp')
         .service('FileTableUiService', FileTableUiService);
 
-    FileTableUiService.$inject = ['TableUiService', 'FileButtonUiService'];
-    function FileTableUiService(TableConfig, FileButton) {
+    FileTableUiService.$inject = ['FileButtonUiService'];
+    function FileTableUiService (FileButton) {
         var service = {};
-        service.makeCell = TableConfig.makeCell;
-        service.getColumns = getColumns;
-        service.getTableOptions = getTableOptions;
+        service.getButtonsService = getButtonsService;
+        service.getColumnsNames = getColumnsNames;
         return service;
 
-        function getTableOptions (){
-            return TableConfig.getOptions (service, FileButton);
+        function getButtonsService (){
+            return FileButton;
         }
 
-        function getColumns (){
-             return TableConfig.geteColsDesc (["id", "name", "type", "extension"]);
+        function getColumnsNames (){
+             return ["id", "name", "type", "extension"];
         }//End getColumns
     }
 })();
