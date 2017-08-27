@@ -64,20 +64,5 @@
                    }
             }//End getDataFromService
         }//End getData
-            /*
-            //if (!source)//TODO: error handeling
-            if (isFunction(source)){
-                return source;
-            }
-            //if (!source.getAll)//TODO: error handeling
-            return DefaultTableUiService.getDataFunc(source);
-
-            function if (isFunction(obj)) {
-                var getType = {};
-                return obj && getType.toString.call(obj) === '[object Function]';
-            }
-            */
-        //End get data
-
     }//End
 })();
