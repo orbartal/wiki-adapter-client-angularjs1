@@ -54,9 +54,7 @@
             var row = data[rowIndex];
             if ("actions"===col.field){
                  var rowJson = angular.toJson(row);
-                 result =  //'<p>' + row ['id']+'</p>' +
-                            //'<buttons-in-row data="data['+rowIndex+']" options="options.rowButtons">'
-                            '<buttons-in-row data=\''+rowJson +'\' options="options.rowButtons">'
+                 result =  '<buttons-in-row data=\''+rowJson +'\' options="options.rowButtons">'
                             +'</buttons-in-row>';
             }else{
                 result = '<p>' + row [col.field]+'</p>';
@@ -64,55 +62,29 @@
             return result;
         }
 
-        function setConfig (scope2, source, config, onSuccess, onFailure){
-            if (!onSuccess){
-                onSuccess = function (data){
-                    scope2.dataTable = getData1;
-
-                    function getData1 ($defer, params) {
-                          var params2 = $defer.prevParamsMemento.params;
-                          var pageNumber = params2.page;
-                          var pageSize = params2.count;
-                          var page = {'page' : pageNumber, 'size' : pageSize};
-                          return source.getAll(page).then(onSuccess,onFailure);
-
-                          function onSuccess (responce){
-                              var total = responce.totalElements;
-                              var data1 = responce.content;
-                              $defer.total(total);
-                              return data1;
-                          }
-
-                           function onFailure (responce){
-                               $defer.total(0);
-                               return [];
-                           }
-                     }
-
-                    function getData2 ($defer, params) {
-                          var params2 = $defer.prevParamsMemento.params;
-                          var page = params2.page;
-                          var count = params2.count;
-                          var start = (page - 1) * count;
-                          var end = page * count;
-                          var data1 = data.slice(start, end);
-                          $defer.total(data.length);
-                          return data1;
-                     }
-                };
-            }
-            if (!onFailure){
-                onFailure = function (error) {
-                        toaster.error({
-                            title: 'Error',
-                            body: 'Failed to get data due to error: ' + error.message,
-                        });
-                }
-            }
-            scope2.dataTable = [];
-            scope2.optionsTable = null;
+        function setConfig (scope2, source, config){
             scope2.optionsTable = config.getTableOptions();
-            source.getAll().then(onSuccess, onFailure);
+            scope2.dataTable = getData1;
+
+            function getData1 ($defer, params) {
+                  var params2 = $defer.prevParamsMemento.params;
+                  var pageNumber = params2.page;
+                  var pageSize = params2.count;
+                  var page = {'page' : pageNumber, 'size' : pageSize};
+                  return source.getAll(page).then(onSuccess,onFailure);
+
+                  function onSuccess (responce){
+                      var total = responce.totalElements;
+                      var data1 = responce.content;
+                      $defer.total(total);
+                      return data1;
+                  }
+
+                   function onFailure (responce){
+                       $defer.total(0);
+                       return [];
+                   }
+             }//End getData1
         }//End set
     }//End
 })();
